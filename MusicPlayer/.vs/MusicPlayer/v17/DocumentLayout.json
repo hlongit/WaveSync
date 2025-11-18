@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|MusicPlayer.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|MusicPlayer.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\core\\currentuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:core\\currentuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\core\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:core\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CurrentUser.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\CurrentUser.cs",
+              "RelativeDocumentMoniker": "Core\\CurrentUser.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\CurrentUser.cs",
+              "RelativeToolTip": "Core\\CurrentUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:36:00.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppData.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AppData.cs",
+              "RelativeDocumentMoniker": "Core\\AppData.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AppData.cs",
+              "RelativeToolTip": "Core\\AppData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:35:50.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T12:55:55.239Z",
+              "WhenOpened": "2025-11-18T13:35:20.983Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:35:17.93Z",
+              "EditorCaption": ""
             }
           ]
         }

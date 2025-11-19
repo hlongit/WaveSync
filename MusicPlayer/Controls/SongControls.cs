@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicPlayer.Controls {
-    public partial class SongTile : UserControl {
-        public SongTile() {
+    public partial class SongControls : UserControl {
+        public SongControls() {
             InitializeComponent();
         }
     }

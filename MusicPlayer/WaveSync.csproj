@@ -176,11 +176,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\SongTile.cs">
+    <Compile Include="Controls\SongControls.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SongTile.Designer.cs">
-      <DependentUpon>SongTile.cs</DependentUpon>
+    <Compile Include="Controls\SongControls.Designer.cs">
+      <DependentUpon>SongControls.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\AppData.cs" />
     <Compile Include="Core\AudioEngine.cs" />

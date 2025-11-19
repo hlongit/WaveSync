@@ -1,5 +1,5 @@
 ﻿namespace MusicPlayer.Controls {
-    partial class SongTile {
+    partial class SongControls {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

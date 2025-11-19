@@ -186,6 +186,7 @@
     <Compile Include="Core\AudioEngine.cs" />
     <Compile Include="Core\CurrentUser.cs" />
     <Compile Include="Core\QueueManager.cs" />
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Data\StorageManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -207,6 +208,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

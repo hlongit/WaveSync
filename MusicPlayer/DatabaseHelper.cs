@@ -7,7 +7,31 @@ using TagLib;
 
 namespace MusicPlayer {
     public static class DatabaseHelper {
-        private static string ConnStr => ConfigurationManager.ConnectionStrings["WaveSyncDB"].ConnectionString;
+        public static string ConnStr { get; private set; }
+        public static void SeedFakeUsers()
+        {
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            {
+                con.Open();
+        
+                string check = "SELECT COUNT(*) FROM Users";
+                SqlCommand cmdCheck = new SqlCommand(check, con);
+        
+                int count = (int)cmdCheck.ExecuteScalar();
+        
+                if (count == 0)
+                {
+                    string sql =
+                    @"INSERT INTO Users (Username, Password) VALUES
+                        ('admin', '123'),
+                        ('test', '123'),
+                        ('vinh', '12345');";
+        
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
         public static void AddSongFromFile(string mp3Path, string coverPath = null) {
             try {

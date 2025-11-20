@@ -3,39 +3,60 @@
   "WorkspaceRootPath": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\songcard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:songcard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\songcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:songcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\core\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:core\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\songcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:songcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\core\\audioengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:core\\audioengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\University\\LTTQ\\Project\\InitializeQuery.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\addmusicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\data\\storagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:data\\storagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\addmusicform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:forms\\addmusicform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,114 +71,178 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DatabaseHelper.cs",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\DatabaseHelper.cs",
-              "RelativeDocumentMoniker": "DatabaseHelper.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\DatabaseHelper.cs",
-              "RelativeToolTip": "DatabaseHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAlAAAAAAAAAA==",
+              "Title": "SongCard.Designer.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.Designer.cs",
+              "RelativeDocumentMoniker": "SongCard.Designer.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.Designer.cs",
+              "RelativeToolTip": "SongCard.Designer.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAwwCsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T16:25:29.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
-              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
-              "RelativeToolTip": "Forms\\LoginForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T16:19:11.724Z",
+              "WhenOpened": "2025-11-20T15:33:26.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AddMusicForm.cs [Design]",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs",
-              "RelativeDocumentMoniker": "Forms\\AddMusicForm.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs [Design]",
-              "RelativeToolTip": "Forms\\AddMusicForm.cs [Design]",
+              "Title": "SongCard.cs [Design]",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.cs",
+              "RelativeDocumentMoniker": "SongCard.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.cs [Design]",
+              "RelativeToolTip": "SongCard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T16:18:26.718Z",
+              "WhenOpened": "2025-11-20T15:08:15.732Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "SongCard.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.cs",
+              "RelativeDocumentMoniker": "SongCard.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\SongCard.cs",
+              "RelativeToolTip": "SongCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:57:47.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
+              "RelativeToolTip": "MainForm.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAIIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:24:54.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T15:42:37.494Z",
+              "WhenOpened": "2025-11-20T13:13:44.105Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AudioEngine.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AudioEngine.cs",
+              "RelativeDocumentMoniker": "Core\\AudioEngine.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AudioEngine.cs",
+              "RelativeToolTip": "Core\\AudioEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:18:29.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "DatabaseHelper.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\DatabaseHelper.cs",
+              "RelativeToolTip": "DatabaseHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T12:58:49.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "InitializeQuery.sql",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\InitializeQuery.sql",
-              "RelativeDocumentMoniker": "..\\..\\InitializeQuery.sql",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\InitializeQuery.sql",
-              "RelativeToolTip": "..\\..\\InitializeQuery.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-11-19T15:31:15.355Z",
+              "Title": "Song.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Song.cs",
+              "RelativeDocumentMoniker": "Song.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Song.cs",
+              "RelativeToolTip": "Song.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T14:35:47.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "App.config",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\App.config",
-              "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\App.config",
-              "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-11-19T15:20:10.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppData.cs",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AppData.cs",
-              "RelativeDocumentMoniker": "Core\\AppData.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Core\\AppData.cs",
-              "RelativeToolTip": "Core\\AppData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T15:09:50.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
-              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs [Design]",
-              "RelativeToolTip": "Forms\\LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T15:09:04.956Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-19T15:56:54.921Z",
+              "WhenOpened": "2025-11-20T13:22:32.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddMusicForm.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs",
+              "RelativeDocumentMoniker": "Forms\\AddMusicForm.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs",
+              "RelativeToolTip": "Forms\\AddMusicForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T13:03:04.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddMusicForm.cs [Design]",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs",
+              "RelativeDocumentMoniker": "Forms\\AddMusicForm.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.cs [Design]",
+              "RelativeToolTip": "Forms\\AddMusicForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T12:49:10.56Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StorageManager.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Data\\StorageManager.cs",
+              "RelativeDocumentMoniker": "Data\\StorageManager.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Data\\StorageManager.cs",
+              "RelativeToolTip": "Data\\StorageManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T12:58:25.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainForm.resx",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.resx",
+              "RelativeDocumentMoniker": "MainForm.resx",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.resx",
+              "RelativeToolTip": "MainForm.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-11-20T13:22:11.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AddMusicForm.resx",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.resx",
+              "RelativeDocumentMoniker": "Forms\\AddMusicForm.resx",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\AddMusicForm.resx",
+              "RelativeToolTip": "Forms\\AddMusicForm.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-11-20T13:10:44.255Z",
               "EditorCaption": ""
             }
           ]

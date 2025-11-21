@@ -160,16 +160,16 @@
             // 
             this.flowSongs.AutoScroll = true;
             this.flowSongs.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowSongs.Location = new System.Drawing.Point(722, 0);
+            this.flowSongs.Location = new System.Drawing.Point(747, 0);
             this.flowSongs.Name = "flowSongs";
-            this.flowSongs.Size = new System.Drawing.Size(263, 740);
+            this.flowSongs.Size = new System.Drawing.Size(446, 740);
             this.flowSongs.TabIndex = 12;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 740);
+            this.ClientSize = new System.Drawing.Size(1193, 740);
             this.Controls.Add(this.flowSongs);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSongInfo);

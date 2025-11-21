@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicPlayer {
+    // Used to represent a song in the music player, after being loaded from the database, check MainForm.cs
     public class Song {
         public int SongId { get; set; }
         public string Title { get; set; } = "";

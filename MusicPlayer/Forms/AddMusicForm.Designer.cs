@@ -23,8 +23,7 @@ namespace MusicPlayer.Forms {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAddMusic = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -33,32 +32,26 @@ namespace MusicPlayer.Forms {
             this.txtAlbum = new System.Windows.Forms.TextBox();
             this.txtArtist = new System.Windows.Forms.TextBox();
             this.txtPath = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CoverPath = new System.Windows.Forms.TextBox();
+            this.MusicPathButton = new System.Windows.Forms.Button();
+            this.CoverPathButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAddMusic
             // 
-            this.button1.Location = new System.Drawing.Point(345, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 43);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(453, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 43);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddMusic.Location = new System.Drawing.Point(345, 331);
+            this.btnAddMusic.Name = "btnAddMusic";
+            this.btnAddMusic.Size = new System.Drawing.Size(75, 43);
+            this.btnAddMusic.TabIndex = 6;
+            this.btnAddMusic.Text = "Add";
+            this.btnAddMusic.UseVisualStyleBackColor = true;
+            this.btnAddMusic.Click += new System.EventHandler(this.btnAddMusic_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(291, 120);
+            this.label1.Location = new System.Drawing.Point(291, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 2;
@@ -96,21 +89,21 @@ namespace MusicPlayer.Forms {
             this.txtTitle.Location = new System.Drawing.Point(345, 114);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(183, 22);
-            this.txtTitle.TabIndex = 6;
+            this.txtTitle.TabIndex = 1;
             // 
             // txtAlbum
             // 
             this.txtAlbum.Location = new System.Drawing.Point(345, 204);
             this.txtAlbum.Name = "txtAlbum";
             this.txtAlbum.Size = new System.Drawing.Size(183, 22);
-            this.txtAlbum.TabIndex = 7;
+            this.txtAlbum.TabIndex = 3;
             // 
             // txtArtist
             // 
             this.txtArtist.Location = new System.Drawing.Point(345, 156);
             this.txtArtist.Name = "txtArtist";
             this.txtArtist.Size = new System.Drawing.Size(183, 22);
-            this.txtArtist.TabIndex = 8;
+            this.txtArtist.TabIndex = 2;
             // 
             // txtPath
             // 
@@ -119,11 +112,51 @@ namespace MusicPlayer.Forms {
             this.txtPath.Size = new System.Drawing.Size(183, 22);
             this.txtPath.TabIndex = 9;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(220, 297);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Đường dẫn ảnh bìa";
+            // 
+            // CoverPath
+            // 
+            this.CoverPath.Location = new System.Drawing.Point(345, 297);
+            this.CoverPath.Name = "CoverPath";
+            this.CoverPath.Size = new System.Drawing.Size(183, 22);
+            this.CoverPath.TabIndex = 11;
+            // 
+            // MusicPathButton
+            // 
+            this.MusicPathButton.Location = new System.Drawing.Point(534, 254);
+            this.MusicPathButton.Name = "MusicPathButton";
+            this.MusicPathButton.Size = new System.Drawing.Size(131, 30);
+            this.MusicPathButton.TabIndex = 4;
+            this.MusicPathButton.Text = "Browse .mp3";
+            this.MusicPathButton.UseVisualStyleBackColor = true;
+            this.MusicPathButton.Click += new System.EventHandler(this.MusicPathButton_Click);
+            // 
+            // CoverPathButton
+            // 
+            this.CoverPathButton.Location = new System.Drawing.Point(534, 289);
+            this.CoverPathButton.Name = "CoverPathButton";
+            this.CoverPathButton.Size = new System.Drawing.Size(131, 30);
+            this.CoverPathButton.TabIndex = 5;
+            this.CoverPathButton.Text = "Browse cover";
+            this.CoverPathButton.UseVisualStyleBackColor = true;
+            this.CoverPathButton.Click += new System.EventHandler(this.CoverPathButton_Click);
+            // 
             // AddMusicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CoverPathButton);
+            this.Controls.Add(this.MusicPathButton);
+            this.Controls.Add(this.CoverPath);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPath);
             this.Controls.Add(this.txtArtist);
             this.Controls.Add(this.txtAlbum);
@@ -132,8 +165,7 @@ namespace MusicPlayer.Forms {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddMusic);
             this.Name = "AddMusicForm";
             this.Text = "AddMusicForm";
             this.ResumeLayout(false);
@@ -143,8 +175,7 @@ namespace MusicPlayer.Forms {
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddMusic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -153,5 +184,9 @@ namespace MusicPlayer.Forms {
         private System.Windows.Forms.TextBox txtAlbum;
         private System.Windows.Forms.TextBox txtArtist;
         private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox CoverPath;
+        private System.Windows.Forms.Button MusicPathButton;
+        private System.Windows.Forms.Button CoverPathButton;
     }
 }

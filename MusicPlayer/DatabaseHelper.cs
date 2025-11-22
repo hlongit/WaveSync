@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -226,6 +227,35 @@ namespace MusicPlayer {
 
             // Return the complete list of songs
             return songs;
+        }
+        /// <summary>
+        /// Used to get all songs as a DataTable for displaying in DataGridView, check .Data/ListSongInfo.cs
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetAllSongsDataTable() {
+            DataTable dt = new DataTable();
+
+            using (var conn = new SqlConnection(ConnStr)) {
+                conn.Open();
+                string sql = @"
+            SELECT 
+                SongId          AS ID,
+                Title           AS Title,
+                Artist          AS Artist,
+                Album           AS Album,
+                DurationSeconds AS [Duration (sec)],
+                FilePath        AS [File Path],
+                CoverPath       AS [Cover Path]
+            FROM Songs 
+            ORDER BY Title";
+
+                // Fill DataTable using SqlDataAdapter
+                using (var adapter = new SqlDataAdapter(sql, conn)) {
+                    adapter.Fill(dt);
+                }
+            }
+
+            return dt;
         }
     }
 }

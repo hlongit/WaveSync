@@ -23,6 +23,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+<<<<<<< Updated upstream
+=======
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
             this.AddMusicBtn = new System.Windows.Forms.Button();
             this.btnPlayPause = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -42,6 +47,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(130, 114);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(113, 43);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(116, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 1;
             // 
             // AddMusicBtn
             // 
@@ -162,9 +185,9 @@
             // 
             this.flowSongs.AutoScroll = true;
             this.flowSongs.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowSongs.Location = new System.Drawing.Point(747, 0);
+            this.flowSongs.Location = new System.Drawing.Point(764, 0);
             this.flowSongs.Name = "flowSongs";
-            this.flowSongs.Size = new System.Drawing.Size(446, 740);
+            this.flowSongs.Size = new System.Drawing.Size(429, 740);
             this.flowSongs.TabIndex = 12;
             // 
             // btnViewSongListInfo
@@ -192,9 +215,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
+<<<<<<< Updated upstream
+=======
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+>>>>>>> Stashed changes
             this.Controls.Add(this.btnUserListInfo);
             this.Controls.Add(this.btnViewSongListInfo);
-            this.Controls.Add(this.flowSongs);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSongInfo);
             this.Controls.Add(this.picCover);
@@ -207,6 +234,7 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPlayPause);
             this.Controls.Add(this.AddMusicBtn);
+            this.Controls.Add(this.flowSongs);
             this.Name = "MainForm";
             this.Text = "WaveSync";
             this.Load += new System.EventHandler(this.MainForm_Load);

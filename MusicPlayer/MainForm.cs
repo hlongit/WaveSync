@@ -9,6 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< Updated upstream
+=======
+using System.Diagnostics;
+>>>>>>> Stashed changes
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
@@ -178,7 +182,25 @@ namespace MusicPlayer {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
+<<<<<<< Updated upstream
         //End.
     }
 
 }
+=======
+        
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Forms.LoginForm login = new Forms.LoginForm();
+            var result = login.ShowDialog();
+            string userName = login.UserName;
+            if (result == DialogResult.OK)
+            {
+                label1.Text = userName;
+                btnLogin.Visible = false;
+            }
+        }
+        //End.    
+    }
+}
+>>>>>>> Stashed changes

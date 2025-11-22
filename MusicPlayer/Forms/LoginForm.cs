@@ -21,7 +21,7 @@ namespace MusicPlayer.Forms {
                 con.Open();
 
                 string sql =
-                    "SELECT Id FROM Users WHERE Username=@u AND Password=@p";
+                    "SELECT UserId FROM Users WHERE Username=@u AND Password=@p";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 

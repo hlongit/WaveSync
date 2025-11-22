@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration; 
+using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
-using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
@@ -182,8 +183,6 @@ namespace MusicPlayer {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
-        //End.
-    }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -192,9 +191,21 @@ namespace MusicPlayer {
             string userName = login.UserName;
             if (result == DialogResult.OK)
             {
-                label1.Text = userName;
+                lblUsername.Text = "Username: " + userName;
+                lblUsername.Visible = true;
                 btnLogin.Visible = false;
+                btnLogout.Visible = true;
+            }
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                lblUsername.Text = null;
+                lblUsername.Visible = false;
+                btnLogin.Visible = true;
+                btnLogout.Visible = false;
             }
         }
     }
-}

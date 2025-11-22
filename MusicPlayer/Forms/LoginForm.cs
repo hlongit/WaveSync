@@ -32,11 +32,8 @@ namespace MusicPlayer.Forms {
 
                 if (result != null)
                 {
-                    int userId = Convert.ToInt32(result);
-
-                    AddMusicForm f = new AddMusicForm(userId);
-                    f.Show();
-                    this.Hide();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {

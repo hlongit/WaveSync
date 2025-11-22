@@ -9,13 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 using System.Diagnostics;
->>>>>>> Stashed changes
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
@@ -185,16 +179,6 @@ namespace MusicPlayer {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        //End.
-    }
-
-}
-=======
-=======
->>>>>>> Stashed changes
-        
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Forms.LoginForm login = new Forms.LoginForm();
@@ -209,4 +193,3 @@ namespace MusicPlayer {
         //End.    
     }
 }
->>>>>>> Stashed changes

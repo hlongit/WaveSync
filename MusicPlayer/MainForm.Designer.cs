@@ -27,6 +27,9 @@
 =======
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             this.AddMusicBtn = new System.Windows.Forms.Button();
             this.btnPlayPause = new System.Windows.Forms.Button();
@@ -216,6 +219,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+>>>>>>> Stashed changes
 =======
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);

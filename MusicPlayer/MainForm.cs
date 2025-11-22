@@ -10,7 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 using System.Diagnostics;
 >>>>>>> Stashed changes
 namespace MusicPlayer {
@@ -183,11 +186,14 @@ namespace MusicPlayer {
             ListUserInfos.ShowDialog();
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         //End.
     }
 
 }
 =======
+=======
+>>>>>>> Stashed changes
         
         private void btnLogin_Click(object sender, EventArgs e)
         {

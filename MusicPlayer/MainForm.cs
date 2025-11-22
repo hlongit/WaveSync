@@ -173,6 +173,11 @@ namespace MusicPlayer {
             ListSongInfos.ShowDialog(); 
             LoadSongs();
         }
+
+        private void btnUserListInfo_Click(object sender, EventArgs e) {
+            Form ListUserInfos = new Data.ListUserInfo();
+            ListUserInfos.ShowDialog();
+        }
         //End.
     }
 

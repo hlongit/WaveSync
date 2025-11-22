@@ -195,6 +195,12 @@
     <Compile Include="Data\ListSongInfo.Designer.cs">
       <DependentUpon>ListSongInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\ListUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ListUserInfo.Designer.cs">
+      <DependentUpon>ListUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </Compile>
     <EmbeddedResource Include="Data\ListSongInfo.resx">
       <DependentUpon>ListSongInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ListUserInfo.resx">
+      <DependentUpon>ListUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMusicForm.resx">
       <DependentUpon>AddMusicForm.cs</DependentUpon>

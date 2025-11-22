@@ -30,7 +30,7 @@ namespace MusicPlayer {
         /// Adds fake users on first run if the Users table is empty
         /// Useful for testing/login demo
         /// </summary>
-        public static void SeedFakeUsers()
+        public static void SeedFakeUsersIfEmpty()
         {
             using (SqlConnection con = new SqlConnection(ConnStr))
             {
@@ -45,10 +45,16 @@ namespace MusicPlayer {
                 if (count == 0)
                 {
                     string sql =
-                    @"INSERT INTO Users (Username, Password) VALUES
-                        ('admin', '123'),
-                        ('test', '123'),
-                        ('vinh', '12345');";
+                    @"INSERT INTO Users (Username, Password)
+                        VALUES
+                            ('Long',  'Long!2025'),
+                            ('Vinh',  'Vinh#789'),
+                            ('Chau',  NULL),
+                            ('Admin1', 'AdminSuperUser!'),
+                            ('UserA', 'passA!234'),
+                            ('Demo01', NULL),
+                            ('Maria', 'Maria2025'),
+                            ('Khang', NULL);";
         
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
@@ -250,6 +256,29 @@ namespace MusicPlayer {
             ORDER BY Title";
 
                 // Fill DataTable using SqlDataAdapter
+                using (var adapter = new SqlDataAdapter(sql, conn)) {
+                    adapter.Fill(dt);
+                }
+            }
+
+            return dt;
+        }
+        /// <summary>
+        /// Get all users as DataTable for displaying in DataGridView, check .Data/ListUserInfo.cs
+        public static DataTable GetAllUsersDataTable() {
+            DataTable dt = new DataTable();
+
+            using (var conn = new SqlConnection(ConnStr)) {
+                conn.Open();
+                string sql = @"
+            SELECT 
+                UserId      AS [ID],
+                Username    AS [Username],
+                Password    AS [Password],
+                CreatedAt   AS [Created Date]
+            FROM Users 
+            ORDER BY CreatedAt DESC";
+
                 using (var adapter = new SqlDataAdapter(sql, conn)) {
                     adapter.Fill(dt);
                 }

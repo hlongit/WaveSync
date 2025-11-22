@@ -15,23 +15,26 @@ namespace MusicPlayer.Forms {
             InitializeComponent();
         }
 
-        private void guna2TileButton1_Click(object sender, EventArgs e) {
+        private void guna2TileButton1_Click(object sender, EventArgs e)
+        {
             using (SqlConnection con = new SqlConnection(DatabaseHelper.ConnStr))
             {
                 con.Open();
 
-                string sql =
-                    "SELECT UserId FROM Users WHERE Username=@u AND Password=@p";
+                string sql = "SELECT Username FROM Users WHERE Username=@u AND Password=@p";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
-
-                cmd.Parameters.AddWithValue("@u", txtUser.Text);
-                cmd.Parameters.AddWithValue("@p", txtPass.Text);
+                cmd.Parameters.AddWithValue("@u", txtUser.Text.Trim());
+                cmd.Parameters.AddWithValue("@p", txtPass.Text.Trim());
 
                 object result = cmd.ExecuteScalar();
 
                 if (result != null)
                 {
+                    // Lưu Username để trả về MainForm
+                    txtUser.Text = result.ToString();
+
+                    // Trả về kết quả đăng nhập thành công
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -41,6 +44,7 @@ namespace MusicPlayer.Forms {
                 }
             }
         }
+
 
         public string UserName
         {

@@ -32,16 +32,32 @@ namespace MusicPlayer.Forms {
 
                 if (result != null)
                 {
-                    int userId = Convert.ToInt32(result);
-
-                    AddMusicForm f = new AddMusicForm(userId);
-                    f.Show();
-                    this.Hide();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Sai username hoặc password!");
                 }
+            }
+        }
+
+        public string UserName
+        {
+            get { return txtUser.Text; }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

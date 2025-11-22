@@ -44,5 +44,24 @@ namespace MusicPlayer.Forms {
                 }
             }
         }
+
+        public string UserName
+        {
+            get { return txtUser.Text; }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

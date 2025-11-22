@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer {
+namespace MusicPlayer {
     partial class MainForm {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,9 @@
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
             this.btnViewSongListInfo = new System.Windows.Forms.Button();
             this.btnUserListInfo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
@@ -47,18 +50,18 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(130, 114);
+            this.btnLogin.Location = new System.Drawing.Point(225, 24);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(113, 43);
+            this.btnLogin.Size = new System.Drawing.Size(113, 49);
             this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 86);
+            this.label1.Location = new System.Drawing.Point(853, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 1;
@@ -182,16 +185,16 @@
             // 
             this.flowSongs.AutoScroll = true;
             this.flowSongs.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowSongs.Location = new System.Drawing.Point(764, 0);
+            this.flowSongs.Location = new System.Drawing.Point(747, 0);
             this.flowSongs.Name = "flowSongs";
-            this.flowSongs.Size = new System.Drawing.Size(429, 740);
+            this.flowSongs.Size = new System.Drawing.Size(446, 740);
             this.flowSongs.TabIndex = 12;
             // 
             // btnViewSongListInfo
             // 
-            this.btnViewSongListInfo.Location = new System.Drawing.Point(402, 28);
+            this.btnViewSongListInfo.Location = new System.Drawing.Point(402, 24);
             this.btnViewSongListInfo.Name = "btnViewSongListInfo";
-            this.btnViewSongListInfo.Size = new System.Drawing.Size(295, 40);
+            this.btnViewSongListInfo.Size = new System.Drawing.Size(295, 49);
             this.btnViewSongListInfo.TabIndex = 13;
             this.btnViewSongListInfo.Text = "Database: View Songs table";
             this.btnViewSongListInfo.UseVisualStyleBackColor = true;
@@ -199,7 +202,7 @@
             // 
             // btnUserListInfo
             // 
-            this.btnUserListInfo.Location = new System.Drawing.Point(402, 74);
+            this.btnUserListInfo.Location = new System.Drawing.Point(402, 79);
             this.btnUserListInfo.Name = "btnUserListInfo";
             this.btnUserListInfo.Size = new System.Drawing.Size(295, 40);
             this.btnUserListInfo.TabIndex = 14;
@@ -207,17 +210,47 @@
             this.btnUserListInfo.UseVisualStyleBackColor = true;
             this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(47, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 15;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(247, 40);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(0, 16);
+            this.lblUsername.TabIndex = 16;
+            this.lblUsername.Visible = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(225, 79);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(113, 39);
+            this.btnLogout.TabIndex = 17;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Visible = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnUserListInfo);
             this.Controls.Add(this.btnViewSongListInfo);
+            this.Controls.Add(this.flowSongs);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSongInfo);
             this.Controls.Add(this.picCover);
@@ -230,7 +263,6 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPlayPause);
             this.Controls.Add(this.AddMusicBtn);
-            this.Controls.Add(this.flowSongs);
             this.Name = "MainForm";
             this.Text = "WaveSync";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -243,6 +275,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddMusicBtn;
@@ -260,6 +293,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowSongs;
         private System.Windows.Forms.Button btnViewSongListInfo;
         private System.Windows.Forms.Button btnUserListInfo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
-

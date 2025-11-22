@@ -167,6 +167,17 @@ namespace MusicPlayer {
             currentIndex = (currentIndex - 1 + allSongs.Count) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
+
+        private void btnViewSongListInfo_Click(object sender, EventArgs e) {
+            Form ListSongInfos = new Data.ListSongInfo();
+            ListSongInfos.ShowDialog(); 
+            LoadSongs();
+        }
+
+        private void btnUserListInfo_Click(object sender, EventArgs e) {
+            Form ListUserInfos = new Data.ListUserInfo();
+            ListUserInfos.ShowDialog();
+        }
         //End.
     }
 

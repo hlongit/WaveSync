@@ -189,7 +189,18 @@
     <Compile Include="Core\CurrentUser.cs" />
     <Compile Include="Core\QueueManager.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Data\StorageManager.cs" />
+    <Compile Include="Data\ListSongInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ListSongInfo.Designer.cs">
+      <DependentUpon>ListSongInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ListUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ListUserInfo.Designer.cs">
+      <DependentUpon>ListUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +228,12 @@
     <Compile Include="SongCard.Designer.cs">
       <DependentUpon>SongCard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Data\ListSongInfo.resx">
+      <DependentUpon>ListSongInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ListUserInfo.resx">
+      <DependentUpon>ListUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMusicForm.resx">
       <DependentUpon>AddMusicForm.cs</DependentUpon>
     </EmbeddedResource>

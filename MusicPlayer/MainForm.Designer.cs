@@ -36,6 +36,8 @@
             this.lblSongInfo = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnViewSongListInfo = new System.Windows.Forms.Button();
+            this.btnUserListInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
@@ -165,11 +167,33 @@
             this.flowSongs.Size = new System.Drawing.Size(446, 740);
             this.flowSongs.TabIndex = 12;
             // 
+            // btnViewSongListInfo
+            // 
+            this.btnViewSongListInfo.Location = new System.Drawing.Point(402, 28);
+            this.btnViewSongListInfo.Name = "btnViewSongListInfo";
+            this.btnViewSongListInfo.Size = new System.Drawing.Size(295, 40);
+            this.btnViewSongListInfo.TabIndex = 13;
+            this.btnViewSongListInfo.Text = "Database: View Songs table";
+            this.btnViewSongListInfo.UseVisualStyleBackColor = true;
+            this.btnViewSongListInfo.Click += new System.EventHandler(this.btnViewSongListInfo_Click);
+            // 
+            // btnUserListInfo
+            // 
+            this.btnUserListInfo.Location = new System.Drawing.Point(402, 74);
+            this.btnUserListInfo.Name = "btnUserListInfo";
+            this.btnUserListInfo.Size = new System.Drawing.Size(295, 40);
+            this.btnUserListInfo.TabIndex = 14;
+            this.btnUserListInfo.Text = "Database: View Users table";
+            this.btnUserListInfo.UseVisualStyleBackColor = true;
+            this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
+            this.Controls.Add(this.btnUserListInfo);
+            this.Controls.Add(this.btnViewSongListInfo);
             this.Controls.Add(this.flowSongs);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSongInfo);
@@ -209,6 +233,8 @@
         private System.Windows.Forms.Label lblSongInfo;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.FlowLayoutPanel flowSongs;
+        private System.Windows.Forms.Button btnViewSongListInfo;
+        private System.Windows.Forms.Button btnUserListInfo;
     }
 }
 

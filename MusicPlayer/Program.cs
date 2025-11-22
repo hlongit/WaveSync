@@ -32,6 +32,9 @@ namespace MusicPlayer {
             // Runs only once (or when < 4 songs exist)
             DatabaseHelper.SeedFourTestSongsIfEmpty();
 
+            //Seed fake users if Users table is empty
+            DatabaseHelper.SeedFakeUsersIfEmpty();
+
             // Finally, start the main window and run the message loop
             Application.Run(new MainForm());
         }

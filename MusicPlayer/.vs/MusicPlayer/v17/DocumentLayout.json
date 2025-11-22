@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -133,8 +133,7 @@
               "RelativeToolTip": "MainForm.cs",
               "ViewState": "AgIAAK0AAAAAAAAAAAAiwLwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T14:51:01.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T14:51:01.363Z"
             },
             {
               "$type": "Document",

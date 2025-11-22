@@ -3,11 +3,7 @@
   "WorkspaceRootPath": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,12 +11,16 @@
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|d:\\university\\lttq\\project\\musicplayer\\musicplayer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\data\\listuserinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:data\\listuserinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FEE99C6B-5887-45D7-B35D-B91ADD7A000E}|WaveSync.csproj|D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,32 +46,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "MainForm.Designer.cs",
               "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.Designer.cs",
               "RelativeToolTip": "MainForm.Designer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAIAxwDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAYwPYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T17:38:13.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
-              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
-              "RelativeToolTip": "Forms\\LoginForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T16:59:49.392Z",
               "EditorCaption": ""
             },
             {
@@ -101,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ListUserInfo.cs [Design]",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Data\\ListUserInfo.cs",
               "RelativeDocumentMoniker": "Data\\ListUserInfo.cs",
@@ -113,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "DatabaseHelper.cs",
@@ -126,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -138,15 +125,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAALMAAAAAAAAAAAA8wKsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAiwLwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T14:51:01.363Z"
+              "WhenOpened": "2025-11-21T14:51:01.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
+              "ToolTip": "D:\\University\\LTTQ\\Project\\musicplayer\\MusicPlayer\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "Forms\\LoginForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T16:59:49.392Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

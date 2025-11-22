@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration; 
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Diagnostics;
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
@@ -157,8 +157,6 @@ namespace MusicPlayer {
             }
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-                    }
 
         // Next/Previous  button click
         private void btnNext_Click(object sender, EventArgs e) {
@@ -183,7 +181,6 @@ namespace MusicPlayer {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Forms.LoginForm login = new Forms.LoginForm();
@@ -208,4 +205,6 @@ namespace MusicPlayer {
                 btnLogout.Visible = false;
             }
         }
+        //End.    
     }
+}

@@ -1,4 +1,4 @@
-﻿namespace MusicPlayer {
+namespace MusicPlayer {
     partial class MainForm {
         /// <summary>
         /// Required designer variable.
@@ -23,20 +23,46 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(710, 9);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(113, 43);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(853, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(985, 740);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
             this.Name = "MainForm";
             this.Text = "WaveSync";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label label1;
     }
 }
 

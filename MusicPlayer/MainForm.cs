@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration; 
+using System.Configuration;
+using System.Diagnostics;
 namespace MusicPlayer {
     public partial class MainForm : Form {
         public MainForm() {
@@ -33,6 +34,17 @@ namespace MusicPlayer {
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
                     }
-    }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Forms.LoginForm login = new Forms.LoginForm();
+            var result = login.ShowDialog();
+            string userName = login.UserName;
+            if (result == DialogResult.OK)
+            {
+                label1.Text = userName;
+                btnLogin.Visible = false;
+            }
+        }
+    }
 }

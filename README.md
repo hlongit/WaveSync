@@ -4,7 +4,6 @@
 **WaveSync** là ứng dụng trình phát nhạc và quản lý thư viện âm nhạc được xây dựng bằng C# WinForms với giao diện hiện đại, trực quan và dễ mở rộng.  
 Ứng dụng hỗ trợ đăng nhập người dùng, lưu lịch sử nghe nhạc riêng biệt, thêm bài hát mới và phát nhạc với đầy đủ các điều khiển hiện đại.
 
-**Repository chính:** https://github.com/hlongit/musicplayer
 
 ---
 

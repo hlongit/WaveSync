@@ -10,24 +10,25 @@
 ## ✨ Tính năng chính
 
 ### 🔐 Quản lý người dùng
-- Đăng nhập / Đăng ký
+- ✅ Đăng nhập
+- Đăng ký
 - Lưu lịch sử nghe nhạc riêng theo từng tài khoản
-- Xác thực và lưu trữ thông tin trong MySQL/LocalDB
+- ✅ Xác thực và lưu trữ thông tin trong MySQL/LocalDB
 
 ### 🎧 Trình phát nhạc (Audio Player)
-- Play / Pause / Stop
+- ✅ Play / Pause / Stop
 - Next / Previous track
 - Rewind / Forward (seek)
 - Hàng đợi phát (Queue)
 - Chế độ lặp: Không lặp / Lặp playlist / Lặp 1 bài
-- Hiển thị ảnh bìa bài hát (album art)
-- Thanh điều chỉnh âm lượng + Mute
+- ✅ Hiển thị ảnh bìa bài hát (album art)
+- ✅ Thanh điều chỉnh âm lượng + Mute
 - Tự động lưu bài hát đang phát vào History
 
 ### 📚 Quản lý thư viện nhạc
-- Lưu toàn bộ metadata bài hát trong **SQL LocalDB**
-- Thêm bài hát mới qua form riêng (hỗ trợ .mp3, .wav)
-- Tải ảnh bìa tự động hoặc chọn thủ công
+- ✅ Lưu toàn bộ metadata bài hát trong **SQL LocalDB**
+- ✅ Thêm bài hát mới qua form riêng (hỗ trợ .mp3, .wav)
+- ✅ Tải ảnh bìa tự động hoặc chọn thủ công
 - Tìm kiếm nhanh theo Title / Artist / Album
 - Sắp xếp danh sách theo nhiều tiêu chí
 

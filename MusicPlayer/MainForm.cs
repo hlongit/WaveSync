@@ -1,17 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration; 
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
+using static MusicPlayer.Forms.LoginForm;
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
@@ -129,7 +131,17 @@ namespace MusicPlayer {
 
             AudioEngine.PlaySong(fullPath);
             btnPlayPause.Text = "Pause";
+            int currentUserId = LoginSession.UserID; 
+            if (DatabaseHelper.UserExists(currentUserId))
+            {
+                DatabaseHelper.AddToPlayHistory(currentUserId, song.SongId);
+            }
+            else
+            {
+                MessageBox.Show("Người dùng không tồn tại. Không thể thêm lịch sử phát.");
+            }
         }
+
         // Play/Pause button click
         private void btnPlayPause_Click(object sender, EventArgs e) {
             if (AudioEngine.IsPlaying) {
@@ -192,6 +204,10 @@ namespace MusicPlayer {
                 lblUsername.Visible = true;
                 btnLogin.Visible = false;
                 btnLogout.Visible = true;
+                AddMusicBtn.Visible = true;
+                btnHistory.Visible = true;
+                btnSignIn.Visible = false;
+                if (userName == "Admin1") btnUserListInfo.Visible = true;
             }
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -203,7 +219,22 @@ namespace MusicPlayer {
                 lblUsername.Visible = false;
                 btnLogin.Visible = true;
                 btnLogout.Visible = false;
+                AddMusicBtn.Visible = false;
+                btnHistory.Visible = false;
+                btnSignIn.Visible = true;
+                btnUserListInfo.Visible = false;
             }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Forms.SignInForm signin = new Forms.SignInForm();
+            signin.ShowDialog();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            var f = new MusicPlayer.Data.PlayHistoryForm();
+            f.ShowDialog();
         }
         //End.    
     }

@@ -237,31 +237,7 @@ namespace MusicPlayer {
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(113, 39);
             this.btnLogout.TabIndex = 17;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Visible = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Location = new System.Drawing.Point(46, 24);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(173, 49);
-            this.btnHistory.TabIndex = 18;
-            this.btnHistory.Text = "History";
-            this.btnHistory.UseVisualStyleBackColor = true;
-            this.btnHistory.Visible = false;
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
-            // 
-            // btnSignIn
-            // 
-            this.btnSignIn.Location = new System.Drawing.Point(225, 80);
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(113, 38);
-            this.btnSignIn.TabIndex = 19;
-            this.btnSignIn.Text = "Sign In ";
-            this.btnSignIn.UseVisualStyleBackColor = true;
-            this.btnSignIn.Click += new System.EventHandler(this.button2_Click);
+btnSignIn_Click);
             // 
             // MainForm
             // 

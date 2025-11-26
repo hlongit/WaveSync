@@ -43,6 +43,8 @@ namespace MusicPlayer {
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.btnSignIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
@@ -68,12 +70,13 @@ namespace MusicPlayer {
             // 
             // AddMusicBtn
             // 
-            this.AddMusicBtn.Location = new System.Drawing.Point(39, 24);
+            this.AddMusicBtn.Location = new System.Drawing.Point(46, 79);
             this.AddMusicBtn.Name = "AddMusicBtn";
-            this.AddMusicBtn.Size = new System.Drawing.Size(173, 49);
+            this.AddMusicBtn.Size = new System.Drawing.Size(173, 40);
             this.AddMusicBtn.TabIndex = 0;
             this.AddMusicBtn.Text = "Add Music";
             this.AddMusicBtn.UseVisualStyleBackColor = true;
+            this.AddMusicBtn.Visible = false;
             this.AddMusicBtn.Click += new System.EventHandler(this.AddMusicBtn_Click);
             // 
             // btnPlayPause
@@ -208,6 +211,7 @@ namespace MusicPlayer {
             this.btnUserListInfo.TabIndex = 14;
             this.btnUserListInfo.Text = "Database: View Users table";
             this.btnUserListInfo.UseVisualStyleBackColor = true;
+            this.btnUserListInfo.Visible = false;
             this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
             // 
             // label2
@@ -238,11 +242,34 @@ namespace MusicPlayer {
             this.btnLogout.Visible = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // btnHistory
+            // 
+            this.btnHistory.Location = new System.Drawing.Point(46, 24);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(173, 49);
+            this.btnHistory.TabIndex = 18;
+            this.btnHistory.Text = "History";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Visible = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.Location = new System.Drawing.Point(225, 80);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(113, 38);
+            this.btnSignIn.TabIndex = 19;
+            this.btnSignIn.Text = "Sign In ";
+            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
+            this.Controls.Add(this.btnSignIn);
+            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.label2);
@@ -296,5 +323,7 @@ namespace MusicPlayer {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnSignIn;
     }
 }

@@ -193,7 +193,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Data\PlayHistoryForm.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+      <DependentUpon>PlayHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\ListSongInfo.cs">
       <SubType>Form</SubType>

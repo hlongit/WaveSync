@@ -189,6 +189,12 @@
     <Compile Include="Core\CurrentUser.cs" />
     <Compile Include="Core\QueueManager.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Data\PlayHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\PlayHistoryForm.Designer.cs">
+      <DependentUpon>PlayHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\ListSongInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,12 @@
     </Compile>
     <Compile Include="Data\ListUserInfo.Designer.cs">
       <DependentUpon>ListUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SignInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SignInForm.Designer.cs">
+      <DependentUpon>SignInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -234,11 +246,17 @@
     <EmbeddedResource Include="Data\ListUserInfo.resx">
       <DependentUpon>ListUserInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\PlayHistoryForm.resx">
+      <DependentUpon>PlayHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMusicForm.resx">
       <DependentUpon>AddMusicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SignInForm.resx">
+      <DependentUpon>SignInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

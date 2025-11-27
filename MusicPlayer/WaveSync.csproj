@@ -189,10 +189,10 @@
     <Compile Include="Core\CurrentUser.cs" />
     <Compile Include="Core\QueueManager.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Data\Form1.cs">
+    <Compile Include="Data\PlayHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Data\Form1.Designer.cs">
+    <Compile Include="Data\PlayHistoryForm.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\ListSongInfo.cs">
@@ -245,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Data\ListUserInfo.resx">
       <DependentUpon>ListUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\PlayHistoryForm.resx">
+      <DependentUpon>PlayHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMusicForm.resx">
       <DependentUpon>AddMusicForm.cs</DependentUpon>

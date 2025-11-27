@@ -1,12 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Forms;
 using TagLib;                    // For reading MP3 metadata (title, artist, album, cover)
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using File = System.IO.File;   // Avoid conflict with TagLib.File
 
 namespace MusicPlayer {
@@ -238,6 +240,31 @@ namespace MusicPlayer {
         /// Used to get all songs as a DataTable for displaying in DataGridView, check .Data/ListSongInfo.cs
         /// </summary>
         /// <returns></returns>
+        public static void AddToPlayHistory(int userId, int songId)
+        {
+            string sql = @"
+            INSERT INTO PlayHistory (UserId, SongId, PlayedAt)
+            VALUES (@UserId, @SongId, @PlayedAt)";
+
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@SongId", songId);
+                cmd.Parameters.AddWithValue("@PlayedAt", DateTime.Now);
+
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi thêm lịch sử phát: " + ex.Message);
+                }
+            }
+        }
+
         public static DataTable GetAllSongsDataTable() {
             DataTable dt = new DataTable();
 
@@ -283,8 +310,57 @@ namespace MusicPlayer {
                     adapter.Fill(dt);
                 }
             }
+            return dt;
+        }
+        public static bool UserExists(int userId)
+        {
+            string sql = "SELECT COUNT(*) FROM Users WHERE UserId = @UserId";
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+        public static DataTable GetPlayHistoryDataTable()
+        {
+            DataTable dt = new DataTable();
+
+            string sql = @"
+            SELECT 
+                ph.HistoryId AS ID,
+                u.Username,
+                s.Title AS SongName,
+                ph.PlayedAt AS PlayTime,
+                s.FilePath AS SongPath,
+                s.CoverPath
+            FROM PlayHistory ph
+            LEFT JOIN Users u ON ph.UserId = u.UserId
+            LEFT JOIN Songs s ON ph.SongId = s.SongId
+            ORDER BY ph.PlayedAt DESC";
+
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                try
+                {
+                    da.Fill(dt);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Lỗi khi tải lịch sử phát: " + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi không xác định: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
             return dt;
         }
+
     }
 }

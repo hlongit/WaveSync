@@ -8,49 +8,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MusicPlayer.Forms {
     public partial class LoginForm : Form {
         public LoginForm() {
             InitializeComponent();
         }
-
+        public static class LoginSession
+        {
+            public static int UserID { get; set; }
+            public static string Username { get; set; }
+        }
         private void guna2TileButton1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(DatabaseHelper.ConnStr))
+            string username = txtUser.Text.Trim();
+            string password = txtPass.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                con.Open();
+                MessageBox.Show("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.");
+                return;
+            }
 
-                string sql = "SELECT Username FROM Users WHERE Username=@u AND Password=@p";
+            string sql = "SELECT UserId, Username FROM Users WHERE Username = @Username AND Password = @Password";
 
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@u", txtUser.Text.Trim());
-                cmd.Parameters.AddWithValue("@p", txtPass.Text.Trim());
+            using (SqlConnection con = new SqlConnection(DatabaseHelper.ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
 
-                object result = cmd.ExecuteScalar();
-
-                if (result != null)
+                try
                 {
-                    // Lưu Username để trả về MainForm
-                    txtUser.Text = result.ToString();
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    // Trả về kết quả đăng nhập thành công
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    if (reader.Read())
+                    {
+                        // Gán thông tin người dùng vào LoginSession
+                        LoginSession.UserID = Convert.ToInt32(reader["UserId"]);
+                        LoginSession.Username = reader["Username"].ToString();
+
+                        // Mở form chính và ẩn form đăng nhập
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Lỗi đăng nhập");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Sai username hoặc password!");
+                    MessageBox.Show("Lỗi khi đăng nhập: " + ex.Message);
                 }
             }
         }
-
-
         public string UserName
         {
             get { return txtUser.Text; }
         }
-
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);

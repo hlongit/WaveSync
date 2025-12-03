@@ -223,12 +223,15 @@ namespace MusicPlayer {
                 btnUserListInfo.Visible = false;
             }
         }
+
+        // Sign In button click
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             Forms.SignInForm signin = new Forms.SignInForm();
             signin.ShowDialog();
         }
 
+        // Play History button click
         private void btnHistory_Click(object sender, EventArgs e)
         {
             var f = new MusicPlayer.Data.PlayHistoryForm();

@@ -211,7 +211,6 @@ namespace MusicPlayer {
             this.btnUserListInfo.TabIndex = 14;
             this.btnUserListInfo.Text = "Database: View Users table";
             this.btnUserListInfo.UseVisualStyleBackColor = true;
-            this.btnUserListInfo.Visible = false;
             this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
             // 
             // label2

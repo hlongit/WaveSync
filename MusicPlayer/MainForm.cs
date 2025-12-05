@@ -85,6 +85,7 @@ namespace MusicPlayer {
                     // DO NOT reset title and cover here!
                     // Only reset when user actually selects a new song or none
                     if (loopCurrentSong && currentSong != null) PlaySong(currentSong);
+                    else PlayNextSong();
                 });
             };
         }
@@ -146,6 +147,12 @@ namespace MusicPlayer {
             {
                 MessageBox.Show("Người dùng không tồn tại. Không thể thêm lịch sử phát.");
             }
+        }
+        private void PlayNextSong()
+        {
+            if (allSongs.Count == 0) return;
+            currentIndex = (currentIndex + 1) % allSongs.Count;
+            PlaySong(allSongs[currentIndex]);
         }
         // Play/Pause button click
         private void btnPlayPause_Click(object sender, EventArgs e) {

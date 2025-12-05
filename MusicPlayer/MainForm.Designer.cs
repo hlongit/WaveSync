@@ -45,6 +45,9 @@ namespace MusicPlayer {
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnSignIn = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnShuffle = new System.Windows.Forms.Button();
+            this.btnLoop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
@@ -157,7 +160,7 @@ namespace MusicPlayer {
             // 
             // picCover
             // 
-            this.picCover.Location = new System.Drawing.Point(225, 414);
+            this.picCover.Location = new System.Drawing.Point(260, 476);
             this.picCover.Name = "picCover";
             this.picCover.Size = new System.Drawing.Size(259, 232);
             this.picCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -263,11 +266,42 @@ namespace MusicPlayer {
             this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(47, 134);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(172, 22);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // btnShuffle
+            // 
+            this.btnShuffle.Location = new System.Drawing.Point(507, 414);
+            this.btnShuffle.Name = "btnShuffle";
+            this.btnShuffle.Size = new System.Drawing.Size(190, 56);
+            this.btnShuffle.TabIndex = 21;
+            this.btnShuffle.Text = "Shuffle";
+            this.btnShuffle.UseVisualStyleBackColor = true;
+            this.btnShuffle.Click += new System.EventHandler(this.btnShuffle_Click);
+            // 
+            // btnLoop
+            // 
+            this.btnLoop.Location = new System.Drawing.Point(71, 414);
+            this.btnLoop.Name = "btnLoop";
+            this.btnLoop.Size = new System.Drawing.Size(190, 56);
+            this.btnLoop.TabIndex = 22;
+            this.btnLoop.Text = "Loop: OFF";
+            this.btnLoop.UseVisualStyleBackColor = true;
+            this.btnLoop.Click += new System.EventHandler(this.btnLoop_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1193, 740);
+            this.Controls.Add(this.btnLoop);
+            this.Controls.Add(this.btnShuffle);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnLogout);
@@ -325,5 +359,8 @@ namespace MusicPlayer {
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnSignIn;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnShuffle;
+        private System.Windows.Forms.Button btnLoop;
     }
 }

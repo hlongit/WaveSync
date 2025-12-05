@@ -7,17 +7,24 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MusicPlayer.Controls;
+using MusicPlayer.Data;
+using NAudio.Wave;
 using static MusicPlayer.Forms.LoginForm;
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
         private Song currentSong;
+        private AudioFileReader audioFile;
+        private WaveOutEvent audioPlayer;
         public MainForm() {
             InitializeComponent();
+            SongControls.OnSongClick += SongControls_OnClick;
         }
 
         // All songs loaded from database
@@ -34,7 +41,7 @@ namespace MusicPlayer {
             // refresh song list after adding
             LoadSongs();
         }
-
+        private bool loopCurrentSong = false;
         private void MainForm_Load(object sender, EventArgs e) {    
             LoadSongs();
             volumeBar.Value = 70;
@@ -77,6 +84,8 @@ namespace MusicPlayer {
                     btnPlayPause.Text = "Play";
                     // DO NOT reset title and cover here!
                     // Only reset when user actually selects a new song or none
+                    if (loopCurrentSong && currentSong != null) PlaySong(currentSong);
+                    else PlayNextSong();
                 });
             };
         }
@@ -139,7 +148,12 @@ namespace MusicPlayer {
                 MessageBox.Show("Người dùng không tồn tại. Không thể thêm lịch sử phát.");
             }
         }
-
+        private void PlayNextSong()
+        {
+            if (allSongs.Count == 0) return;
+            currentIndex = (currentIndex + 1) % allSongs.Count;
+            PlaySong(allSongs[currentIndex]);
+        }
         // Play/Pause button click
         private void btnPlayPause_Click(object sender, EventArgs e) {
             if (AudioEngine.IsPlaying) {
@@ -166,8 +180,6 @@ namespace MusicPlayer {
                 seekBar.Tag = null;
             }
         }
-
-
         // Next/Previous  button click
         private void btnNext_Click(object sender, EventArgs e) {
             if (allSongs.Count == 0) return;
@@ -233,6 +245,61 @@ namespace MusicPlayer {
         {
             var f = new MusicPlayer.Data.PlayHistoryForm();
             f.ShowDialog();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim().ToLower();
+
+            var filtered = allSongs.Where(s =>
+                s.Title.ToLower().Contains(keyword) ||
+                s.Artist.ToLower().Contains(keyword) ||
+                s.Album.ToLower().Contains(keyword) ||
+                s.FilePath.ToLower().Contains(keyword)
+            ).ToList();
+
+            LoadSongs(filtered);
+
+        }
+        private void LoadSongs(List<Song> songs)
+        {
+            flowSongs.Controls.Clear();
+
+            foreach (var song in songs)
+            {
+                var item = new Controls.SongControls(song);
+                flowSongs.Controls.Add(item);
+            }
+        }
+        private void SongControls_OnClick(object sender, Song song)
+        {
+            PlaySong(song);
+        }
+
+        private Random rng = new Random();
+        private void ShuffleList(List<Song> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                var temp = list[k];
+                list[k] = list[n];
+                list[n] = temp;
+            }
+        }
+        private void btnShuffle_Click(object sender, EventArgs e)
+        {
+            ShuffleList(allSongs);
+            LoadSongs(allSongs);
+        }
+
+        private void btnLoop_Click(object sender, EventArgs e)
+        {
+            loopCurrentSong = !loopCurrentSong;
+
+            btnLoop.Text = loopCurrentSong ? "Loop: ON" : "Loop: OFF";
         }
         //End.    
     }

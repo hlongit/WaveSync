@@ -29,91 +29,67 @@ namespace MusicPlayer {
 
         // All songs loaded from database
         private List<Song> allSongs = new List<Song>();
-
         // Index of currently playing song in the list (-1 = none)
         private int currentIndex = -1;
-
-
         // Opens the "Add Music" form when button clicked
         private void AddMusicBtn_Click(object sender, EventArgs e) {
             Form AddMusic = new Forms.AddMusicForm();
-            AddMusic.ShowDialog(); // user must close it before continuing
-            // refresh song list after adding
-            LoadSongs();
+            AddMusic.ShowDialog();
+
+            // Refresh the list from the database to see the new song
+            allSongs = DatabaseHelper.GetAllSongs();
+            LoadSongs(allSongs);
         }
         private bool loopCurrentSong = false;
-        private void MainForm_Load(object sender, EventArgs e) {    
-            LoadSongs();
+        private void MainForm_Load(object sender, EventArgs e) {
+            // Get data from DB
+            allSongs = DatabaseHelper.GetAllSongs();
+            // Display it
+            LoadSongs(allSongs);
+
             volumeBar.Value = 70;
             AudioEngine.SetVolume(0.7f);
 
-            // Timer update for seek bar and time
-            AudioEngine.PositionChanged += (current, total) =>
-            {
-                // If form is disposed, do nothing
-                if (this.IsDisposed) return;
-
-                // Must use Invoke() because this event comes from another thread
-                // Update seek bar and time label using a timer, but only if user is not dragging the seek bar
-                // For PositionChanged event, check AudioEngine.cs.
-                this.Invoke((MethodInvoker)delegate
-                {
-                    seekBar.Maximum = (int)total.TotalSeconds;
-                    seekBar.Value = Math.Min(seekBar.Maximum, (int)current.TotalSeconds);
-                    lblTime.Text = $"{current:mm\\:ss} / {total:mm\\:ss}";
-                });
-            };
-            
-            //If user click play on a song
-            AudioEngine.PlaybackStarted += () =>
-            {
-                this.Invoke((MethodInvoker)delegate
-                {
-                    btnPlayPause.Text = "Pause";   // Instantly show "Pause" when song starts
-                    seekBar.Value = 0;             // Reset seek bar
-                    lblTime.Text = "00:00 / 00:00";
-                });
-            };
-
-            //If user click stop or song ends
-            AudioEngine.PlaybackStopped += () =>
-            {
-                //Another thread, use Invoke
-                this.Invoke((MethodInvoker)delegate
-                {
-                    btnPlayPause.Text = "Play";
-                    // DO NOT reset title and cover here!
-                    // Only reset when user actually selects a new song or none
-                    if (loopCurrentSong && currentSong != null) PlaySong(currentSong);
-                    else PlayNextSong();
-                });
-            };
+            // Control Registration, check AudioEngine.cs for details
+            AudioEngine.RegisterControls(
+                this,           // The form (for Invoke)
+                seekBar,        // The seek bar to update
+                lblTime,        // The label to update
+                btnPlayPause,   // The button to update
+                () => {         // The Logic for "Next Song"
+                    if (loopCurrentSong && currentSong != null)
+                        PlaySong(currentSong);
+                    else
+                        PlayNextSong();
+                }
+            );
         }
-        // Load songs from database and create SongCards
-        private void LoadSongs() 
-        {
-            // Clear existing card list.
+        // Load songs from database and create SongCards     
+        private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
 
-            // Load songs from database, check DatabaseHelper.cs
-            allSongs = DatabaseHelper.GetAllSongs();
-
-
-            foreach (var song in allSongs) {
+            foreach (var song in songs) {
+                // Use SongCard for everything (consistent UI)
                 var card = new SongCard();
-                //Check songcard.cs for structure/name of control.
+
                 card.lblTitle.Text = song.Title;
                 card.lblArtist.Text = song.Artist;
-                    
+
+                // Image Logic (Now works for Search/Shuffle too!)
                 string coverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.CoverPath);
                 if (File.Exists(coverPath))
                     card.picCover.Image = Image.FromFile(coverPath);
-                // Store the song object in the Tag property for later use.
+                else
+                    card.picCover.Image = null; // Or use Properties.Resources.default_cover
+
+                // Store the song object
                 card.Tag = song;
 
-                //When user clicks the card, play the song of that card.
-                // Maybe change it to default Click event in SongCard.cs later.
-                card.Click += (s, e) => {// 5. When song ends → tell MainForm
+                // Click Event: Play the song when clicked
+                card.Click += (s, e) =>
+                {
+                    // Find the index in the GLOBAL list so Next/Prev buttons work correctly
+                    // even if you clicked it from a search result.
                     currentIndex = allSongs.IndexOf(song);
                     PlaySong(song);
                 };
@@ -121,7 +97,6 @@ namespace MusicPlayer {
                 flowSongs.Controls.Add(card);
             }
         }
-
         private void PlaySong(Song song) {
             currentSong = song;
 
@@ -169,7 +144,6 @@ namespace MusicPlayer {
         private void volumeBar_Scroll(object sender, EventArgs e) {
             AudioEngine.SetVolume(volumeBar.Value / 100f);
         }
-
         // Allow user to drag seek bar
         private void seekBar_MouseDown(object sender, MouseEventArgs e) {
             seekBar.Tag = "dragging";  // Mark that user is dragging
@@ -186,19 +160,18 @@ namespace MusicPlayer {
             currentIndex = (currentIndex + 1) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
-
         private void btnPrevious_Click(object sender, EventArgs e) {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex - 1 + allSongs.Count) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
-
         private void btnViewSongListInfo_Click(object sender, EventArgs e) {
             Form ListSongInfos = new Data.ListSongInfo();
-            ListSongInfos.ShowDialog(); 
-            LoadSongs();
+            ListSongInfos.ShowDialog();
+            // Refresh in case edited/deleted songs in menu
+            allSongs = DatabaseHelper.GetAllSongs();
+            LoadSongs(allSongs);
         }
-
         private void btnUserListInfo_Click(object sender, EventArgs e) {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
@@ -235,18 +208,18 @@ namespace MusicPlayer {
                 btnUserListInfo.Visible = false;
             }
         }
+        // Sign In button click
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             Forms.SignInForm signin = new Forms.SignInForm();
             signin.ShowDialog();
         }
-
+        // Play History button click
         private void btnHistory_Click(object sender, EventArgs e)
         {
             var f = new MusicPlayer.Data.PlayHistoryForm();
             f.ShowDialog();
         }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();
@@ -258,24 +231,13 @@ namespace MusicPlayer {
                 s.FilePath.ToLower().Contains(keyword)
             ).ToList();
 
+            // Now uses the SAME display logic as the main list
             LoadSongs(filtered);
-
-        }
-        private void LoadSongs(List<Song> songs)
-        {
-            flowSongs.Controls.Clear();
-
-            foreach (var song in songs)
-            {
-                var item = new Controls.SongControls(song);
-                flowSongs.Controls.Add(item);
-            }
         }
         private void SongControls_OnClick(object sender, Song song)
         {
             PlaySong(song);
         }
-
         private Random rng = new Random();
         private void ShuffleList(List<Song> list)
         {
@@ -294,7 +256,6 @@ namespace MusicPlayer {
             ShuffleList(allSongs);
             LoadSongs(allSongs);
         }
-
         private void btnLoop_Click(object sender, EventArgs e)
         {
             loopCurrentSong = !loopCurrentSong;

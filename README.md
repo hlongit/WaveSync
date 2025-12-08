@@ -11,16 +11,16 @@
 
 ### 🔐 Quản lý người dùng
 - ✅ Đăng nhập
-- Đăng ký
-- Lưu lịch sử nghe nhạc riêng theo từng tài khoản
+- ✅ Đăng ký
+- ✅ Lưu lịch sử nghe nhạc riêng theo từng tài khoản
 - ✅ Xác thực và lưu trữ thông tin trong MySQL/LocalDB
 
 ### 🎧 Trình phát nhạc (Audio Player)
 - ✅ Play / Pause / Stop
-- Next / Previous track
+- ✅ Next / Previous track
 - Rewind / Forward (seek)
 - Hàng đợi phát (Queue)
-- Chế độ lặp: Không lặp / Lặp playlist / Lặp 1 bài
+- ✅ Chế độ lặp: Lặp playlist / Lặp 1 bài
 - ✅ Hiển thị ảnh bìa bài hát (album art)
 - ✅ Thanh điều chỉnh âm lượng + Mute
 - Tự động lưu bài hát đang phát vào History
@@ -29,11 +29,11 @@
 - ✅ Lưu toàn bộ metadata bài hát trong **SQL LocalDB**
 - ✅ Thêm bài hát mới qua form riêng (hỗ trợ .mp3, .wav)
 - ✅ Tải ảnh bìa tự động hoặc chọn thủ công
-- Tìm kiếm nhanh theo Title / Artist / Album
+- ✅ Tìm kiếm nhanh theo Title / Artist / Album
 - Sắp xếp danh sách theo nhiều tiêu chí
 
 ### 💾 Cơ sở dữ liệu
-- Sử dụng **LocalDB (.mdf)** – không cần cài đặt SQL Server riêng
+- Sử dụng **LocalDB (.mdf)** 
 - File database nằm trong thư mục `Data/WaveSyncDB.mdf`
 - Quản lý kết nối qua lớp `DatabaseHelper.cs`
 
@@ -43,7 +43,7 @@
 | Công nghệ                     |      Mục đích                       |
 |-------------------------------|-------------------------------------|
 | C# (.NET Framework + WinForms)| Giao diện và logic chính            |
-| SQL Server LocalDB **2022**       | Lưu trữ người dùng và thư viện nhạc |
+| SQL Server LocalDB **2022**   | Lưu trữ người dùng và thư viện nhạc |
 | NAudio                        | Phát âm thanh (optional fallback)   |
 | Guna.UI2.WinForms             | Giao diện hiện đại (nếu sử dụng)    |
 | TagLibSharp                   | Đọc metadata và ảnh bìa từ file     |

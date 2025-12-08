@@ -1,0 +1,33 @@
+# Visual Studio and .NET specific files
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.resharper
+*.resharper.user
+*.dotsettings
+*.dotsettings.user
+*.cache
+*.log
+*.bak
+*.ncb
+*.opensdf
+*.sdf
+*.vshost.*
+*.csproj.user
+*.ide
+TestResults/
+_ReSharper.*/
+packages/
+# NuGet
+*.nupkg
+*.orig
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+# Operating system specific files
+.DS_Store
+Thumbs.db

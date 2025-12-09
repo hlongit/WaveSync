@@ -32,7 +32,7 @@ namespace MusicPlayer.Controls
             // lblArtist
             // 
             this.lblArtist.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblArtist.Location = new System.Drawing.Point(10, 32);
+            this.lblArtist.Location = new System.Drawing.Point(135, 5);
             this.lblArtist.Name = "lblArtist";
             this.lblArtist.Size = new System.Drawing.Size(200, 20);
             this.lblArtist.TabIndex = 1;
@@ -41,14 +41,14 @@ namespace MusicPlayer.Controls
             // lblAlbum
             // 
             this.lblAlbum.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblAlbum.Location = new System.Drawing.Point(220, 22);
+            this.lblAlbum.Location = new System.Drawing.Point(409, 5);
             this.lblAlbum.Name = "lblAlbum";
             this.lblAlbum.Size = new System.Drawing.Size(110, 20);
             this.lblAlbum.TabIndex = 2;
             this.lblAlbum.Text = "Album";
             this.lblAlbum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // SongItem
+            // SongControls
             // 
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -57,9 +57,10 @@ namespace MusicPlayer.Controls
             this.Controls.Add(this.lblTitle);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "SongItem";
-            this.Size = new System.Drawing.Size(340, 60);
+            this.Name = "SongControls";
+            this.Size = new System.Drawing.Size(685, 37);
             this.ResumeLayout(false);
+
         }
 
         #endregion

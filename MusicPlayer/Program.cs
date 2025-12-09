@@ -73,7 +73,8 @@ namespace MusicPlayer {
             DatabaseHelper.SeedFakeUsersIfEmpty();
 
             // Finally, start the main window and run the message loop
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
+            Application.Run(new MainFormUI());
         }
     }
 }

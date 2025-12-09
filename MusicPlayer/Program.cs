@@ -65,15 +65,12 @@ namespace MusicPlayer {
             // ConnStr is set here so that DatabaseHelper can use it right away
             DatabaseHelper.ConnStr = ConfigurationManager.ConnectionStrings["WaveSyncDB"].ConnectionString;
 
-            // Auto-fill the app with 4 demo songs if the Songs table is empty
-            // Runs only once (or when < 4 songs exist)
-            DatabaseHelper.SeedFourTestSongsIfEmpty();
-
             //Seed fake users if Users table is empty
             DatabaseHelper.SeedFakeUsersIfEmpty();
 
             // Finally, start the main window and run the message loop
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
+            Application.Run(new MainFormUI());
         }
     }
 }

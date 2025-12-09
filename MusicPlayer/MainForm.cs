@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration; 
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,12 +16,14 @@ using MusicPlayer.Controls;
 using MusicPlayer.Data;
 using NAudio.Wave;
 using static MusicPlayer.Forms.LoginForm;
+
 namespace MusicPlayer {
     public partial class MainForm : Form {
         // Current playing song
         private Song currentSong;
         private AudioFileReader audioFile;
         private WaveOutEvent audioPlayer;
+
         public MainForm() {
             InitializeComponent();
             SongControls.OnSongClick += SongControls_OnClick;
@@ -29,8 +31,10 @@ namespace MusicPlayer {
 
         // All songs loaded from database
         private List<Song> allSongs = new List<Song>();
+
         // Index of currently playing song in the list (-1 = none)
         private int currentIndex = -1;
+
         // Opens the "Add Music" form when button clicked
         private void AddMusicBtn_Click(object sender, EventArgs e) {
             Form AddMusic = new Forms.AddMusicForm();
@@ -40,7 +44,9 @@ namespace MusicPlayer {
             allSongs = DatabaseHelper.GetAllSongs();
             LoadSongs(allSongs);
         }
+
         private bool loopCurrentSong = false;
+
         private void MainForm_Load(object sender, EventArgs e) {
             // Get data from DB
             allSongs = DatabaseHelper.GetAllSongs();
@@ -64,32 +70,26 @@ namespace MusicPlayer {
                 }
             );
         }
-        // Load songs from database and create SongCards     
+
+        // Unified LoadSongs function
         private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
 
             foreach (var song in songs) {
-                // Use SongCard for everything (consistent UI)
                 var card = new SongCard();
 
                 card.lblTitle.Text = song.Title;
                 card.lblArtist.Text = song.Artist;
 
-                // Image Logic (Now works for Search/Shuffle too!)
                 string coverPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.CoverPath);
                 if (File.Exists(coverPath))
                     card.picCover.Image = Image.FromFile(coverPath);
                 else
-                    card.picCover.Image = null; // Or use Properties.Resources.default_cover
+                    card.picCover.Image = null;
 
-                // Store the song object
                 card.Tag = song;
 
-                // Click Event: Play the song when clicked
-                card.Click += (s, e) =>
-                {
-                    // Find the index in the GLOBAL list so Next/Prev buttons work correctly
-                    // even if you clicked it from a search result.
+                card.Click += (s, e) => {
                     currentIndex = allSongs.IndexOf(song);
                     PlaySong(song);
                 };
@@ -97,15 +97,16 @@ namespace MusicPlayer {
                 flowSongs.Controls.Add(card);
             }
         }
+
         private void PlaySong(Song song) {
             currentSong = song;
 
-            // Get full paths
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.FilePath);
             string coverFull = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.CoverPath);
 
-            // Update lblSongInfo and picCover when a new song is played
+            // Updated label to show info
             lblSongInfo.Text = $"{song.Title} - {song.Artist}";
+
             if (File.Exists(coverFull))
                 picCover.Image = Image.FromFile(coverFull);
             else
@@ -113,23 +114,19 @@ namespace MusicPlayer {
 
             AudioEngine.PlaySong(fullPath);
             btnPlayPause.Text = "Pause";
-            int currentUserId = LoginSession.UserID; 
-            if (DatabaseHelper.UserExists(currentUserId))
-            {
+
+            int currentUserId = LoginSession.UserID;
+            if (DatabaseHelper.UserExists(currentUserId)) {
                 DatabaseHelper.AddToPlayHistory(currentUserId, song.SongId);
             }
-            else
-            {
-                MessageBox.Show("Người dùng không tồn tại. Không thể thêm lịch sử phát.");
-            }
         }
-        private void PlayNextSong()
-        {
+
+        private void PlayNextSong() {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex + 1) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
-        // Play/Pause button click
+
         private void btnPlayPause_Click(object sender, EventArgs e) {
             if (AudioEngine.IsPlaying) {
                 AudioEngine.Pause();
@@ -140,50 +137,52 @@ namespace MusicPlayer {
                 btnPlayPause.Text = "Pause";
             }
         }
-        // Volume bar scroll
+
         private void volumeBar_Scroll(object sender, EventArgs e) {
             AudioEngine.SetVolume(volumeBar.Value / 100f);
         }
-        // Allow user to drag seek bar
+
         private void seekBar_MouseDown(object sender, MouseEventArgs e) {
-            seekBar.Tag = "dragging";  // Mark that user is dragging
+            seekBar.Tag = "dragging";
         }
+
         private void seekBar_MouseUp(object sender, MouseEventArgs e) {
             if (seekBar.Tag is "dragging") {
-                AudioEngine.Seek(seekBar.Value);  // Jump to new position
+                AudioEngine.Seek(seekBar.Value);
                 seekBar.Tag = null;
             }
         }
-        // Next/Previous  button click
+
         private void btnNext_Click(object sender, EventArgs e) {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex + 1) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
+
         private void btnPrevious_Click(object sender, EventArgs e) {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex - 1 + allSongs.Count) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
+
         private void btnViewSongListInfo_Click(object sender, EventArgs e) {
             Form ListSongInfos = new Data.ListSongInfo();
             ListSongInfos.ShowDialog();
-            // Refresh in case edited/deleted songs in menu
             allSongs = DatabaseHelper.GetAllSongs();
             LoadSongs(allSongs);
         }
+
         private void btnUserListInfo_Click(object sender, EventArgs e) {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
+
+        private void btnLogin_Click(object sender, EventArgs e) {
             Forms.LoginForm login = new Forms.LoginForm();
             var result = login.ShowDialog();
             string userName = login.UserName;
-            if (result == DialogResult.OK)
-            {
-                lblUsername.Text = "Username: " + userName;
+            if (result == DialogResult.OK) {
+                lblUsername.Text = "User: " + userName;
                 lblUsername.Visible = true;
                 btnLogin.Visible = false;
                 btnLogout.Visible = true;
@@ -193,11 +192,10 @@ namespace MusicPlayer {
                 if (userName == "Admin1") btnUserListInfo.Visible = true;
             }
         }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
+
+        private void btnLogout_Click(object sender, EventArgs e) {
             DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
+            if (result == DialogResult.Yes) {
                 lblUsername.Text = null;
                 lblUsername.Visible = false;
                 btnLogin.Visible = true;
@@ -208,20 +206,18 @@ namespace MusicPlayer {
                 btnUserListInfo.Visible = false;
             }
         }
-        // Sign In button click
-        private void btnSignIn_Click(object sender, EventArgs e)
-        {
+
+        private void btnSignIn_Click(object sender, EventArgs e) {
             Forms.SignInForm signin = new Forms.SignInForm();
             signin.ShowDialog();
         }
-        // Play History button click
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
+
+        private void btnHistory_Click(object sender, EventArgs e) {
             var f = new MusicPlayer.Data.PlayHistoryForm();
             f.ShowDialog();
         }
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
             string keyword = txtSearch.Text.Trim().ToLower();
 
             var filtered = allSongs.Where(s =>
@@ -231,19 +227,17 @@ namespace MusicPlayer {
                 s.FilePath.ToLower().Contains(keyword)
             ).ToList();
 
-            // Now uses the SAME display logic as the main list
             LoadSongs(filtered);
         }
-        private void SongControls_OnClick(object sender, Song song)
-        {
+
+        private void SongControls_OnClick(object sender, Song song) {
             PlaySong(song);
         }
+
         private Random rng = new Random();
-        private void ShuffleList(List<Song> list)
-        {
+        private void ShuffleList(List<Song> list) {
             int n = list.Count;
-            while (n > 1)
-            {
+            while (n > 1) {
                 n--;
                 int k = rng.Next(n + 1);
                 var temp = list[k];
@@ -251,17 +245,15 @@ namespace MusicPlayer {
                 list[n] = temp;
             }
         }
-        private void btnShuffle_Click(object sender, EventArgs e)
-        {
+
+        private void btnShuffle_Click(object sender, EventArgs e) {
             ShuffleList(allSongs);
             LoadSongs(allSongs);
         }
-        private void btnLoop_Click(object sender, EventArgs e)
-        {
-            loopCurrentSong = !loopCurrentSong;
 
+        private void btnLoop_Click(object sender, EventArgs e) {
+            loopCurrentSong = !loopCurrentSong;
             btnLoop.Text = loopCurrentSong ? "Loop: ON" : "Loop: OFF";
         }
-        //End.    
     }
 }

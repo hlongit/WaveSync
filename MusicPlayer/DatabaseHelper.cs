@@ -136,53 +136,6 @@ namespace MusicPlayer {
                 MessageBox.Show("Error adding song: " + ex.Message);
             }
         }
-        public static void SeedFourTestSongsIfEmpty() {
-            SqlConnection conn = new SqlConnection(ConnStr);
-            conn.Open();
-
-            if ((int)new SqlCommand("SELECT COUNT(*) FROM Songs", conn).ExecuteScalar() >= 4)
-                return;
-
-            new SqlCommand("DELETE FROM Songs", conn).ExecuteNonQuery();
-
-            string basePath = Application.StartupPath;
-            string testMusicPath = Path.Combine(basePath, "TestMusic");
-            string testCoversPath = Path.Combine(basePath, "TestCovers");
-
-            // Check if TestMusic exists and has MP3s
-            if (!Directory.Exists(testMusicPath) || !Directory.EnumerateFiles(testMusicPath, "*.mp3").Any()) {
-                MessageBox.Show("TestMusic folder not found or empty!", "Warning");
-                return;
-            }
-
-            // Use a SPECIFIC default cover — predictable and safe
-            string defaultCoverPath = Path.Combine(testCoversPath, "default.png");
-
-            // If default.png doesn't exist → fall back to any image, or warn
-            if (!File.Exists(defaultCoverPath)) {
-                var anyImage = Directory.EnumerateFiles(testCoversPath, "*.*", SearchOption.TopDirectoryOnly)
-                    .FirstOrDefault(f => f.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-                                         f.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-                                         f.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase));
-
-                defaultCoverPath = anyImage ?? Path.Combine(basePath, "Covers", "null.png");
-                // fallback to first image or null.png in app Covers folder
-            }
-
-            foreach (string mp3 in Directory.GetFiles(testMusicPath, "*.mp3").Take(4)) {
-                string title = Path.GetFileNameWithoutExtension(mp3);
-
-                AddSongFromFile(
-                    mp3Path: mp3,
-                    coverPath: defaultCoverPath,  // Always use the same predictable cover
-                    overrideTitle: title,
-                    overrideArtist: "Test Artist",
-                    overrideAlbum: "Demo Album"
-                );
-            }
-
-            //MessageBox.Show("4 test songs seeded successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
         /// <summary>
         /// Reads all songs from the database and returns as a list of Song objects

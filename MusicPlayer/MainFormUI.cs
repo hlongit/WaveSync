@@ -25,6 +25,7 @@ namespace MusicPlayer {
         private int currentIndex = -1;
         private bool loopCurrentSong = false;
         private Random rng = new Random();
+        private MusicPlayer.Data.ListSongs listSongsView; // Assuming this is a UserControl for listing songs
 
         public MainFormUI() {
             InitializeComponent();
@@ -199,10 +200,25 @@ namespace MusicPlayer {
         }
 
         private void btnViewSongListInfo_Click(object sender, EventArgs e) {
-            Form ListSongInfos = new Data.ListSongInfo();
+            /*Form ListSongInfos = new Data.ListSongInfo();
             ListSongInfos.ShowDialog();
             allSongs = DatabaseHelper.GetAllSongs();
-            LoadSongs(allSongs);
+            LoadSongs(allSongs);*/
+
+            // 1. Setup UI for "Database View"
+            flowSongs.Visible = false; // Hide the card list
+
+            // 2. Initialize the UserControl if it doesn't exist
+            if (listSongsView == null) {
+                listSongsView = new MusicPlayer.Data.ListSongs();
+                listSongsView.Dock = DockStyle.Fill;
+                PanelContent.Controls.Add(listSongsView);
+            }
+
+            // 3. Refresh Data & Show
+            listSongsView.RefreshData(); // Fetch latest changes
+            listSongsView.Visible = true;
+            listSongsView.BringToFront();
         }
 
         private void btnUserListInfo_Click(object sender, EventArgs e) {
@@ -252,7 +268,9 @@ namespace MusicPlayer {
 
         // --- 8. PLACEHOLDERS FOR NEW UI ELEMENTS (Handling Unknowns) ---
         private void btnHome_Click(object sender, EventArgs e) {
-            // "Button that cannot click" - Implement later
+            listSongsView.Visible = false;
+            flowSongs.Visible = true;
+            flowSongs.BringToFront();
         }
 
         private void btnSongs_Click(object sender, EventArgs e) {

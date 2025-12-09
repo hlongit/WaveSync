@@ -71,7 +71,7 @@ namespace MusicPlayer {
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.Name = "SongCard";
-            this.Size = new System.Drawing.Size(557, 75);
+            this.Size = new System.Drawing.Size(595, 75);
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -189,6 +189,12 @@
     <Compile Include="Core\CurrentUser.cs" />
     <Compile Include="Core\QueueManager.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Data\ListSongs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\ListSongs.Designer.cs">
+      <DependentUpon>ListSongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\PlayHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,11 +307,41 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Covers\" />
-    <Folder Include="Musics\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Covers\2bab84eb-0ff0-4509-9e2a-0046a159c50b.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\3f0fdd73-3d9e-483a-89cd-794262b5627f.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\6f42cac3-1739-4ce1-aa52-df05a9e1d5c1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\75833b1f-4447-40ef-8ab9-945d1e7d2ee9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\a804367f-6577-4e81-9ac2-10ea20453b0a.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\ab1af759-4c9b-45b9-af48-7199a16ede5d.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\c2e9e872-b295-463f-870c-1aff9b10627e.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\d4429c94-2540-4c45-bb3a-8b04035d44cf.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\ed640e29-4c16-4bee-9491-66292de86b8c.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\efb6b959-d83e-48be-b857-03ee8e586450.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Covers\null.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\WaveSyncDB.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -322,20 +358,35 @@
     <None Include="Resources\previous.png" />
     <None Include="Resources\setting.png" />
     <None Include="Resources\volume.png" />
-    <Content Include="TestCovers\default.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Music\006a03a4-6bae-4e99-8b14-c9ab56bb4d6a.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestMusic\AdvanceAustralia.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Music\011d323b-75bd-4ba8-bab8-dd67c05fc9ca.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestMusic\AdvanceAustralia2.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Music\06c3128c-a1c8-403a-ac61-741fc47ffefa.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestMusic\DutySteelMyHeart.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Music\453022e2-befe-487a-a73f-9b8625d1ac04.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestMusic\DutySteelMyHeart2.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Music\7f928b48-4163-49b1-8317-7cfc1520c085.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\83400393-bcac-490c-8c3e-02506b9aa3a5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\ad967804-14f9-4341-a29d-cc075adffd32.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\d68a3671-21de-47d8-baa9-3991e20122ce.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\ef1b40b9-00e4-4871-b39c-3a3386f7976b.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Music\f7493feb-eceb-4758-91dd-967a33c3ef36.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -23,23 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormUI));
             this.PanelLeft = new System.Windows.Forms.Panel();
-            this.btnUserListInfo = new System.Windows.Forms.Button();
-            this.btnViewSongListInfo = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
+            this.btnFavorites = new System.Windows.Forms.Button();
             this.PanelPlayer = new System.Windows.Forms.Panel();
             this.btnLoop = new System.Windows.Forms.Button();
             this.btnShuffle = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
-            this.btnVolume = new System.Windows.Forms.Button();
             this.volumeBar = new System.Windows.Forms.TrackBar();
-            this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPlayPause = new System.Windows.Forms.Button();
             this.seekBar = new System.Windows.Forms.TrackBar();
             this.lblNowPlayingArtist = new System.Windows.Forms.Label();
             this.lblSongInfo = new System.Windows.Forms.Label();
-            this.picCover = new System.Windows.Forms.PictureBox();
             this.PanelContent = new System.Windows.Forms.Panel();
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelTop = new System.Windows.Forms.Panel();
@@ -48,18 +43,27 @@
             this.AddMusicBtn = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnFavorites = new System.Windows.Forms.Button();
+            this.notifyIconApp = new System.Windows.Forms.NotifyIcon(this.components);
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.btnVolume = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPlayPause = new System.Windows.Forms.Button();
+            this.picCover = new System.Windows.Forms.PictureBox();
+            this.btnMinimizeToTray = new System.Windows.Forms.Button();
+            this.btnUserListInfo = new System.Windows.Forms.Button();
+            this.btnViewSongListInfo = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.PanelLeft.SuspendLayout();
             this.PanelPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.PanelContent.SuspendLayout();
             this.PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelLeft
@@ -75,51 +79,20 @@
             this.PanelLeft.Size = new System.Drawing.Size(53, 385);
             this.PanelLeft.TabIndex = 0;
             // 
-            // btnUserListInfo
+            // btnFavorites
             // 
-            this.btnUserListInfo.BackgroundImage = global::MusicPlayer.Properties.Resources.setting;
-            this.btnUserListInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUserListInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserListInfo.ForeColor = System.Drawing.Color.SandyBrown;
-            this.btnUserListInfo.Location = new System.Drawing.Point(0, 107);
-            this.btnUserListInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUserListInfo.Name = "btnUserListInfo";
-            this.btnUserListInfo.Size = new System.Drawing.Size(53, 46);
-            this.btnUserListInfo.TabIndex = 5;
-            this.btnUserListInfo.UseVisualStyleBackColor = true;
-            this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
-            // 
-            // btnViewSongListInfo
-            // 
-            this.btnViewSongListInfo.BackgroundImage = global::MusicPlayer.Properties.Resources.music;
-            this.btnViewSongListInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnViewSongListInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewSongListInfo.ForeColor = System.Drawing.Color.SandyBrown;
-            this.btnViewSongListInfo.Location = new System.Drawing.Point(6, 58);
-            this.btnViewSongListInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnViewSongListInfo.Name = "btnViewSongListInfo";
-            this.btnViewSongListInfo.Size = new System.Drawing.Size(40, 36);
-            this.btnViewSongListInfo.TabIndex = 4;
-            this.btnViewSongListInfo.UseVisualStyleBackColor = true;
-            this.btnViewSongListInfo.Click += new System.EventHandler(this.btnViewSongListInfo_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackgroundImage = global::MusicPlayer.Properties.Resources.home;
-            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.ForeColor = System.Drawing.Color.SandyBrown;
-            this.btnHome.Location = new System.Drawing.Point(6, 6);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(40, 36);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnFavorites.Location = new System.Drawing.Point(7, 162);
+            this.btnFavorites.Name = "btnFavorites";
+            this.btnFavorites.Size = new System.Drawing.Size(40, 23);
+            this.btnFavorites.TabIndex = 6;
+            this.btnFavorites.Text = "♥";
+            this.btnFavorites.UseVisualStyleBackColor = true;
+            this.btnFavorites.Click += new System.EventHandler(this.btnFavorites_Click);
             // 
             // PanelPlayer
             // 
             this.PanelPlayer.BackColor = System.Drawing.Color.PeachPuff;
+            this.PanelPlayer.Controls.Add(this.btnMinimizeToTray);
             this.PanelPlayer.Controls.Add(this.btnLoop);
             this.PanelPlayer.Controls.Add(this.btnShuffle);
             this.PanelPlayer.Controls.Add(this.lblTime);
@@ -168,19 +141,6 @@
             this.lblTime.TabIndex = 12;
             this.lblTime.Text = "00:00";
             // 
-            // btnVolume
-            // 
-            this.btnVolume.BackgroundImage = global::MusicPlayer.Properties.Resources.volume;
-            this.btnVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolume.ForeColor = System.Drawing.Color.PeachPuff;
-            this.btnVolume.Location = new System.Drawing.Point(670, 24);
-            this.btnVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVolume.Name = "btnVolume";
-            this.btnVolume.Size = new System.Drawing.Size(31, 28);
-            this.btnVolume.TabIndex = 8;
-            this.btnVolume.UseVisualStyleBackColor = true;
-            // 
             // volumeBar
             // 
             this.volumeBar.Location = new System.Drawing.Point(707, 24);
@@ -190,49 +150,6 @@
             this.volumeBar.Size = new System.Drawing.Size(134, 56);
             this.volumeBar.TabIndex = 7;
             this.volumeBar.Scroll += new System.EventHandler(this.volumeBar_Scroll);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnPrevious.BackgroundImage = global::MusicPlayer.Properties.Resources.previous;
-            this.btnPrevious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrevious.ForeColor = System.Drawing.Color.PeachPuff;
-            this.btnPrevious.Location = new System.Drawing.Point(347, 10);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(31, 28);
-            this.btnPrevious.TabIndex = 4;
-            this.btnPrevious.UseVisualStyleBackColor = false;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackgroundImage = global::MusicPlayer.Properties.Resources.next;
-            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.ForeColor = System.Drawing.Color.PeachPuff;
-            this.btnNext.Location = new System.Drawing.Point(454, 10);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(31, 28);
-            this.btnNext.TabIndex = 6;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPlayPause
-            // 
-            this.btnPlayPause.BackgroundImage = global::MusicPlayer.Properties.Resources.pause;
-            this.btnPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlayPause.ForeColor = System.Drawing.Color.PeachPuff;
-            this.btnPlayPause.Location = new System.Drawing.Point(401, 10);
-            this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPlayPause.Name = "btnPlayPause";
-            this.btnPlayPause.Size = new System.Drawing.Size(31, 28);
-            this.btnPlayPause.TabIndex = 5;
-            this.btnPlayPause.UseVisualStyleBackColor = true;
-            this.btnPlayPause.Click += new System.EventHandler(this.btnPlayPause_Click);
             // 
             // seekBar
             // 
@@ -263,16 +180,6 @@
             this.lblSongInfo.TabIndex = 1;
             this.lblSongInfo.Text = "Tên bài hát";
             this.lblSongInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // picCover
-            // 
-            this.picCover.Location = new System.Drawing.Point(11, 8);
-            this.picCover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picCover.Name = "picCover";
-            this.picCover.Size = new System.Drawing.Size(62, 56);
-            this.picCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCover.TabIndex = 0;
-            this.picCover.TabStop = false;
             // 
             // PanelContent
             // 
@@ -363,18 +270,6 @@
             this.txtSearch.TabIndex = 21;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // picLogo
-            // 
-            this.picLogo.BackColor = System.Drawing.Color.Transparent;
-            this.picLogo.Image = global::MusicPlayer.Properties.Resources.logo;
-            this.picLogo.Location = new System.Drawing.Point(0, 0);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(53, 48);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 7;
-            this.picLogo.TabStop = false;
-            // 
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,15 +294,142 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btnFavorites
+            // notifyIconApp
             // 
-            this.btnFavorites.Location = new System.Drawing.Point(7, 162);
-            this.btnFavorites.Name = "btnFavorites";
-            this.btnFavorites.Size = new System.Drawing.Size(40, 23);
-            this.btnFavorites.TabIndex = 6;
-            this.btnFavorites.Text = "♥";
-            this.btnFavorites.UseVisualStyleBackColor = true;
-            this.btnFavorites.Click += new System.EventHandler(this.btnFavorites_Click);
+            this.notifyIconApp.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconApp.Icon")));
+            this.notifyIconApp.Text = "WaveSync";
+            this.notifyIconApp.Click += new System.EventHandler(this.notifyIconApp_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Image = global::MusicPlayer.Properties.Resources.logo;
+            this.picLogo.Location = new System.Drawing.Point(0, 0);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(53, 48);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 7;
+            this.picLogo.TabStop = false;
+            // 
+            // btnVolume
+            // 
+            this.btnVolume.BackgroundImage = global::MusicPlayer.Properties.Resources.volume;
+            this.btnVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolume.ForeColor = System.Drawing.Color.PeachPuff;
+            this.btnVolume.Location = new System.Drawing.Point(670, 24);
+            this.btnVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolume.Name = "btnVolume";
+            this.btnVolume.Size = new System.Drawing.Size(31, 28);
+            this.btnVolume.TabIndex = 8;
+            this.btnVolume.UseVisualStyleBackColor = true;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnPrevious.BackgroundImage = global::MusicPlayer.Properties.Resources.previous;
+            this.btnPrevious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.ForeColor = System.Drawing.Color.PeachPuff;
+            this.btnPrevious.Location = new System.Drawing.Point(347, 10);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(31, 28);
+            this.btnPrevious.TabIndex = 4;
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackgroundImage = global::MusicPlayer.Properties.Resources.next;
+            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.Color.PeachPuff;
+            this.btnNext.Location = new System.Drawing.Point(454, 10);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(31, 28);
+            this.btnNext.TabIndex = 6;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPlayPause
+            // 
+            this.btnPlayPause.BackgroundImage = global::MusicPlayer.Properties.Resources.pause;
+            this.btnPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayPause.ForeColor = System.Drawing.Color.PeachPuff;
+            this.btnPlayPause.Location = new System.Drawing.Point(401, 10);
+            this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPlayPause.Name = "btnPlayPause";
+            this.btnPlayPause.Size = new System.Drawing.Size(31, 28);
+            this.btnPlayPause.TabIndex = 5;
+            this.btnPlayPause.UseVisualStyleBackColor = true;
+            this.btnPlayPause.Click += new System.EventHandler(this.btnPlayPause_Click);
+            // 
+            // picCover
+            // 
+            this.picCover.Location = new System.Drawing.Point(11, 8);
+            this.picCover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picCover.Name = "picCover";
+            this.picCover.Size = new System.Drawing.Size(62, 56);
+            this.picCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCover.TabIndex = 0;
+            this.picCover.TabStop = false;
+            // 
+            // btnMinimizeToTray
+            // 
+            this.btnMinimizeToTray.BackgroundImage = global::MusicPlayer.Properties.Resources.minimize2tray;
+            this.btnMinimizeToTray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMinimizeToTray.Location = new System.Drawing.Point(887, 25);
+            this.btnMinimizeToTray.Name = "btnMinimizeToTray";
+            this.btnMinimizeToTray.Size = new System.Drawing.Size(35, 35);
+            this.btnMinimizeToTray.TabIndex = 7;
+            this.btnMinimizeToTray.UseVisualStyleBackColor = true;
+            this.btnMinimizeToTray.Click += new System.EventHandler(this.btnMinimizeToTray_Click);
+            // 
+            // btnUserListInfo
+            // 
+            this.btnUserListInfo.BackgroundImage = global::MusicPlayer.Properties.Resources.setting;
+            this.btnUserListInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUserListInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserListInfo.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnUserListInfo.Location = new System.Drawing.Point(0, 107);
+            this.btnUserListInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUserListInfo.Name = "btnUserListInfo";
+            this.btnUserListInfo.Size = new System.Drawing.Size(53, 46);
+            this.btnUserListInfo.TabIndex = 5;
+            this.btnUserListInfo.UseVisualStyleBackColor = true;
+            this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
+            // 
+            // btnViewSongListInfo
+            // 
+            this.btnViewSongListInfo.BackgroundImage = global::MusicPlayer.Properties.Resources.music;
+            this.btnViewSongListInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnViewSongListInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewSongListInfo.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnViewSongListInfo.Location = new System.Drawing.Point(6, 58);
+            this.btnViewSongListInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewSongListInfo.Name = "btnViewSongListInfo";
+            this.btnViewSongListInfo.Size = new System.Drawing.Size(40, 36);
+            this.btnViewSongListInfo.TabIndex = 4;
+            this.btnViewSongListInfo.UseVisualStyleBackColor = true;
+            this.btnViewSongListInfo.Click += new System.EventHandler(this.btnViewSongListInfo_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackgroundImage = global::MusicPlayer.Properties.Resources.home;
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnHome.Location = new System.Drawing.Point(6, 6);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(40, 36);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // MainFormUI
             // 
@@ -433,11 +455,11 @@
             this.PanelPlayer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seekBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
             this.PanelContent.ResumeLayout(false);
             this.PanelTop.ResumeLayout(false);
             this.PanelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,6 +495,8 @@
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.Button btnViewSongListInfo;
         private System.Windows.Forms.Button btnFavorites;
+        private System.Windows.Forms.NotifyIcon notifyIconApp;
+        private System.Windows.Forms.Button btnMinimizeToTray;
     }
 }
 

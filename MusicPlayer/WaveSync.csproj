@@ -348,6 +348,7 @@
     <Content Include="Data\WaveSyncDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\minimize2tray.png" />
     <None Include="Resources\home.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\music.png" />

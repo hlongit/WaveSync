@@ -120,8 +120,8 @@ namespace MusicPlayer {
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.FilePath);
             string coverFull = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.CoverPath);
 
-            // Using the renamed label (was lblNowPlayingTitle)
-            lblSongInfo.Text = $"{song.Title} - {song.Artist}";
+            lblSongInfo.Text = song.Title;           // Top label (Title)
+            lblNowPlayingArtist.Text = song.Artist;  // Bottom label (Artist)
 
             if (File.Exists(coverFull))
                 picCover.Image = Image.FromFile(coverFull);
@@ -129,7 +129,7 @@ namespace MusicPlayer {
                 picCover.Image = null;
 
             AudioEngine.PlaySong(fullPath);
-            btnPlayPause.Text = "Pause"; // Or change to Pause Icon
+            btnPlayPause.Text = "||"; // Or change to Pause Icon
 
             // Handle History (assuming LoginSession exists)
             int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
@@ -338,6 +338,20 @@ namespace MusicPlayer {
             // 2. Load SPECIFIC data
             var favSongs = DatabaseHelper.GetFavoriteSongs(userId);
             LoadSongs(favSongs);
+        }
+
+        private void btnMinimizeToTray_Click(object sender, EventArgs e) {
+            this.Hide();                   // Hides the form from the screen AND taskbar
+            notifyIconApp.Visible = true;  // Show the icon in the system tray
+
+            // Optional: Show a little popup bubble
+            notifyIconApp.ShowBalloonTip(2000, "WaveSync", "Running in background", ToolTipIcon.Info);
+        }
+
+        private void notifyIconApp_Click(object sender, EventArgs e) {
+            this.Show();                   // Bring form back
+            this.WindowState = FormWindowState.Normal; // Ensure it's not minimized
+            notifyIconApp.Visible = false; // Hide the tray icon again
         }
     }
 }

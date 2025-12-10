@@ -23,7 +23,8 @@
 - ✅ Chế độ lặp: Lặp playlist / Lặp 1 bài
 - ✅ Hiển thị ảnh bìa bài hát (album art)
 - ✅ Thanh điều chỉnh âm lượng + Mute
-- Tự động lưu bài hát đang phát vào History
+- ✅ Tự động lưu bài hát đang phát vào History
+- ✅ Cho người dùng lưu bài hát yêu thích
 
 ### 📚 Quản lý thư viện nhạc
 - ✅ Lưu toàn bộ metadata bài hát trong **SQL LocalDB**
@@ -45,8 +46,8 @@
 | C# (.NET Framework + WinForms)| Giao diện và logic chính            |
 | SQL Server LocalDB **2022**   | Lưu trữ người dùng và thư viện nhạc |
 | NAudio                        | Phát âm thanh (optional fallback)   |
-| Guna.UI2.WinForms             | Giao diện hiện đại (nếu sử dụng)    |
 | TagLibSharp                   | Đọc metadata và ảnh bìa từ file     |
+<!-- | Guna.UI2.WinForms             | Giao diện hiện đại (nếu sử dụng)    | -->
 
 ---
 
@@ -61,8 +62,11 @@
 ---
 
 ## 🚀 Hướng dẫn cài đặt & chạy dự án
-
+### Cho contributor
 ### Yêu cầu
 - Windows 10/11
 - Visual Studio 2022 (Community trở lên) với workload **.NET desktop development**
-- SQL Server Express LocalDB (được cài tự động cùng Visual Studio)
+- SQL Server Express LocalDB 2022 (được cài tự động cùng Visual Studio)
+### Cho người dùng phổ thông
+- Window 10/11
+- SQL Server Express LocalDB 2022

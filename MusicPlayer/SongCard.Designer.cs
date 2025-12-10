@@ -45,11 +45,10 @@ namespace MusicPlayer {
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(80, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(46, 23);
+            this.lblTitle.Size = new System.Drawing.Size(498, 23);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Title";
             // 
@@ -57,7 +56,7 @@ namespace MusicPlayer {
             // 
             this.lblArtist.AutoSize = true;
             this.lblArtist.ForeColor = System.Drawing.Color.Gray;
-            this.lblArtist.Location = new System.Drawing.Point(88, 40);
+            this.lblArtist.Location = new System.Drawing.Point(84, 42);
             this.lblArtist.Name = "lblArtist";
             this.lblArtist.Size = new System.Drawing.Size(36, 16);
             this.lblArtist.TabIndex = 2;

@@ -314,6 +314,84 @@ namespace MusicPlayer {
 
             return dt;
         }
+        //Features: Favorite songs
+        //Add to Favorites
+        public static void AddToFavorites(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                // IGNORE_DUP_KEY is hard in simple SQL, so we check first
+                string check = "SELECT COUNT(*) FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(check, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    if ((int)cmd.ExecuteScalar() > 0) return; // Already exists
+                }
+
+                string sql = "INSERT INTO FavSongs (UserId, SongId) VALUES (@u, @s)";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //Remove from Favorites (Toggle logic)
+        public static void RemoveFromFavorites(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = "DELETE FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Check if Favorited (For button color)
+        public static bool IsFavorite(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = "SELECT COUNT(*) FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    return (int)cmd.ExecuteScalar() > 0;
+                }
+            }
+        }
+
+        // Get All Favorites for User
+        public static List<Song> GetFavoriteSongs(int userId) {
+            var songs = new List<Song>();
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = @"
+            SELECT s.SongId, s.Title, s.Artist, s.Album, s.DurationSeconds, s.FilePath, s.CoverPath
+            FROM Songs s
+            JOIN FavSongs f ON s.SongId = f.SongId
+            WHERE f.UserId = @u";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            songs.Add(new Song {
+                                SongId = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Artist = reader.GetString(2),
+                                Album = reader.GetString(3),
+                                DurationSeconds = reader.GetInt32(4),
+                                FilePath = reader.GetString(5),
+                                CoverPath = reader.IsDBNull(6) ? "Covers\\null.png" : reader.GetString(6)
+                            });
+                        }
+                    }
+                }
+            }
+            return songs;
+        }
 
     }
 }

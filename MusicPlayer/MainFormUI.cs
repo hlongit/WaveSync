@@ -61,9 +61,12 @@ namespace MusicPlayer {
         // --- 3. UNIFIED LOAD SONGS FUNCTION ---
         private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
+            int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID; // Get logged in user
 
             foreach (var song in songs) {
                 var card = new SongCard();
+
+                //generate card details
 
                 card.lblTitle.Text = song.Title;
                 card.lblArtist.Text = song.Artist;
@@ -80,6 +83,31 @@ namespace MusicPlayer {
                     currentIndex = allSongs.IndexOf(song);
                     PlaySong(song);
                 };
+
+                // --- FAVORITE LOGIC ---
+                if (currentUserId > 0) { // Only if logged in
+                                         // 1. Set Initial State (Color)
+                    bool isFav = DatabaseHelper.IsFavorite(currentUserId, song.SongId);
+                    card.btnFav.ForeColor = isFav ? Color.Red : Color.Gray;
+
+                    // 2. Click Event
+                    card.btnFav.Click += (s, e) => {
+                        bool currentlyFav = (card.btnFav.ForeColor == Color.Red);
+
+                        if (currentlyFav) {
+                            DatabaseHelper.RemoveFromFavorites(currentUserId, song.SongId);
+                            card.btnFav.ForeColor = Color.Gray;
+                        }
+                        else {
+                            DatabaseHelper.AddToFavorites(currentUserId, song.SongId);
+                            card.btnFav.ForeColor = Color.Red;
+                        }
+                    };
+                }
+                else {
+                    // Hide button if not logged in
+                    card.btnFav.Visible = false;
+                }
 
                 flowSongs.Controls.Add(card);
             }
@@ -240,6 +268,7 @@ namespace MusicPlayer {
                 btnSignIn.Visible = false;
                 if (userName == "Admin1") btnUserListInfo.Visible = true;
             }
+            LoadSongs(allSongs); // Refresh to show favorite buttons if needed
         }
 
         private void btnLogout_Click(object sender, EventArgs e) {
@@ -268,9 +297,10 @@ namespace MusicPlayer {
 
         // --- 8. PLACEHOLDERS FOR NEW UI ELEMENTS (Handling Unknowns) ---
         private void btnHome_Click(object sender, EventArgs e) {
-            listSongsView.Visible = false;
+            if (listSongsView != null) listSongsView.Visible = false;
             flowSongs.Visible = true;
             flowSongs.BringToFront();
+            LoadSongs(allSongs);
         }
 
         private void btnSongs_Click(object sender, EventArgs e) {
@@ -287,6 +317,27 @@ namespace MusicPlayer {
 
         private void MainFormUI_Resize(object sender, EventArgs e) {
             Invalidate();
+        }
+
+        private void flowSongs_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnFavorites_Click(object sender, EventArgs e) {
+            int userId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
+
+            if (userId <= 0) {
+                MessageBox.Show("Please login to see favorites!");
+                return;
+            }
+
+            // 1. Switch UI Mode
+            flowSongs.Visible = true;
+            flowSongs.BringToFront(); // Re-use home layout (it has the flow panel)
+
+            // 2. Load SPECIFIC data
+            var favSongs = DatabaseHelper.GetFavoriteSongs(userId);
+            LoadSongs(favSongs);
         }
     }
 }

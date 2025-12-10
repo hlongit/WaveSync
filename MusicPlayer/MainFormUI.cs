@@ -120,8 +120,8 @@ namespace MusicPlayer {
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.FilePath);
             string coverFull = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, song.CoverPath);
 
-            // Using the renamed label (was lblNowPlayingTitle)
-            lblSongInfo.Text = $"{song.Title} - {song.Artist}";
+            lblSongInfo.Text = song.Title;           // Top label (Title)
+            lblNowPlayingArtist.Text = song.Artist;  // Bottom label (Artist)
 
             if (File.Exists(coverFull))
                 picCover.Image = Image.FromFile(coverFull);
@@ -129,7 +129,7 @@ namespace MusicPlayer {
                 picCover.Image = null;
 
             AudioEngine.PlaySong(fullPath);
-            btnPlayPause.Text = "Pause"; // Or change to Pause Icon
+            btnPlayPause.Text = "||"; // Or change to Pause Icon
 
             // Handle History (assuming LoginSession exists)
             int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;

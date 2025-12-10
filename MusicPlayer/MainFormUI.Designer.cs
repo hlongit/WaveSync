@@ -51,6 +51,7 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnFavorites = new System.Windows.Forms.Button();
             this.PanelLeft.SuspendLayout();
             this.PanelPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
@@ -64,6 +65,7 @@
             // PanelLeft
             // 
             this.PanelLeft.BackColor = System.Drawing.Color.SandyBrown;
+            this.PanelLeft.Controls.Add(this.btnFavorites);
             this.PanelLeft.Controls.Add(this.btnUserListInfo);
             this.PanelLeft.Controls.Add(this.btnViewSongListInfo);
             this.PanelLeft.Controls.Add(this.btnHome);
@@ -294,6 +296,7 @@
             this.flowSongs.Size = new System.Drawing.Size(879, 385);
             this.flowSongs.TabIndex = 0;
             this.flowSongs.WrapContents = false;
+            this.flowSongs.Click += new System.EventHandler(this.flowSongs_Click);
             // 
             // PanelTop
             // 
@@ -396,6 +399,16 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnFavorites
+            // 
+            this.btnFavorites.Location = new System.Drawing.Point(7, 162);
+            this.btnFavorites.Name = "btnFavorites";
+            this.btnFavorites.Size = new System.Drawing.Size(40, 23);
+            this.btnFavorites.TabIndex = 6;
+            this.btnFavorites.Text = "♥";
+            this.btnFavorites.UseVisualStyleBackColor = true;
+            this.btnFavorites.Click += new System.EventHandler(this.btnFavorites_Click);
+            // 
             // MainFormUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -459,6 +472,7 @@
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.Button btnViewSongListInfo;
+        private System.Windows.Forms.Button btnFavorites;
     }
 }
 

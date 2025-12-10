@@ -51,9 +51,10 @@
 ---
 
 ## 📸 Một số ảnh chụp màn hình (cập nhật dần)
-![Login Form](Screenshots/login.png)
+<!-- ![Login Form](Screenshots/login.png) -->
 ![Main Form](Screenshots/main.png)
-![Add Music](Screenshots/addmusic.png)
+<!--
+![Add Music](Screenshots/addmusic.png) -->
 
 *(Thư mục `Screenshots/` sẽ được cập nhật thường xuyên)*
 

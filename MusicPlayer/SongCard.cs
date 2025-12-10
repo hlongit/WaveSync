@@ -11,16 +11,17 @@ using System.Windows.Forms;
 
 namespace MusicPlayer {
     public partial class SongCard : UserControl {
-        public PictureBox picCover;
-        public Label lblTitle;
-        public Label lblArtist;
+        
         public SongCard() {
             InitializeComponent();
 
-            // CORRECT WAY — forward clicks from children to the card
+            //forward clicks from children to the card
             picCover.Click += (s, e) => { this.OnClick(e); };
             lblTitle.Click += (s, e) => { this.OnClick(e); };
             lblArtist.Click += (s, e) => { this.OnClick(e); };
+
+            //ensure fav button is always on top
+            btnFav.BringToFront();
 
             // Optional: beautiful hover effect
             this.MouseEnter += (s, e) => this.BackColor = Color.FromArgb(60, 60, 60);

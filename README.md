@@ -46,8 +46,8 @@
 | C# (.NET Framework + WinForms)| Giao diện và logic chính            |
 | SQL Server LocalDB **2022**   | Lưu trữ người dùng và thư viện nhạc |
 | NAudio                        | Phát âm thanh (optional fallback)   |
-<!-- | Guna.UI2.WinForms             | Giao diện hiện đại (nếu sử dụng)    | -->
 | TagLibSharp                   | Đọc metadata và ảnh bìa từ file     |
+<!-- | Guna.UI2.WinForms             | Giao diện hiện đại (nếu sử dụng)    | -->
 
 ---
 

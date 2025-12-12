@@ -1,16 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicPlayer.Core {
-    internal class CurrentUser {
+    internal class CurrentUser
+    {
+        public static int UserID { get; set; }
+        public static string Username { get; set; }
+        public static string DisplayName { get; set; }
+        public static string AvatarPath { get; set; }
     }
-    /*
-     * public static class CurrentUser {
-    public static string Username { get; set; } = "";
-    public static User Data { get; set; } = new();
-}
-     */
 }

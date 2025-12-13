@@ -339,6 +339,18 @@ namespace MusicPlayer {
             var favSongs = DatabaseHelper.GetFavoriteSongs(userId);
             LoadSongs(favSongs);
         }
+        private void btnUserInfo_Click(object sender, EventArgs e)
+        {
+            // Xóa nội dung cũ trong PanelContent (nếu có)
+            this.PanelContent.Controls.Clear();
+
+            // Tạo mới UserInfoControl
+            UserInfoControls userInfo = new UserInfoControls();
+            userInfo.Dock = DockStyle.Fill; // cho control chiếm toàn bộ panel
+
+            // Thêm vào PanelContent
+            this.PanelContent.Controls.Add(userInfo);
+        }
 
         private void btnMinimizeToTray_Click(object sender, EventArgs e) {
             this.Hide();                   // Hides the form from the screen AND taskbar

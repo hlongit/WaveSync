@@ -30,6 +30,7 @@
             this.PanelPlayer = new System.Windows.Forms.Panel();
             this.btnLoop = new System.Windows.Forms.Button();
             this.btnShuffle = new System.Windows.Forms.Button();
+            this.btnUserInfo = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.volumeBar = new System.Windows.Forms.TrackBar();
             this.seekBar = new System.Windows.Forms.TrackBar();
@@ -208,6 +209,7 @@
             // PanelTop
             // 
             this.PanelTop.BackColor = System.Drawing.Color.PeachPuff;
+            this.PanelTop.Controls.Add(this.btnUserInfo);
             this.PanelTop.Controls.Add(this.btnSignIn);
             this.PanelTop.Controls.Add(this.btnHistory);
             this.PanelTop.Controls.Add(this.AddMusicBtn);
@@ -219,8 +221,18 @@
             this.PanelTop.Location = new System.Drawing.Point(0, 0);
             this.PanelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTop.Name = "PanelTop";
-            this.PanelTop.Size = new System.Drawing.Size(852, 48);
+            this.PanelTop.Size = new System.Drawing.Size(938, 48);
             this.PanelTop.TabIndex = 3;
+            // 
+            // btnUserInfo
+            // 
+            this.btnUserInfo.Location = new System.Drawing.Point(384, 8);
+            this.btnUserInfo.Name = "btnUserInfo";
+            this.btnUserInfo.Size = new System.Drawing.Size(123, 31);
+            this.btnUserInfo.TabIndex = 27;
+            this.btnUserInfo.Text = "User Info";
+            this.btnUserInfo.UseVisualStyleBackColor = true;
+            this.btnUserInfo.Click += new System.EventHandler(this.btnUserInfo_Click);
             // 
             // btnSignIn
             // 
@@ -234,7 +246,7 @@
             // 
             // btnHistory
             // 
-            this.btnHistory.Location = new System.Drawing.Point(397, 8);
+            this.btnHistory.Location = new System.Drawing.Point(513, 8);
             this.btnHistory.Name = "btnHistory";
             this.btnHistory.Size = new System.Drawing.Size(75, 31);
             this.btnHistory.TabIndex = 26;
@@ -245,7 +257,7 @@
             // 
             // AddMusicBtn
             // 
-            this.AddMusicBtn.Location = new System.Drawing.Point(490, 10);
+            this.AddMusicBtn.Location = new System.Drawing.Point(591, 11);
             this.AddMusicBtn.Name = "AddMusicBtn";
             this.AddMusicBtn.Size = new System.Drawing.Size(88, 28);
             this.AddMusicBtn.TabIndex = 25;
@@ -270,10 +282,22 @@
             this.txtSearch.TabIndex = 21;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // picLogo
+            // 
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Image = global::MusicPlayer.Properties.Resources.logo;
+            this.picLogo.Location = new System.Drawing.Point(0, 0);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(53, 48);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 7;
+            this.picLogo.TabStop = false;
+            // 
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(724, 6);
+            this.btnLogout.Location = new System.Drawing.Point(813, 6);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(122, 36);
@@ -285,7 +309,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(589, 6);
+            this.btnLogin.Location = new System.Drawing.Point(685, 5);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(122, 36);
@@ -497,6 +521,7 @@
         private System.Windows.Forms.Button btnFavorites;
         private System.Windows.Forms.NotifyIcon notifyIconApp;
         private System.Windows.Forms.Button btnMinimizeToTray;
+        private System.Windows.Forms.Button btnUserInfo;
     }
 }
 

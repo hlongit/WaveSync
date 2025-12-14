@@ -184,6 +184,12 @@
     <Compile Include="Controls\SongControls.Designer.cs">
       <DependentUpon>SongControls.cs</DependentUpon>
     </Compile>
+        <Compile Include="Controls\UserInfoControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInfoControls.Designer.cs">
+      <DependentUpon>UserInfoControls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\AppData.cs" />
     <Compile Include="Core\AudioEngine.cs" />
     <Compile Include="Core\CurrentUser.cs" />
@@ -218,6 +224,12 @@
     </Compile>
     <Compile Include="Forms\SignInForm.Designer.cs">
       <DependentUpon>SignInForm.cs</DependentUpon>
+    </Compile>
+      <Compile Include="Forms\UserSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserSettingForm.Designer.cs">
+      <DependentUpon>UserSettingFormForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -255,6 +267,9 @@
     <EmbeddedResource Include="Controls\SongControls.resx">
       <DependentUpon>SongControls.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserInfoControls.resx">
+      <DependentUpon>UserInfoControls.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Data\ListSongInfo.resx">
       <DependentUpon>ListSongInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserSettingForm.resx">
+      <DependentUpon>UserSettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

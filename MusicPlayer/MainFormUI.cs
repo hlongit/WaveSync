@@ -345,7 +345,7 @@ namespace MusicPlayer {
             this.PanelContent.Controls.Clear();
 
             // Tạo mới UserInfoControl
-            UserInfoControls userInfo = new UserInfoControls();
+            UserInfoControl userInfo = new UserInfoControl();
             userInfo.Dock = DockStyle.Fill; // cho control chiếm toàn bộ panel
 
             // Thêm vào PanelContent

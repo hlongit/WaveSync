@@ -392,6 +392,118 @@ namespace MusicPlayer {
             }
             return songs;
         }
+        public static string GetActiveAvatar(int userId)
+        {
+            string query = "SELECT AvatarPath FROM Avatars WHERE UserID = @uid AND IsActive = 1";
 
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    con.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    return result == null || result == DBNull.Value ? "default.png" : result.ToString();
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 208 || ex.Number == 207)
+            {
+                // Avatars table or AvatarPath column not present — fallback to Users.AvatarPath
+                try
+                {
+                    string fallbackSql = "SELECT AvatarPath FROM Users WHERE UserID = @uid";
+                    using (SqlConnection con2 = new SqlConnection(ConnStr))
+                    using (SqlCommand cmd2 = new SqlCommand(fallbackSql, con2))
+                    {
+                        cmd2.Parameters.AddWithValue("@uid", userId);
+                        con2.Open();
+
+                        object result2 = cmd2.ExecuteScalar();
+                        return result2 == null || result2 == DBNull.Value ? "default.png" : result2.ToString();
+                    }
+                }
+                catch
+                {
+                    return "default.png";
+                }
+            }
+            catch
+            {
+                return "default.png";
+            }
+        }
+
+        public static bool UpdateAvatar(int userID, string avatarPath)
+        {
+            string query = "UPDATE Users SET AvatarPath = @avatar WHERE UserID = @id";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", userID);
+                    cmd.Parameters.AddWithValue("@avatar", (object)avatarPath ?? DBNull.Value);
+
+                    connection.Open();
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 207) // Invalid column name
+            {
+                // Users.AvatarPath column doesn't exist in this DB schema.
+                // Return false so caller can fall back or ignore without crashing.
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static int AddAvatar(int userId, string avatarPath)
+        {
+            string query = @"
+        UPDATE Avatars SET IsActive = 0 WHERE UserID = @uid;
+
+        INSERT INTO Avatars (UserID, AvatarPath, IsActive)
+        VALUES (@uid, @path, 1);
+
+        SELECT SCOPE_IDENTITY();";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    cmd.Parameters.AddWithValue("@path", avatarPath);
+
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    return result == null ? 0 : Convert.ToInt32(result);
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 208 || ex.Number == 207)
+            {
+                // 208 = Invalid object name (Avatars table missing)
+                // 207 = Invalid column name (schema mismatch)
+                // Fallback: try updating Users.AvatarPath column.
+                try
+                {
+                    UpdateAvatar(userId, avatarPath);
+                }
+                catch
+                {
+                    // swallow - we don't want to crash UI if DB schema differs
+                }
+                return 0;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

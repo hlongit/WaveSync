@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -265,6 +266,30 @@ namespace MusicPlayer {
             }
             return dt;
         }
+        public static void UpdatePassword(int userId, string newPassword)
+        {
+            string sql = "UPDATE Users SET Password = @Password WHERE UserId = @UserId";
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@Password", newPassword);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static void UpdateUsername(int userId, string newUsername)
+        {
+            string sql = "UPDATE Users SET Username = @Username WHERE UserId = @UserId";
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@Username", newUsername);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
         public static bool UserExists(int userId)
         {
             string sql = "SELECT COUNT(*) FROM Users WHERE UserId = @UserId";
@@ -434,7 +459,6 @@ namespace MusicPlayer {
                 return "default.png";
             }
         }
-
         public static bool UpdateAvatar(int userID, string avatarPath)
         {
             string query = "UPDATE Users SET AvatarPath = @avatar WHERE UserID = @id";
@@ -462,6 +486,49 @@ namespace MusicPlayer {
                 return false;
             }
         }
+        public static void LoadAvatar(int userId, PictureBox picAvatar)
+        {
+            string avatarFile = GetActiveAvatar(userId);
+            string fullPath;
+            if (string.IsNullOrEmpty(avatarFile) || avatarFile == "default.png")
+            {
+                fullPath = Path.Combine("Avatars", "default.png");
+            }
+            else
+            {
+                // avatarFile có thể là: "user1.png", "Avatars/user1.png", hoặc full path
+                if (Path.IsPathRooted(avatarFile))
+                {
+                    fullPath = avatarFile;
+                }
+                else if (avatarFile.Contains("Avatars"))
+                {
+                    // Trường hợp database lưu "Avatars/user1.png"
+                    fullPath = Path.Combine(
+                        Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName,
+                        avatarFile
+                    );
+                }
+                else
+                {
+                    // Trường hợp DB chỉ lưu "user1.png"
+                    fullPath = Path.Combine("Avatars", avatarFile);
+                }
+            }
+            // Fallback avatar
+            if (!File.Exists(fullPath))
+            {
+                fullPath = Path.Combine("Avatars", "default.png");
+            }
+            if (File.Exists(fullPath))
+            {
+                // Load ảnh không khóa file
+                using (var stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                {
+                    picAvatar.Image = Image.FromStream(stream);
+                }
+            }
+        }  
         public static int AddAvatar(int userId, string avatarPath)
         {
             string query = @"

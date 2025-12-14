@@ -9,10 +9,10 @@ namespace MusicPlayer.Core {
     public static string AvatarPath { get; set; } = "";
     public static string Username { get; set; } = "";
     public static int UserID { get; set; } = -1;
-    public void UpdateUser(string username, string avatarPath, int userID) {
-        Username = username;
-        AvatarPath = avatarPath;
+    public static string Password { get; set; } = "";
+    public void UpdateUser(int userID, string userName) {
         UserID = userID;
+        Username = userName;
         }
     }
 }

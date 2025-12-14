@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MusicPlayer.Controls;
+using MusicPlayer.Core;
 using MusicPlayer.Data;
 using NAudio.Wave;
 // using static MusicPlayer.Forms.LoginForm; // Uncomment if needed, but LoginSession.UserID works better
@@ -26,6 +27,7 @@ namespace MusicPlayer {
         private bool loopCurrentSong = false;
         private Random rng = new Random();
         private MusicPlayer.Data.ListSongs listSongsView; // Assuming this is a UserControl for listing songs
+        private UserInfoControl UserInfo; // User Info Control
 
         public MainFormUI() {
             InitializeComponent();
@@ -39,7 +41,6 @@ namespace MusicPlayer {
             // Get data from DB
             allSongs = DatabaseHelper.GetAllSongs();
             LoadSongs(allSongs);
-
             volumeBar.Value = 70;
             AudioEngine.SetVolume(0.7f);
 
@@ -259,17 +260,20 @@ namespace MusicPlayer {
             var result = login.ShowDialog();
             string userName = login.UserName;
             int userID = login.UserID;
+            string password = login.Password;
             if (result == DialogResult.OK) {
                 lblUsername.Text = "User: " + userName;
-                lblUsername.Visible = true;
                 btnLogin.Visible = false;
                 btnLogout.Visible = true;
                 AddMusicBtn.Visible = true;
                 btnHistory.Visible = true;
                 btnSignIn.Visible = false;
+                btnUserInfo.Visible = true;
+                picAvatar.Visible = true;
                 if (userName == "Admin1") btnUserListInfo.Visible = true;
                 MusicPlayer.Core.CurrentUser user = new MusicPlayer.Core.CurrentUser();
-                user.UpdateUser(userName, "", userID);  
+                user.UpdateUser(userID,userName); 
+                DatabaseHelper.LoadAvatar(userID, picAvatar);
             }
             LoadSongs(allSongs); // Refresh to show favorite buttons if needed
         }
@@ -277,14 +281,15 @@ namespace MusicPlayer {
         private void btnLogout_Click(object sender, EventArgs e) {
             DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
-                lblUsername.Text = null;
-                lblUsername.Visible = false;
+                lblUsername.Text = "Not logged in";
                 btnLogin.Visible = true;
                 btnLogout.Visible = false;
                 AddMusicBtn.Visible = false;
                 btnHistory.Visible = false;
                 btnSignIn.Visible = true;
                 btnUserListInfo.Visible = false;
+                btnUserInfo.Visible = false;
+                picAvatar.Visible = false;
             }
         }
 
@@ -301,6 +306,9 @@ namespace MusicPlayer {
         // --- 8. PLACEHOLDERS FOR NEW UI ELEMENTS (Handling Unknowns) ---
         private void btnHome_Click(object sender, EventArgs e) {
             if (listSongsView != null) listSongsView.Visible = false;
+            if (UserInfo != null) UserInfo.Visible = false;    
+            lblUsername.Text = "User: " + CurrentUser.Username;
+            DatabaseHelper.LoadAvatar(CurrentUser.UserID, picAvatar);
             flowSongs.Visible = true;
             flowSongs.BringToFront();
             LoadSongs(allSongs);
@@ -344,15 +352,18 @@ namespace MusicPlayer {
         }
         private void btnUserInfo_Click(object sender, EventArgs e)
         {
-            // Xóa nội dung cũ trong PanelContent (nếu có)
-            this.PanelContent.Controls.Clear();
+            flowSongs.Visible = false; // Hide the card list
 
-            // Tạo mới UserInfoControl
-            UserInfoControl userInfo = new UserInfoControl();
-            userInfo.Dock = DockStyle.Fill; // cho control chiếm toàn bộ panel
+            // 2. Initialize the UserControl if it doesn't exist
+            if (UserInfo == null)
+            {
+                UserInfo = new UserInfoControl();
+                PanelContent.Controls.Add(UserInfo);
+            }
 
-            // Thêm vào PanelContent
-            this.PanelContent.Controls.Add(userInfo);
+            // 3. Refresh Data & Show
+            UserInfo.Visible = true;
+            UserInfo.BringToFront();
         }
 
         private void btnMinimizeToTray_Click(object sender, EventArgs e) {

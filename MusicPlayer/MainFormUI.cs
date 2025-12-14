@@ -258,6 +258,7 @@ namespace MusicPlayer {
             Forms.LoginForm login = new Forms.LoginForm();
             var result = login.ShowDialog();
             string userName = login.UserName;
+            int userID = login.UserID;
             if (result == DialogResult.OK) {
                 lblUsername.Text = "User: " + userName;
                 lblUsername.Visible = true;
@@ -267,6 +268,8 @@ namespace MusicPlayer {
                 btnHistory.Visible = true;
                 btnSignIn.Visible = false;
                 if (userName == "Admin1") btnUserListInfo.Visible = true;
+                MusicPlayer.Core.CurrentUser user = new MusicPlayer.Core.CurrentUser();
+                user.UpdateUser(userName, "", userID);  
             }
             LoadSongs(allSongs); // Refresh to show favorite buttons if needed
         }

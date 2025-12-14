@@ -184,7 +184,7 @@
     <Compile Include="Controls\SongControls.Designer.cs">
       <DependentUpon>SongControls.cs</DependentUpon>
     </Compile>
-        <Compile Include="Controls\UserInfoControls.cs">
+    <Compile Include="Controls\UserInfoControls.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\UserInfoControls.Designer.cs">
@@ -219,23 +219,23 @@
     <Compile Include="Data\ListUserInfo.Designer.cs">
       <DependentUpon>ListUserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChangeNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeNameForm.Designer.cs">
+      <DependentUpon>ChangeNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SignInForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\SignInForm.Designer.cs">
       <DependentUpon>SignInForm.cs</DependentUpon>
-    </Compile>
-      <Compile Include="Forms\UserSettingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UserSettingForm.Designer.cs">
-      <DependentUpon>UserSettingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddMusicForm.cs">
       <SubType>Form</SubType>
@@ -282,17 +282,17 @@
     <EmbeddedResource Include="Forms\AddMusicForm.resx">
       <DependentUpon>AddMusicForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeNameForm.resx">
+      <DependentUpon>ChangeNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserSettingForm.resx">
-      <DependentUpon>UserSettingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormUI.resx">
       <DependentUpon>MainFormUI.cs</DependentUpon>
@@ -368,6 +368,9 @@
     </Content>
     <Content Include="Data\WaveSyncDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\minimize2tray.png" />
     <None Include="Resources\home.png" />

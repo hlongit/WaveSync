@@ -5,14 +5,14 @@ using System.Windows.Forms;
 partial class UserInfoControl
 {
     private PictureBox picAvatar;
-    private Label lblUsername;
-    private Button btnSettings;
 
     private void InitializeComponent()
     {
             this.picAvatar = new System.Windows.Forms.PictureBox();
+            this.btnChangeAvatar = new System.Windows.Forms.Button();
+            this.btnChangeName = new System.Windows.Forms.Button();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -26,36 +26,64 @@ partial class UserInfoControl
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
             // 
+            // btnChangeAvatar
+            // 
+            this.btnChangeAvatar.Location = new System.Drawing.Point(10, 86);
+            this.btnChangeAvatar.Name = "btnChangeAvatar";
+            this.btnChangeAvatar.Size = new System.Drawing.Size(70, 57);
+            this.btnChangeAvatar.TabIndex = 2;
+            this.btnChangeAvatar.Text = "Change Avatar";
+            this.btnChangeAvatar.UseVisualStyleBackColor = true;
+            this.btnChangeAvatar.Click += new System.EventHandler(this.btnChangeAvatar_Click);
+            // 
+            // btnChangeName
+            // 
+            this.btnChangeName.Location = new System.Drawing.Point(95, 43);
+            this.btnChangeName.Name = "btnChangeName";
+            this.btnChangeName.Size = new System.Drawing.Size(122, 37);
+            this.btnChangeName.TabIndex = 3;
+            this.btnChangeName.Text = "Change Name";
+            this.btnChangeName.UseVisualStyleBackColor = true;
+            this.btnChangeName.Click += new System.EventHandler(this.btnChangeName_Click);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(95, 86);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(122, 57);
+            this.btnChangePassword.TabIndex = 4;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblUsername.Location = new System.Drawing.Point(90, 15);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Text = "Username";
-            this.lblUsername.Size = new System.Drawing.Size(0, 25);
+            this.lblUsername.Size = new System.Drawing.Size(101, 25);
             this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Username";
             // 
-            // btnSettings
-            // 
-            this.btnSettings.Location = new System.Drawing.Point(230, 25);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(80, 30);
-            this.btnSettings.TabIndex = 3;
-            this.btnSettings.Text = "⚙ Settings";
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            //
             // UserInfoControl
             // 
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.btnChangeName);
+            this.Controls.Add(this.btnChangeAvatar);
             this.Controls.Add(this.picAvatar);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.btnSettings);
             this.Name = "UserInfoControl";
-            this.Size = new System.Drawing.Size(320, 94);
+            this.Size = new System.Drawing.Size(320, 149);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
     }
+
+    private Button btnChangeAvatar;
+    private Button btnChangeName;
+    private Button btnChangePassword;
+    private Label lblUsername;
 }

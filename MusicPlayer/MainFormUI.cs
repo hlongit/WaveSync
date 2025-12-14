@@ -60,7 +60,7 @@ namespace MusicPlayer {
         }
 
         // --- 3. UNIFIED LOAD SONGS FUNCTION ---
-        public void LoadSongs(List<Song> songs) {
+        private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
             int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID; // Get logged in user
 

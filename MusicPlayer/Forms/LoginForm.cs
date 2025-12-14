@@ -69,6 +69,10 @@ namespace MusicPlayer.Forms {
         {
             get { return txtUser.Text; }
         }
+        public int UserID
+        {
+            get { return LoginSession.UserID; }
+        }
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);

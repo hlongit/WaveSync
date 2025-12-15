@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicPlayer.Core {
-    internal class CurrentUser {
-    }
-    /*
-     * public static class CurrentUser {
+    public class CurrentUser {
+    public static string AvatarPath { get; set; } = "";
     public static string Username { get; set; } = "";
-    public static User Data { get; set; } = new();
-}
-     */
+    public static int UserID { get; set; } = -1;
+    public static string Password { get; set; } = "";
+    public void UpdateUser(int userID, string userName) {
+        UserID = userID;
+        Username = userName;
+        }
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -136,53 +137,6 @@ namespace MusicPlayer {
                 MessageBox.Show("Error adding song: " + ex.Message);
             }
         }
-        public static void SeedFourTestSongsIfEmpty() {
-            SqlConnection conn = new SqlConnection(ConnStr);
-            conn.Open();
-
-            if ((int)new SqlCommand("SELECT COUNT(*) FROM Songs", conn).ExecuteScalar() >= 4)
-                return;
-
-            new SqlCommand("DELETE FROM Songs", conn).ExecuteNonQuery();
-
-            string basePath = Application.StartupPath;
-            string testMusicPath = Path.Combine(basePath, "TestMusic");
-            string testCoversPath = Path.Combine(basePath, "TestCovers");
-
-            // Check if TestMusic exists and has MP3s
-            if (!Directory.Exists(testMusicPath) || !Directory.EnumerateFiles(testMusicPath, "*.mp3").Any()) {
-                MessageBox.Show("TestMusic folder not found or empty!", "Warning");
-                return;
-            }
-
-            // Use a SPECIFIC default cover — predictable and safe
-            string defaultCoverPath = Path.Combine(testCoversPath, "default.png");
-
-            // If default.png doesn't exist → fall back to any image, or warn
-            if (!File.Exists(defaultCoverPath)) {
-                var anyImage = Directory.EnumerateFiles(testCoversPath, "*.*", SearchOption.TopDirectoryOnly)
-                    .FirstOrDefault(f => f.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-                                         f.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-                                         f.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase));
-
-                defaultCoverPath = anyImage ?? Path.Combine(basePath, "Covers", "null.png");
-                // fallback to first image or null.png in app Covers folder
-            }
-
-            foreach (string mp3 in Directory.GetFiles(testMusicPath, "*.mp3").Take(4)) {
-                string title = Path.GetFileNameWithoutExtension(mp3);
-
-                AddSongFromFile(
-                    mp3Path: mp3,
-                    coverPath: defaultCoverPath,  // Always use the same predictable cover
-                    overrideTitle: title,
-                    overrideArtist: "Test Artist",
-                    overrideAlbum: "Demo Album"
-                );
-            }
-
-            //MessageBox.Show("4 test songs seeded successfully!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
         /// <summary>
         /// Reads all songs from the database and returns as a list of Song objects
@@ -312,6 +266,30 @@ namespace MusicPlayer {
             }
             return dt;
         }
+        public static void UpdatePassword(int userId, string newPassword)
+        {
+            string sql = "UPDATE Users SET Password = @Password WHERE UserId = @UserId";
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@Password", newPassword);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static void UpdateUsername(int userId, string newUsername)
+        {
+            string sql = "UPDATE Users SET Username = @Username WHERE UserId = @UserId";
+            using (SqlConnection con = new SqlConnection(ConnStr))
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@Username", newUsername);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
         public static bool UserExists(int userId)
         {
             string sql = "SELECT COUNT(*) FROM Users WHERE UserId = @UserId";
@@ -361,6 +339,238 @@ namespace MusicPlayer {
 
             return dt;
         }
+        //Features: Favorite songs
+        //Add to Favorites
+        public static void AddToFavorites(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                // IGNORE_DUP_KEY is hard in simple SQL, so we check first
+                string check = "SELECT COUNT(*) FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(check, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    if ((int)cmd.ExecuteScalar() > 0) return; // Already exists
+                }
 
+                string sql = "INSERT INTO FavSongs (UserId, SongId) VALUES (@u, @s)";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //Remove from Favorites (Toggle logic)
+        public static void RemoveFromFavorites(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = "DELETE FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Check if Favorited (For button color)
+        public static bool IsFavorite(int userId, int songId) {
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = "SELECT COUNT(*) FROM FavSongs WHERE UserId = @u AND SongId = @s";
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    cmd.Parameters.AddWithValue("@s", songId);
+                    return (int)cmd.ExecuteScalar() > 0;
+                }
+            }
+        }
+
+        // Get All Favorites for User
+        public static List<Song> GetFavoriteSongs(int userId) {
+            var songs = new List<Song>();
+            using (SqlConnection con = new SqlConnection(ConnStr)) {
+                con.Open();
+                string sql = @"
+            SELECT s.SongId, s.Title, s.Artist, s.Album, s.DurationSeconds, s.FilePath, s.CoverPath
+            FROM Songs s
+            JOIN FavSongs f ON s.SongId = f.SongId
+            WHERE f.UserId = @u";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con)) {
+                    cmd.Parameters.AddWithValue("@u", userId);
+                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                        while (reader.Read()) {
+                            songs.Add(new Song {
+                                SongId = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Artist = reader.GetString(2),
+                                Album = reader.GetString(3),
+                                DurationSeconds = reader.GetInt32(4),
+                                FilePath = reader.GetString(5),
+                                CoverPath = reader.IsDBNull(6) ? "Covers\\null.png" : reader.GetString(6)
+                            });
+                        }
+                    }
+                }
+            }
+            return songs;
+        }
+        public static string GetActiveAvatar(int userId)
+        {
+            string query = "SELECT AvatarPath FROM Avatars WHERE UserID = @uid AND IsActive = 1";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    con.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    return result == null || result == DBNull.Value ? "default.png" : result.ToString();
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 208 || ex.Number == 207)
+            {
+                // Avatars table or AvatarPath column not present — fallback to Users.AvatarPath
+                try
+                {
+                    string fallbackSql = "SELECT AvatarPath FROM Users WHERE UserID = @uid";
+                    using (SqlConnection con2 = new SqlConnection(ConnStr))
+                    using (SqlCommand cmd2 = new SqlCommand(fallbackSql, con2))
+                    {
+                        cmd2.Parameters.AddWithValue("@uid", userId);
+                        con2.Open();
+
+                        object result2 = cmd2.ExecuteScalar();
+                        return result2 == null || result2 == DBNull.Value ? "default.png" : result2.ToString();
+                    }
+                }
+                catch
+                {
+                    return "default.png";
+                }
+            }
+            catch
+            {
+                return "default.png";
+            }
+        }
+        public static bool UpdateAvatar(int userID, string avatarPath)
+        {
+            string query = "UPDATE Users SET AvatarPath = @avatar WHERE UserID = @id";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", userID);
+                    cmd.Parameters.AddWithValue("@avatar", (object)avatarPath ?? DBNull.Value);
+
+                    connection.Open();
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 207) // Invalid column name
+            {
+                // Users.AvatarPath column doesn't exist in this DB schema.
+                // Return false so caller can fall back or ignore without crashing.
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static void LoadAvatar(int userId, PictureBox picAvatar)
+        {
+            string avatarFile = GetActiveAvatar(userId);
+            string fullPath;
+            if (string.IsNullOrEmpty(avatarFile) || avatarFile == "default.png")
+            {
+                fullPath = Path.Combine("Avatars", "default.png");
+            }
+            else
+            {
+                // avatarFile có thể là: "user1.png", "Avatars/user1.png", hoặc full path
+                if (Path.IsPathRooted(avatarFile))
+                {
+                    fullPath = avatarFile;
+                }
+                else if (avatarFile.Contains("Avatars"))
+                {
+                    // Trường hợp database lưu "Avatars/user1.png"
+                    fullPath = Path.Combine(
+                        Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName,
+                        avatarFile
+                    );
+                }
+                else
+                {
+                    // Trường hợp DB chỉ lưu "user1.png"
+                    fullPath = Path.Combine("Avatars", avatarFile);
+                }
+            }
+            // Fallback avatar
+            if (!File.Exists(fullPath))
+            {
+                fullPath = Path.Combine("Avatars", "default.png");
+            }
+            if (File.Exists(fullPath))
+            {
+                // Load ảnh không khóa file
+                using (var stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                {
+                    picAvatar.Image = Image.FromStream(stream);
+                }
+            }
+        }  
+        public static int AddAvatar(int userId, string avatarPath)
+        {
+            string query = @"
+        UPDATE Avatars SET IsActive = 0 WHERE UserID = @uid;
+
+        INSERT INTO Avatars (UserID, AvatarPath, IsActive)
+        VALUES (@uid, @path, 1);
+
+        SELECT SCOPE_IDENTITY();";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnStr))
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@uid", userId);
+                    cmd.Parameters.AddWithValue("@path", avatarPath);
+
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    return result == null ? 0 : Convert.ToInt32(result);
+                }
+            }
+            catch (SqlException ex) when (ex.Number == 208 || ex.Number == 207)
+            {
+                // 208 = Invalid object name (Avatars table missing)
+                // 207 = Invalid column name (schema mismatch)
+                // Fallback: try updating Users.AvatarPath column.
+                try
+                {
+                    UpdateAvatar(userId, avatarPath);
+                }
+                catch
+                {
+                    // swallow - we don't want to crash UI if DB schema differs
+                }
+                return 0;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

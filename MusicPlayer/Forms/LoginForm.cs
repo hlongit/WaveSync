@@ -19,6 +19,7 @@ namespace MusicPlayer.Forms {
         {
             public static int UserID { get; set; }
             public static string Username { get; set; }
+            public static string Password { get; set; } = string.Empty;
         }
         private void guna2TileButton1_Click(object sender, EventArgs e)
         {
@@ -68,6 +69,14 @@ namespace MusicPlayer.Forms {
         public string UserName
         {
             get { return txtUser.Text; }
+        }
+        public int UserID
+        {
+            get { return LoginSession.UserID; }
+        }
+        public string Password
+            {
+            get { return txtPass.Text; }
         }
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {

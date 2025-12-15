@@ -1,51 +1,87 @@
-﻿using NAudio.Wave; // NAudio library for audio playback
+﻿using NAudio.Wave;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;  // For Timer
+using System.Windows.Forms;
 using File = System.IO.File;
 
 namespace MusicPlayer {
     internal class AudioEngine {
-        private static WaveOutEvent outputDevice;     // Like your speakers/headphones
-        private static AudioFileReader audioFile;     // Reads the .mp3 file
+        private static WaveOutEvent outputDevice;
+        private static AudioFileReader audioFile;
 
-
-        // Events for position changes and playback state
-        public static event Action<TimeSpan, TimeSpan> PositionChanged; // current / total
+        // Events
+        public static event Action<TimeSpan, TimeSpan> PositionChanged;
         public static event Action PlaybackStopped;
         public static event Action PlaybackStarted;
 
-        // Playback state property
         public static bool IsPlaying => outputDevice?.PlaybackState == PlaybackState.Playing;
 
+        // Named handler to prevent loops
+        private static void OnDevicePlaybackStopped(object sender, StoppedEventArgs e) {
+            PlaybackStopped?.Invoke();
+        }
+
+        // --- CENTRALIZED UI HANDLER ---
+        public static void RegisterControls(Form host, TrackBar seekBar, Label timeLabel, Button playPauseBtn, Action onSongFinished) {
+            // Handle Position Updates (Timer)
+            PositionChanged += (current, total) => {
+                if (host.IsDisposed) return;
+                host.BeginInvoke((MethodInvoker)delegate {
+                    // Only update if user is NOT dragging (checked via Tag)
+                    if (seekBar.Tag?.ToString() != "dragging") {
+                        seekBar.Maximum = (int)total.TotalSeconds;
+                        seekBar.Value = Math.Min(seekBar.Maximum, (int)current.TotalSeconds);
+                        timeLabel.Text = $"{current:mm\\:ss} / {total:mm\\:ss}";
+                    }
+                });
+            };
+
+            // Handle Start (Reset UI)
+            PlaybackStarted += () => {
+                if (host.IsDisposed) return;
+                host.BeginInvoke((MethodInvoker)delegate {
+                    playPauseBtn.Text = "Pause";
+                    // Only reset if it's a new song, not just unpausing
+                    // (Optional logic, but safe to keep simple)
+                });
+            };
+
+            // Handle Stop (Loop/Next Logic)
+            PlaybackStopped += () => {
+                if (host.IsDisposed) return;
+                host.BeginInvoke((MethodInvoker)delegate {
+                    playPauseBtn.Text = "Play";
+
+                    // Trigger the "What happens next?" logic passed from MainForm
+                    onSongFinished?.Invoke();
+                });
+            };
+        }
+        // -----------------------------------
+
         public static void PlaySong(string filePath) {
-            Stop(); // stop current
+            // Unsubscribe old event to prevent double-firing
+            if (outputDevice != null) outputDevice.PlaybackStopped -= OnDevicePlaybackStopped;
+
+            Stop();
 
             if (!File.Exists(filePath)) return;
 
             audioFile = new AudioFileReader(filePath);
             outputDevice = new WaveOutEvent();
             outputDevice.Init(audioFile);
+
+            // Subscribe new event
+            outputDevice.PlaybackStopped += OnDevicePlaybackStopped;
+
             outputDevice.Play();
 
-            //When song ends, tell MainForm to update UI
-            outputDevice.PlaybackStopped += (s, e) => PlaybackStopped?.Invoke();
-
-            
-            //Check PlaybackStarted event below.
             PlaybackStarted?.Invoke();
-            StartTimer(); 
-            //Also beware of timer.Start() because of name similarity, check detailed of StartTimer() method below
+            StartTimer();
         }
 
-        // Pause the music when Pause() is called, Resume when Resume() is called
         public static void Pause() => outputDevice?.Pause();
         public static void Resume() => outputDevice?.Play();
 
-        // Stop and dispose resources when Stop() is called
         public static void Stop() {
             outputDevice?.Stop();
             outputDevice?.Dispose();
@@ -54,29 +90,22 @@ namespace MusicPlayer {
             audioFile = null;
         }
 
-        //Set from 0 to 1.0f
-        public static void SetVolume(float volume) // 0.0f to 1.0f
-        {
+        public static void SetVolume(float volume) {
             if (audioFile != null) audioFile.Volume = volume;
         }
 
-        //Used when user drags the seek bar, or when user clicks on a position in the seek bar
-        //Change position of the audio file to the specified seconds
-
         public static void Seek(double seconds) {
-            if (audioFile != null) audioFile.Position = (long)(seconds * audioFile.WaveFormat.SampleRate * audioFile.WaveFormat.BlockAlign);
+            if (audioFile != null)
+                audioFile.Position = (long)(seconds * audioFile.WaveFormat.SampleRate * audioFile.WaveFormat.BlockAlign);
         }
 
-        // Properties to get current and total time
         public static TimeSpan CurrentTime => audioFile?.CurrentTime ?? TimeSpan.Zero;
         public static TimeSpan TotalTime => audioFile?.TotalTime ?? TimeSpan.Zero;
 
-        // Timer to update position every 500ms
-        private static System.Windows.Forms.Timer timer;
+        private static Timer timer;
         private static void StartTimer() {
             timer?.Stop();
-            timer = new System.Windows.Forms.Timer { Interval = 500 };
-            //for every 500ms, raise PositionChanged event
+            timer = new Timer { Interval = 500 };
             timer.Tick += (s, e) => PositionChanged?.Invoke(CurrentTime, TotalTime);
             timer.Start();
         }

@@ -66,6 +66,11 @@ namespace MusicPlayer.Forms
                 this.Close();
             }
         }
+
+        private void SignInForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

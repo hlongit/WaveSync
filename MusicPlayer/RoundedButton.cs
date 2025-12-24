@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -13,30 +12,30 @@ namespace MusicPlayer
         {
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
-            UseVisualStyleBackColor = false;
-            DoubleBuffered = true;
+            BackColor = Color.MediumSlateBlue;
+            ForeColor = Color.White;
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Rectangle rect = ClientRectangle;
-            rect.Inflate(-1, -1);
+            Rectangle rect = this.ClientRectangle;
+            GraphicsPath path = GetRoundedPath(rect, BorderRadius);
 
-            using (GraphicsPath path = GetRoundedPath(rect, BorderRadius))
-            using (SolidBrush brush = new SolidBrush(BackColor))
+            this.Region = new Region(path);
+
+            using (SolidBrush brush = new SolidBrush(this.BackColor))
             {
                 pevent.Graphics.FillPath(brush, path);
-                Region = new Region(path);
             }
 
             TextRenderer.DrawText(
                 pevent.Graphics,
-                Text,
-                Font,
+                this.Text,
+                this.Font,
                 rect,
-                ForeColor,
+                this.ForeColor,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
             );
         }

@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormUI));
             this.PanelPlayer = new System.Windows.Forms.Panel();
+            this.guna2TrackBarVolume = new Guna.UI2.WinForms.Guna2TrackBar();
             this.guna2TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.btnLoop = new System.Windows.Forms.Button();
             this.btnShuffle = new System.Windows.Forms.Button();
@@ -69,7 +70,6 @@
             this.roundedPanelMain = new MusicPlayer.RoundedPanel();
             this.PanelContent = new System.Windows.Forms.Panel();
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2TrackBarVolume = new Guna.UI2.WinForms.Guna2TrackBar();
             this.PanelPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.PanelTab.SuspendLayout();
@@ -106,8 +106,19 @@
             this.PanelPlayer.Location = new System.Drawing.Point(0, 590);
             this.PanelPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelPlayer.Name = "PanelPlayer";
-            this.PanelPlayer.Size = new System.Drawing.Size(1055, 111);
+            this.PanelPlayer.Size = new System.Drawing.Size(1053, 111);
             this.PanelPlayer.TabIndex = 1;
+            // 
+            // guna2TrackBarVolume
+            // 
+            this.guna2TrackBarVolume.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
+            this.guna2TrackBarVolume.Location = new System.Drawing.Point(888, 45);
+            this.guna2TrackBarVolume.Name = "guna2TrackBarVolume";
+            this.guna2TrackBarVolume.Size = new System.Drawing.Size(149, 35);
+            this.guna2TrackBarVolume.TabIndex = 28;
+            this.guna2TrackBarVolume.ThumbColor = System.Drawing.Color.Black;
+            this.guna2TrackBarVolume.Value = 70;
+            this.guna2TrackBarVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBarVolume_Scroll);
             // 
             // guna2TrackBar
             // 
@@ -264,7 +275,7 @@
             this.PanelTab.Location = new System.Drawing.Point(0, 0);
             this.PanelTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTab.Name = "PanelTab";
-            this.PanelTab.Size = new System.Drawing.Size(1055, 50);
+            this.PanelTab.Size = new System.Drawing.Size(1053, 50);
             this.PanelTab.TabIndex = 3;
             this.PanelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTop_MouseDown);
             // 
@@ -673,24 +684,13 @@
             this.flowSongs.WrapContents = false;
             this.flowSongs.Click += new System.EventHandler(this.flowSongs_Click);
             // 
-            // guna2TrackBarVolume
-            // 
-            this.guna2TrackBarVolume.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
-            this.guna2TrackBarVolume.Location = new System.Drawing.Point(888, 45);
-            this.guna2TrackBarVolume.Name = "guna2TrackBarVolume";
-            this.guna2TrackBarVolume.Size = new System.Drawing.Size(149, 35);
-            this.guna2TrackBarVolume.TabIndex = 28;
-            this.guna2TrackBarVolume.ThumbColor = System.Drawing.Color.Black;
-            this.guna2TrackBarVolume.Value = 70;
-            this.guna2TrackBarVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBarVolume_Scroll);
-            // 
             // MainFormUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1055, 701);
+            this.ClientSize = new System.Drawing.Size(1053, 701);
             this.Controls.Add(this.PanelPlayer);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.roundedPanelMain);

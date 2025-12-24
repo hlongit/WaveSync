@@ -61,9 +61,9 @@ namespace MusicPlayer.Data
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(566, 3);
+            this.btnClear.Location = new System.Drawing.Point(570, 6);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(41, 36);
+            this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 0;
             this.btnClear.Text = "button1";
             this.btnClear.UseVisualStyleBackColor = true;

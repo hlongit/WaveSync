@@ -21,7 +21,7 @@ namespace MusicPlayer {
         }
 
         // --- CENTRALIZED UI HANDLER ---
-        public static void RegisterControls(Form host, TrackBar seekBar, Label timeLabel, Button playPauseBtn, Action onSongFinished) {
+        public static void RegisterControls(Form host, Guna.UI2.WinForms.Guna2TrackBar seekBar, Label timeLabel, Button playPauseBtn, Action onSongFinished) {
             // Handle Position Updates (Timer)
             PositionChanged += (current, total) => {
                 if (host.IsDisposed) return;

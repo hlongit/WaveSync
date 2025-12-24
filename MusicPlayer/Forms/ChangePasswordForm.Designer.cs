@@ -96,7 +96,7 @@
             this.roundedPanel1.Controls.Add(this.textBox1);
             this.roundedPanel1.Controls.Add(this.label2);
             this.roundedPanel1.Controls.Add(this.label1);
-            this.roundedPanel1.Location = new System.Drawing.Point(68, 105);
+            this.roundedPanel1.Location = new System.Drawing.Point(112, 116);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(392, 178);
             this.roundedPanel1.TabIndex = 5;
@@ -105,9 +105,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::MusicPlayer.Properties.Resources.bìa;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(510, 362);
+            this.BackgroundImage = global::MusicPlayer.Properties.Resources.bg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(616, 362);
             this.Controls.Add(this.roundedPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

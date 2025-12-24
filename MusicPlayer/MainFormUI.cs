@@ -379,10 +379,5 @@ namespace MusicPlayer {
             this.WindowState = FormWindowState.Normal; // Ensure it's not minimized
             notifyIconApp.Visible = false; // Hide the tray icon again
         }
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

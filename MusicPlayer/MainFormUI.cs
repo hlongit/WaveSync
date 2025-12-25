@@ -31,8 +31,8 @@ namespace MusicPlayer {
 
         // --- 1. ORIGINAL FIELDS ---
         private Song currentSong;
-        private AudioFileReader audioFile;
-        private WaveOutEvent audioPlayer;
+        //private AudioFileReader audioFile;
+        //private WaveOutEvent audioPlayer;
         private List<Song> allSongs = new List<Song>();
         private int currentIndex = -1;
         private bool loopCurrentSong = false;
@@ -154,6 +154,9 @@ namespace MusicPlayer {
             lblSongInfo.Text = song.Title;           // Top label (Title)
             lblNowPlayingArtist.Text = song.Artist;  // Bottom label (Artist)
 
+            SetupMarquee(lblSongInfo, song.Title);
+            SetupMarquee(lblNowPlayingArtist, song.Artist);
+
             if (File.Exists(coverFull))
                 picCover.Image = Image.FromFile(coverFull);
             else
@@ -165,6 +168,29 @@ namespace MusicPlayer {
             int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
             if (DatabaseHelper.UserExists(currentUserId)) {
                 DatabaseHelper.AddToPlayHistory(currentUserId, song.SongId);
+            }
+        }
+
+        // Helper function to measure text and setup scrolling, used for longer song names and artists name of currently playing song
+        private void SetupMarquee(Label lbl, string text) {
+            // 1. Measure how wide the text is
+            Size textSize = TextRenderer.MeasureText(text, lbl.Font);
+
+            // 2. Check against the Label's FIXED width
+            if (textSize.Width > lbl.Width) {
+                // Text is too long! Enable scrolling.
+                // Add 5 spaces so the end doesn't stick to the start
+                lbl.Text = text + "     ";
+
+                if (lbl == lblSongInfo) shouldScrollTitle = true;
+                if (lbl == lblNowPlayingArtist) shouldScrollArtist = true;
+            }
+            else {
+                // Text fits fine. No scrolling needed.
+                lbl.Text = text;
+
+                if (lbl == lblSongInfo) shouldScrollTitle = false;
+                if (lbl == lblNowPlayingArtist) shouldScrollArtist = false;
             }
         }
 
@@ -475,7 +501,7 @@ namespace MusicPlayer {
                     settingsTransitions.Stop();
                 }
             }
-            this.Invalidate();
+            //this.Invalidate();
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
@@ -495,7 +521,7 @@ namespace MusicPlayer {
                 {
                     sidebarExpanded = false;
                     SideBar.Width = minWidth;
-                    SideBarTransitions.Stop();
+                    SideBarTransitions.Stop();                 
 
                     pnlHome.Width = SideBar.Width;
                     pnlAddMusics.Width = SideBar.Width;
@@ -516,9 +542,10 @@ namespace MusicPlayer {
                     pnlAddMusics.Width = SideBar.Width;
                     pnlFavor.Width = SideBar.Width;
                     SettingsContainer.Width = SideBar.Width;
+
                 }
             }
-            this.Invalidate();
+            //this.Invalidate();
         }
 
         private void Menu_Click(object sender, EventArgs e)
@@ -536,7 +563,22 @@ namespace MusicPlayer {
         {
 
         }
+        //Check for longer tittle and artist to in currently playing song, if it is too long for the box, enable scrolling
+        private bool shouldScrollTitle = false;
+        private bool shouldScrollArtist = false;
+        private void textScrollTimer_Tick(object sender, EventArgs e) {
+            // 1. Handle Title Scrolling
+            if (shouldScrollTitle && !string.IsNullOrEmpty(lblSongInfo.Text)) {
+                string current = lblSongInfo.Text;
+                // Take everything from index 1 to end, add index 0 at the back
+                lblSongInfo.Text = current.Substring(1) + current[0];
+            }
 
-        
+            // 2. Handle Artist Scrolling
+            if (shouldScrollArtist && !string.IsNullOrEmpty(lblNowPlayingArtist.Text)) {
+                string current = lblNowPlayingArtist.Text;
+                lblNowPlayingArtist.Text = current.Substring(1) + current[0];
+            }
+        }
     }
 }

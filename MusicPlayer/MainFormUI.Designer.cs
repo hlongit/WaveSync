@@ -66,6 +66,7 @@
             this.LogOutbtn = new System.Windows.Forms.Button();
             this.settingsTransitions = new System.Windows.Forms.Timer(this.components);
             this.SideBarTransitions = new System.Windows.Forms.Timer(this.components);
+            this.textScrollTimer = new System.Windows.Forms.Timer(this.components);
             this.roundedPanelMain = new MusicPlayer.RoundedPanel();
             this.PanelContent = new System.Windows.Forms.Panel();
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
@@ -163,7 +164,7 @@
             this.lblTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Location = new System.Drawing.Point(689, 67);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(60, 28);
+            this.lblTime.Size = new System.Drawing.Size(50, 23);
             this.lblTime.TabIndex = 12;
             this.lblTime.Text = "00:00";
             // 
@@ -188,7 +189,7 @@
             this.btnPrevious.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.ForeColor = System.Drawing.Color.Transparent;
-            this.btnPrevious.Location = new System.Drawing.Point(468, 34);
+            this.btnPrevious.Location = new System.Drawing.Point(468, 33);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(35, 35);
@@ -203,7 +204,7 @@
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.ForeColor = System.Drawing.Color.Transparent;
-            this.btnNext.Location = new System.Drawing.Point(560, 34);
+            this.btnNext.Location = new System.Drawing.Point(560, 33);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(35, 35);
@@ -218,7 +219,7 @@
             this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayPause.ForeColor = System.Drawing.Color.Transparent;
             this.btnPlayPause.Image = global::MusicPlayer.Properties.Resources.play;
-            this.btnPlayPause.Location = new System.Drawing.Point(509, 24);
+            this.btnPlayPause.Location = new System.Drawing.Point(509, 26);
             this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlayPause.Name = "btnPlayPause";
             this.btnPlayPause.Size = new System.Drawing.Size(45, 45);
@@ -231,7 +232,7 @@
             this.lblNowPlayingArtist.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNowPlayingArtist.Location = new System.Drawing.Point(114, 64);
             this.lblNowPlayingArtist.Name = "lblNowPlayingArtist";
-            this.lblNowPlayingArtist.Size = new System.Drawing.Size(98, 26);
+            this.lblNowPlayingArtist.Size = new System.Drawing.Size(242, 26);
             this.lblNowPlayingArtist.TabIndex = 2;
             this.lblNowPlayingArtist.Text = "Tên ca sĩ";
             this.lblNowPlayingArtist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,7 +242,7 @@
             this.lblSongInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSongInfo.Location = new System.Drawing.Point(113, 28);
             this.lblSongInfo.Name = "lblSongInfo";
-            this.lblSongInfo.Size = new System.Drawing.Size(125, 32);
+            this.lblSongInfo.Size = new System.Drawing.Size(249, 32);
             this.lblSongInfo.TabIndex = 1;
             this.lblSongInfo.Text = "Tên bài hát";
             this.lblSongInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,11 +322,11 @@
             this.guna2txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2txtSearch.FillColor = System.Drawing.SystemColors.ButtonFace;
             this.guna2txtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2txtSearch.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2txtSearch.ForeColor = System.Drawing.Color.Black;
             this.guna2txtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.guna2txtSearch.Location = new System.Drawing.Point(194, 8);
-            this.guna2txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.guna2txtSearch.Name = "guna2txtSearch";
             this.guna2txtSearch.PlaceholderText = "";
             this.guna2txtSearch.SelectedText = "";
@@ -419,7 +420,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(756, 15);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(102, 20);
+            this.lblUsername.Size = new System.Drawing.Size(87, 16);
             this.lblUsername.TabIndex = 22;
             this.lblUsername.Text = "Not logged in";
             // 
@@ -625,13 +626,19 @@
             // 
             // settingsTransitions
             // 
-            this.settingsTransitions.Interval = 15;
+            this.settingsTransitions.Interval = 25;
             this.settingsTransitions.Tick += new System.EventHandler(this.settingsTransitions_Tick);
             // 
             // SideBarTransitions
             // 
-            this.SideBarTransitions.Interval = 15;
+            this.SideBarTransitions.Interval = 25;
             this.SideBarTransitions.Tick += new System.EventHandler(this.SideBarTransitions_Tick);
+            // 
+            // textScrollTimer
+            // 
+            this.textScrollTimer.Enabled = true;
+            this.textScrollTimer.Interval = 200;
+            this.textScrollTimer.Tick += new System.EventHandler(this.textScrollTimer_Tick);
             // 
             // roundedPanelMain
             // 
@@ -750,6 +757,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2btnMinimizeToTray;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBarVolume;
+        private System.Windows.Forms.Timer textScrollTimer;
     }
 }
 

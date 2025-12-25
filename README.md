@@ -51,7 +51,7 @@
 
 ## 📸 Một số ảnh chụp màn hình
 ![Login Form](Screenshots/login.png)
-![Main Form](Screenshots/main.png)
+![Main Form](Screenshots/mainimg.png)
 ![Add Music](Screenshots/addmusic.png)
 ---
 
@@ -79,6 +79,6 @@ Nếu bạn muốn xem code hoặc phát triển thêm:
 Nếu bạn chỉ muốn tải về và sử dụng ngay:
 1. Cài đặt LocalDB: - Tải và cài đặt SQL Server LocalDB (khoảng 50MB) từ trang chủ Microsoft nếu máy bạn chưa có.
 	- Link tải trực tiếp từ [Microsoft](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver17) (Chọn bản LocalDB 2022).
-2. Tải ứng dụng: Vào mục [Releases](https://github.com/hlongit/WaveSync/releases) trên GitHub và tải file WaveSync_v1.0.zip.
+2. Tải ứng dụng: Vào mục [Releases](https://github.com/hlongit/WaveSync/releases) trên GitHub và tải file .zip.
 3. Giải nén: Giải nén toàn bộ file ZIP ra một thư mục.
 4. Chạy: Mở file MusicPlayer.exe.

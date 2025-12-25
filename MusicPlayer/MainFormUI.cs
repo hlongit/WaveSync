@@ -45,6 +45,7 @@ namespace MusicPlayer {
 
             // Wire up the events manually if Designer didn't catch them
             SongControls.OnSongClick += SongControls_OnClick;
+
         }
         protected override CreateParams CreateParams
         {
@@ -159,7 +160,6 @@ namespace MusicPlayer {
                 picCover.Image = null;
 
             AudioEngine.PlaySong(fullPath);
-            btnPlayPause.Text = "||"; // Or change to Pause Icon
 
             // Handle History (assuming LoginSession exists)
             int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
@@ -176,14 +176,16 @@ namespace MusicPlayer {
 
         // --- 5. EVENT HANDLERS (Connect these in Designer if needed) ---
 
-        private void btnPlayPause_Click(object sender, EventArgs e) {
-            if (AudioEngine.IsPlaying) {
+        private void btnPlayPause_Click(object sender, EventArgs e)
+        {
+            if (AudioEngine.IsPlaying)
                 AudioEngine.Pause();
-                btnPlayPause.Text = "Play";
-            }
-            else {
-                AudioEngine.Resume();
-                btnPlayPause.Text = "Pause";
+            else
+            {
+                if (currentSong != null)
+                    AudioEngine.Resume();
+                else
+                    PlayNextSong();
             }
         }
 
@@ -197,14 +199,26 @@ namespace MusicPlayer {
             PlaySong(allSongs[currentIndex]);
         }
 
+        private bool isShuffleOn = false;
+        private bool isLoopOn = false;
+
         private void btnShuffle_Click(object sender, EventArgs e) {
             ShuffleList(allSongs);
             LoadSongs(allSongs);
+            isShuffleOn = !isShuffleOn;
+
+            btnShuffle.BackColor = isShuffleOn
+                ? Color.Silver
+                : Color.Transparent;
         }
 
         private void btnLoop_Click(object sender, EventArgs e) {
             loopCurrentSong = !loopCurrentSong;
-            btnLoop.Text = loopCurrentSong ? "Loop: ON" : "Loop: OFF";
+            isLoopOn = !isLoopOn;
+
+            btnLoop.BackColor = isLoopOn
+                ? Color.Silver
+                : Color.Transparent;
         }
 
         // --- 6. UTILITY METHODS ---
@@ -267,7 +281,7 @@ namespace MusicPlayer {
                 btnSignIn.Visible = false;
                 btnUserInfo.Visible = true;
                 picAvatar.Visible = true;
-                if (userName == "Admin1") btnUserListInfo.Visible = true;
+               // if (userName == "Admin1") btnUserListInfo.Visible = true;
                 MusicPlayer.Core.CurrentUser user = new MusicPlayer.Core.CurrentUser();
                 user.UpdateUser(userID,userName); 
                 DatabaseHelper.LoadAvatar(userID, picAvatar);
@@ -307,7 +321,7 @@ namespace MusicPlayer {
         }
 
 
-        // --- 9. ADDITIONAL FEATURES: SEARCH, HOME, FAVORITES, USER INFO, LOG OUT ---
+        // --- 9. ADDITIONAL FEATURES: SEARCH, HOME, FAVORITES, USER INFO, LOG OUT, MINIMIZE TO TRAY, VOLUME, SEEKING, DRAG WINDOW, ANIMATIONS ---
         private void guna2txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = guna2txtSearch.Text.Trim().ToLower();
@@ -384,8 +398,7 @@ namespace MusicPlayer {
                 btnAddMusics.Visible = false;
                 btnHistory.Visible = false;
                 btnSignIn.Visible = true;
-                btnUserListInfo.Visible = false;
-                btnUserInfo.Visible = false;
+                //btnUserInfo.Visible = false;
                 picAvatar.Visible = false;
             }
         }

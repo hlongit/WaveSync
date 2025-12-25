@@ -41,7 +41,6 @@
             this.PanelTab = new System.Windows.Forms.Panel();
             this.guna2btnMinimizeToTray = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUserListInfo = new System.Windows.Forms.Button();
             this.guna2txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -215,10 +214,10 @@
             // btnPlayPause
             // 
             this.btnPlayPause.BackColor = System.Drawing.Color.Transparent;
-            this.btnPlayPause.BackgroundImage = global::MusicPlayer.Properties.Resources.pause;
             this.btnPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayPause.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPlayPause.Image = global::MusicPlayer.Properties.Resources.play;
             this.btnPlayPause.Location = new System.Drawing.Point(509, 24);
             this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlayPause.Name = "btnPlayPause";
@@ -262,7 +261,6 @@
             this.PanelTab.BackColor = System.Drawing.Color.White;
             this.PanelTab.Controls.Add(this.guna2btnMinimizeToTray);
             this.PanelTab.Controls.Add(this.label1);
-            this.PanelTab.Controls.Add(this.btnUserListInfo);
             this.PanelTab.Controls.Add(this.guna2txtSearch);
             this.PanelTab.Controls.Add(this.btnHistory);
             this.PanelTab.Controls.Add(this.btnLogin);
@@ -309,22 +307,6 @@
             this.label1.Size = new System.Drawing.Size(124, 34);
             this.label1.TabIndex = 30;
             this.label1.Text = "WaveSync";
-            // 
-            // btnUserListInfo
-            // 
-            this.btnUserListInfo.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnUserListInfo.BackgroundImage = global::MusicPlayer.Properties.Resources.setting;
-            this.btnUserListInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUserListInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserListInfo.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.btnUserListInfo.Location = new System.Drawing.Point(411, 9);
-            this.btnUserListInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUserListInfo.Name = "btnUserListInfo";
-            this.btnUserListInfo.Size = new System.Drawing.Size(37, 34);
-            this.btnUserListInfo.TabIndex = 5;
-            this.btnUserListInfo.UseVisualStyleBackColor = false;
-            this.btnUserListInfo.Visible = false;
-            this.btnUserListInfo.Click += new System.EventHandler(this.btnUserListInfo_Click);
             // 
             // guna2txtSearch
             // 
@@ -686,8 +668,7 @@
             // 
             // MainFormUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1053, 701);
@@ -749,7 +730,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2btnClose;
         private System.Windows.Forms.PictureBox Menu;
         private Guna.UI2.WinForms.Guna2TextBox guna2txtSearch;
-        private System.Windows.Forms.Button btnUserListInfo;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.Panel pnlAddMusics;

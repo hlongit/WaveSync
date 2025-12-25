@@ -143,9 +143,10 @@ namespace MusicPlayer.Forms
         }
         private void notifyIconApp_Click(object sender, EventArgs e)
         {
-
+            this.Show();                   // Bring form back
+            this.WindowState = FormWindowState.Normal; // Ensure it's not minimized
+            notifyIconApp.Visible = false; // Hide the tray icon again
         }
-
         private void guna2btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

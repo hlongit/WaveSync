@@ -13,6 +13,10 @@ namespace MusicPlayer {
         public static event Action PlaybackStopped;
         public static event Action PlaybackStarted;
 
+        public static event Action PlaybackPaused;
+        public static event Action PlaybackResumed;
+
+
         public static bool IsPlaying => outputDevice?.PlaybackState == PlaybackState.Playing;
 
         // Named handler to prevent loops
@@ -21,7 +25,7 @@ namespace MusicPlayer {
         }
 
         // --- CENTRALIZED UI HANDLER ---
-        public static void RegisterControls(Form host, TrackBar seekBar, Label timeLabel, Button playPauseBtn, Action onSongFinished) {
+        public static void RegisterControls(Form host, Guna.UI2.WinForms.Guna2TrackBar seekBar, Label timeLabel, Button playPauseBtn, Action onSongFinished) {
             // Handle Position Updates (Timer)
             PositionChanged += (current, total) => {
                 if (host.IsDisposed) return;
@@ -36,25 +40,54 @@ namespace MusicPlayer {
             };
 
             // Handle Start (Reset UI)
+            //PlaybackStarted += () => {
+            //    if (host.IsDisposed) return;
+            //    host.BeginInvoke((MethodInvoker)delegate {
+            //        playPauseBtn.Text = "Pause";
+            //        // Only reset if it's a new song, not just unpausing
+            //        // (Optional logic, but safe to keep simple)
+            //    });
+            //};
+
+            //// Handle Stop (Loop/Next Logic)
+            //PlaybackStopped += () => {
+            //    if (host.IsDisposed) return;
+            //    host.BeginInvoke((MethodInvoker)delegate {
+            //        playPauseBtn.Text = "Play";
+
+            //        // Trigger the "What happens next?" logic passed from MainForm
+            //        onSongFinished?.Invoke();
+            //    });
+            //};
+
+            
+            playPauseBtn.Image = Properties.Resources.play;
+
             PlaybackStarted += () => {
-                if (host.IsDisposed) return;
                 host.BeginInvoke((MethodInvoker)delegate {
-                    playPauseBtn.Text = "Pause";
-                    // Only reset if it's a new song, not just unpausing
-                    // (Optional logic, but safe to keep simple)
+                    playPauseBtn.Image = Properties.Resources.pause;
                 });
             };
 
-            // Handle Stop (Loop/Next Logic)
             PlaybackStopped += () => {
-                if (host.IsDisposed) return;
                 host.BeginInvoke((MethodInvoker)delegate {
-                    playPauseBtn.Text = "Play";
-
-                    // Trigger the "What happens next?" logic passed from MainForm
+                    playPauseBtn.Image = Properties.Resources.play;
                     onSongFinished?.Invoke();
                 });
             };
+
+            PlaybackPaused += () => {
+                host.BeginInvoke((MethodInvoker)delegate {
+                    playPauseBtn.Image = Properties.Resources.play;
+                });
+            };
+
+            PlaybackResumed += () => {
+                host.BeginInvoke((MethodInvoker)delegate {
+                    playPauseBtn.Image = Properties.Resources.pause;
+                });
+            };
+
         }
         // -----------------------------------
 
@@ -79,8 +112,18 @@ namespace MusicPlayer {
             StartTimer();
         }
 
-        public static void Pause() => outputDevice?.Pause();
-        public static void Resume() => outputDevice?.Play();
+        public static void Pause() {
+            if (outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing) {
+                outputDevice.Pause();
+                PlaybackPaused?.Invoke();
+            }
+        }
+        public static void Resume() {
+            if (outputDevice != null && outputDevice.PlaybackState == PlaybackState.Paused) {
+                outputDevice.Play();
+                PlaybackResumed?.Invoke();
+            }
+        }
 
         public static void Stop() {
             outputDevice?.Stop();

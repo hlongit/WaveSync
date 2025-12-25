@@ -23,153 +23,281 @@ namespace MusicPlayer.Forms {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMusicForm));
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelTab = new System.Windows.Forms.Panel();
+            this.guna2btnMinimizeToTray = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.notifyIconApp = new System.Windows.Forms.NotifyIcon(this.components);
+            this.roundedPanel1 = new MusicPlayer.RoundedPanel();
             this.btnAddMusic = new System.Windows.Forms.Button();
+            this.CoverPathButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.MusicPathButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.CoverPath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtAlbum = new System.Windows.Forms.TextBox();
-            this.txtArtist = new System.Windows.Forms.TextBox();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.CoverPath = new System.Windows.Forms.TextBox();
-            this.MusicPathButton = new System.Windows.Forms.Button();
-            this.CoverPathButton = new System.Windows.Forms.Button();
+            this.txtAlbum = new System.Windows.Forms.TextBox();
+            this.txtArtist = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.panelTab.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Georgia Pro Cond Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(820, 124);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "WaveSync";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelTab
+            // 
+            this.panelTab.BackColor = System.Drawing.Color.White;
+            this.panelTab.Controls.Add(this.guna2btnMinimizeToTray);
+            this.panelTab.Controls.Add(this.guna2btnClose);
+            this.panelTab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTab.Location = new System.Drawing.Point(0, 0);
+            this.panelTab.Name = "panelTab";
+            this.panelTab.Size = new System.Drawing.Size(820, 37);
+            this.panelTab.TabIndex = 14;
+            this.panelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTab_MouseDown);
+            // 
+            // guna2btnMinimizeToTray
+            // 
+            this.guna2btnMinimizeToTray.BackColor = System.Drawing.Color.Transparent;
+            this.guna2btnMinimizeToTray.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2btnMinimizeToTray.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2btnMinimizeToTray.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2btnMinimizeToTray.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2btnMinimizeToTray.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2btnMinimizeToTray.FillColor = System.Drawing.Color.White;
+            this.guna2btnMinimizeToTray.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2btnMinimizeToTray.ForeColor = System.Drawing.Color.Black;
+            this.guna2btnMinimizeToTray.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnMinimizeToTray.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnMinimizeToTray.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnMinimizeToTray.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2btnMinimizeToTray.Location = new System.Drawing.Point(705, -12);
+            this.guna2btnMinimizeToTray.Name = "guna2btnMinimizeToTray";
+            this.guna2btnMinimizeToTray.Size = new System.Drawing.Size(56, 54);
+            this.guna2btnMinimizeToTray.TabIndex = 33;
+            this.guna2btnMinimizeToTray.Text = "–";
+            this.guna2btnMinimizeToTray.Click += new System.EventHandler(this.guna2btnMinimizeToTray_Click);
+            // 
+            // guna2btnClose
+            // 
+            this.guna2btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.guna2btnClose.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2btnClose.FillColor = System.Drawing.Color.White;
+            this.guna2btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2btnClose.ForeColor = System.Drawing.Color.Black;
+            this.guna2btnClose.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnClose.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.guna2btnClose.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2btnClose.Location = new System.Drawing.Point(764, -12);
+            this.guna2btnClose.Name = "guna2btnClose";
+            this.guna2btnClose.Size = new System.Drawing.Size(56, 54);
+            this.guna2btnClose.TabIndex = 32;
+            this.guna2btnClose.Text = "x";
+            this.guna2btnClose.Click += new System.EventHandler(this.guna2btnClose_Click);
+            // 
+            // notifyIconApp
+            // 
+            this.notifyIconApp.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconApp.Icon")));
+            this.notifyIconApp.Text = "WaveSync";
+            this.notifyIconApp.Click += new System.EventHandler(this.notifyIconApp_Click);
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderRadius = 20;
+            this.roundedPanel1.Controls.Add(this.btnAddMusic);
+            this.roundedPanel1.Controls.Add(this.CoverPathButton);
+            this.roundedPanel1.Controls.Add(this.label1);
+            this.roundedPanel1.Controls.Add(this.MusicPathButton);
+            this.roundedPanel1.Controls.Add(this.label2);
+            this.roundedPanel1.Controls.Add(this.CoverPath);
+            this.roundedPanel1.Controls.Add(this.label3);
+            this.roundedPanel1.Controls.Add(this.txtPath);
+            this.roundedPanel1.Controls.Add(this.label5);
+            this.roundedPanel1.Controls.Add(this.txtAlbum);
+            this.roundedPanel1.Controls.Add(this.txtArtist);
+            this.roundedPanel1.Controls.Add(this.label4);
+            this.roundedPanel1.Controls.Add(this.txtTitle);
+            this.roundedPanel1.Location = new System.Drawing.Point(111, 187);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Size = new System.Drawing.Size(600, 359);
+            this.roundedPanel1.TabIndex = 12;
             // 
             // btnAddMusic
             // 
-            this.btnAddMusic.Location = new System.Drawing.Point(345, 331);
+            this.btnAddMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMusic.Location = new System.Drawing.Point(259, 268);
+            this.btnAddMusic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddMusic.Name = "btnAddMusic";
-            this.btnAddMusic.Size = new System.Drawing.Size(75, 43);
+            this.btnAddMusic.Size = new System.Drawing.Size(84, 54);
             this.btnAddMusic.TabIndex = 6;
             this.btnAddMusic.Text = "Add";
             this.btnAddMusic.UseVisualStyleBackColor = true;
             this.btnAddMusic.Click += new System.EventHandler(this.btnAddMusic_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(291, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bài hát";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 162);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Nghệ sĩ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(294, 210);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Album";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Đường dẫn";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(345, 114);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(183, 22);
-            this.txtTitle.TabIndex = 1;
-            // 
-            // txtAlbum
-            // 
-            this.txtAlbum.Location = new System.Drawing.Point(345, 204);
-            this.txtAlbum.Name = "txtAlbum";
-            this.txtAlbum.Size = new System.Drawing.Size(183, 22);
-            this.txtAlbum.TabIndex = 3;
-            // 
-            // txtArtist
-            // 
-            this.txtArtist.Location = new System.Drawing.Point(345, 156);
-            this.txtArtist.Name = "txtArtist";
-            this.txtArtist.Size = new System.Drawing.Size(183, 22);
-            this.txtArtist.TabIndex = 2;
-            // 
-            // txtPath
-            // 
-            this.txtPath.Location = new System.Drawing.Point(345, 257);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(183, 22);
-            this.txtPath.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(220, 297);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Đường dẫn ảnh bìa";
-            // 
-            // CoverPath
-            // 
-            this.CoverPath.Location = new System.Drawing.Point(345, 297);
-            this.CoverPath.Name = "CoverPath";
-            this.CoverPath.Size = new System.Drawing.Size(183, 22);
-            this.CoverPath.TabIndex = 11;
-            // 
-            // MusicPathButton
-            // 
-            this.MusicPathButton.Location = new System.Drawing.Point(534, 254);
-            this.MusicPathButton.Name = "MusicPathButton";
-            this.MusicPathButton.Size = new System.Drawing.Size(131, 30);
-            this.MusicPathButton.TabIndex = 4;
-            this.MusicPathButton.Text = "Browse .mp3";
-            this.MusicPathButton.UseVisualStyleBackColor = true;
-            this.MusicPathButton.Click += new System.EventHandler(this.MusicPathButton_Click);
-            // 
             // CoverPathButton
             // 
-            this.CoverPathButton.Location = new System.Drawing.Point(534, 289);
+            this.CoverPathButton.Location = new System.Drawing.Point(447, 203);
+            this.CoverPathButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CoverPathButton.Name = "CoverPathButton";
-            this.CoverPathButton.Size = new System.Drawing.Size(131, 30);
+            this.CoverPathButton.Size = new System.Drawing.Size(134, 39);
             this.CoverPathButton.TabIndex = 5;
             this.CoverPathButton.Text = "Browse cover";
             this.CoverPathButton.UseVisualStyleBackColor = true;
             this.CoverPathButton.Click += new System.EventHandler(this.CoverPathButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(110, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Bài hát";
+            // 
+            // MusicPathButton
+            // 
+            this.MusicPathButton.Location = new System.Drawing.Point(447, 160);
+            this.MusicPathButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MusicPathButton.Name = "MusicPathButton";
+            this.MusicPathButton.Size = new System.Drawing.Size(134, 39);
+            this.MusicPathButton.TabIndex = 4;
+            this.MusicPathButton.Text = "Browse .mp3";
+            this.MusicPathButton.UseVisualStyleBackColor = true;
+            this.MusicPathButton.Click += new System.EventHandler(this.MusicPathButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(103, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Nghệ sĩ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // CoverPath
+            // 
+            this.CoverPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.CoverPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CoverPath.Location = new System.Drawing.Point(210, 209);
+            this.CoverPath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CoverPath.Name = "CoverPath";
+            this.CoverPath.Size = new System.Drawing.Size(205, 19);
+            this.CoverPath.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(111, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Album";
+            // 
+            // txtPath
+            // 
+            this.txtPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPath.Location = new System.Drawing.Point(210, 166);
+            this.txtPath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(205, 19);
+            this.txtPath.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(21, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Đường dẫn ảnh bìa";
+            // 
+            // txtAlbum
+            // 
+            this.txtAlbum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.txtAlbum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAlbum.Location = new System.Drawing.Point(210, 121);
+            this.txtAlbum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAlbum.Name = "txtAlbum";
+            this.txtAlbum.Size = new System.Drawing.Size(205, 19);
+            this.txtAlbum.TabIndex = 3;
+            // 
+            // txtArtist
+            // 
+            this.txtArtist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.txtArtist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtArtist.Location = new System.Drawing.Point(210, 77);
+            this.txtArtist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtArtist.Name = "txtArtist";
+            this.txtArtist.Size = new System.Drawing.Size(205, 19);
+            this.txtArtist.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(77, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 21);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Đường dẫn";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTitle.Location = new System.Drawing.Point(210, 32);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(205, 19);
+            this.txtTitle.TabIndex = 1;
+            // 
             // AddMusicForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.CoverPathButton);
-            this.Controls.Add(this.MusicPathButton);
-            this.Controls.Add(this.CoverPath);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPath);
-            this.Controls.Add(this.txtArtist);
-            this.Controls.Add(this.txtAlbum);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAddMusic);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(820, 610);
+            this.Controls.Add(this.panelTab);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.roundedPanel1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddMusicForm";
             this.Text = "AddMusicForm";
+            this.panelTab.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -188,5 +316,11 @@ namespace MusicPlayer.Forms {
         private System.Windows.Forms.TextBox CoverPath;
         private System.Windows.Forms.Button MusicPathButton;
         private System.Windows.Forms.Button CoverPathButton;
+        private RoundedPanel roundedPanel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panelTab;
+        private Guna.UI2.WinForms.Guna2Button guna2btnMinimizeToTray;
+        private Guna.UI2.WinForms.Guna2Button guna2btnClose;
+        private System.Windows.Forms.NotifyIcon notifyIconApp;
     }
 }

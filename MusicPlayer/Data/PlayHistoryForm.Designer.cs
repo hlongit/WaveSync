@@ -61,12 +61,13 @@ namespace MusicPlayer.Data
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(570, 6);
+            this.btnClear.Location = new System.Drawing.Point(500, 6);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(40, 40);
+            this.btnClear.Size = new System.Drawing.Size(110, 40);
             this.btnClear.TabIndex = 0;
-            this.btnClear.Text = "button1";
+            this.btnClear.Text = "Clear History";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Visible = false;
             // 
             // PlayHistoryForm
             // 

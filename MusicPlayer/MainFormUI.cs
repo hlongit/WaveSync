@@ -335,11 +335,16 @@ namespace MusicPlayer {
         }
 
         private void btnVolume_Click(object sender, EventArgs e) {
-            // Logic for Mute could go here
-        }
-
-        private void MainFormUI_Resize(object sender, EventArgs e) {
-            Invalidate();
+            if (guna2TrackBarVolume.Value > 0) {
+                guna2TrackBarVolume.Value = 0;
+                // change image into volumemute.png
+                btnVolume.BackgroundImage = Properties.Resources.volumemute;             
+            }
+            else {
+                guna2TrackBarVolume.Value = 70;
+                btnVolume.BackgroundImage = Properties.Resources.volume;
+            }
+            AudioEngine.SetVolume(guna2TrackBarVolume.Value / 100f);
         }
 
         private void flowSongs_Click(object sender, EventArgs e) {
@@ -415,17 +420,32 @@ namespace MusicPlayer {
 
         private void LogOutbtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                lblUsername.Text = "Not logged in";
-                btnLogin.Visible = true;
+            // 1. Check if user is actually logged in
+            // Assuming 0 or -1 means "Guest" or "Not Logged In"
+            if (MusicPlayer.Forms.LoginForm.LoginSession.UserID <= 0) {
+                MessageBox.Show("You haven't logged in yet, so you cannot log out.",
+                                "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Stop here
+            }
+
+            // 2. Real Logout Logic
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?",
+                                                  "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                // Reset Session
+                MusicPlayer.Forms.LoginForm.LoginSession.UserID = 0;
+                MusicPlayer.Forms.LoginForm.LoginSession.Username = null;
+
+                // Reset UI (Hide Logout, Show Login)
                 LogOutbtn.Visible = false;
-                btnAddMusics.Visible = false;
+                btnLogin.Visible = true;
+
                 btnHistory.Visible = false;
                 btnSignIn.Visible = true;
-                //btnUserInfo.Visible = false;
-                picAvatar.Visible = false;
+                picAvatar.Visible = false;             
+                lblUsername.Text = "Not Logged in";
+
+                MessageBox.Show("Logged out successfully.");
             }
         }
         // MINIMIZE TO TRAY LOGIC

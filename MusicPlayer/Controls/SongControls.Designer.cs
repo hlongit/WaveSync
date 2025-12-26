@@ -23,27 +23,28 @@ namespace MusicPlayer.Controls
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(10, 5);
+            this.lblTitle.Location = new System.Drawing.Point(3, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(260, 25);
+            this.lblTitle.Size = new System.Drawing.Size(260, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Song Title";
             // 
             // lblArtist
             // 
             this.lblArtist.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblArtist.Location = new System.Drawing.Point(135, 5);
+            this.lblArtist.Location = new System.Drawing.Point(136, 5);
             this.lblArtist.Name = "lblArtist";
-            this.lblArtist.Size = new System.Drawing.Size(200, 20);
+            this.lblArtist.Size = new System.Drawing.Size(200, 37);
             this.lblArtist.TabIndex = 1;
             this.lblArtist.Text = "Artist";
+            this.lblArtist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAlbum
             // 
             this.lblAlbum.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblAlbum.Location = new System.Drawing.Point(409, 5);
             this.lblAlbum.Name = "lblAlbum";
-            this.lblAlbum.Size = new System.Drawing.Size(110, 20);
+            this.lblAlbum.Size = new System.Drawing.Size(110, 37);
             this.lblAlbum.TabIndex = 2;
             this.lblAlbum.Text = "Album";
             this.lblAlbum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -58,7 +59,7 @@ namespace MusicPlayer.Controls
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "SongControls";
-            this.Size = new System.Drawing.Size(685, 37);
+            this.Size = new System.Drawing.Size(685, 46);
             this.ResumeLayout(false);
 
         }

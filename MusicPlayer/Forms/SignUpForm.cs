@@ -1,3 +1,4 @@
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -5,45 +6,37 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 
 namespace MusicPlayer.Forms
 {
     public partial class SignUpForm : Form
     {
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         public SignUpForm()
         {
             InitializeComponent();
+            guna2DragControl1.TargetControl = panelTab;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string user = guna2txtUser.Text.Trim();
-            string pass = guna2txtPass.Text.Trim();
-            string pass2 = guna2txtPass2.Text.Trim();
+            string user = txtUser.Text.Trim();
+            string pass = txtPass.Text.Trim();
+            string pass2 = txtPass2.Text.Trim();
 
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                MessageBox.Show("All required information must be provided.");
                 return;
             }
 
             if (pass != pass2)
             {
-                MessageBox.Show("Mật khẩu nhập lại không khớp!");
+                MessageBox.Show("Passwords do not match.");
                 return;
             }
 
@@ -59,7 +52,7 @@ namespace MusicPlayer.Forms
                 int count = (int)checkCmd.ExecuteScalar();
                 if (count > 0)
                 {
-                    MessageBox.Show("Username đã tồn tại!");
+                    MessageBox.Show("Username already exists.");
                     return;
                 }
 
@@ -72,7 +65,7 @@ namespace MusicPlayer.Forms
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Đăng ký thành công!");
+                MessageBox.Show("Account created successfully.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -83,56 +76,6 @@ namespace MusicPlayer.Forms
             
         }
 
-
-        private void CenterContent()
-        {
-            panelContent.Left = (roundedPanelMain.Width - panelContent.Width) / 2;
-            panelContent.Top = (roundedPanelMain.Height - panelContent.Height) / 2;
-        }
-        private void roundedPanelMain_Resize(object sender, EventArgs e)
-        {
-            CenterContent();
-        }
-        private void CenterPanel()
-        {
-            roundedPanelMain.Left = (this.ClientSize.Width - roundedPanelMain.Width) / 2;
-            roundedPanelMain.Top = 100;
-        }
-        private void SignInForm_Shown(object sender, EventArgs e)
-        {
-            CenterPanel();
-            CenterContent();
-        }
-
-        private void SignInForm_SizeChanged(object sender, EventArgs e)
-        {
-            CenterPanel();
-            CenterContent();
-        }
-
-        private void guna2txtPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelTab_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
-
-        private void panelTab_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2txtUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void guna2btnMinimizeToTray_Click(object sender, EventArgs e)
         {
             this.Hide();                   // Hides the form from the screen AND taskbar
@@ -150,6 +93,33 @@ namespace MusicPlayer.Forms
         private void guna2btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPass.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPass2.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPass2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegister.PerformClick();
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

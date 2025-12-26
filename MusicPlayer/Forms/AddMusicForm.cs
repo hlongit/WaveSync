@@ -1,3 +1,4 @@
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,19 +17,12 @@ namespace MusicPlayer.Forms {
     public partial class AddMusicForm : Form {
         private readonly int _userId;
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         public AddMusicForm(int userId = 0) {
             InitializeComponent();
             _userId = userId;
             //retain for future user-specific features
+
+            guna2DragControl1.TargetControl = panelTab;
         }
 
         // Browse MP3
@@ -120,24 +114,6 @@ namespace MusicPlayer.Forms {
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelTab_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
         private void guna2btnMinimizeToTray_Click(object sender, EventArgs e)
         {
             this.Hide();                   // Hides the form from the screen AND taskbar

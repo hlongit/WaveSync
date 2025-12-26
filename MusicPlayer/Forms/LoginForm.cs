@@ -1,3 +1,4 @@
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,17 +18,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 namespace MusicPlayer.Forms {
     public partial class LoginForm : Form {
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         public LoginForm() {
             InitializeComponent();
+            guna2DragControl1.TargetControl = panelTab;
         }
         public static class LoginSession
         {
@@ -35,14 +28,14 @@ namespace MusicPlayer.Forms {
             public static string Username { get; set; }
             public static string Password { get; set; } = string.Empty;
         }
-        private void guna2TileButton1_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             string username = txtUser.Text.Trim();
             string password = txtPass.Text.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.");
+                MessageBox.Show("Both username and password are required.");
                 return;
             }
 
@@ -71,12 +64,12 @@ namespace MusicPlayer.Forms {
                     }
                     else
                     {
-                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Lỗi đăng nhập");
+                        MessageBox.Show("Invalid username or password.", "Login Error.");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi khi đăng nhập: " + ex.Message);
+                    MessageBox.Show("Error during login: " + ex.Message);
                 }
             }
         }
@@ -91,19 +84,6 @@ namespace MusicPlayer.Forms {
         public string Password
             {
             get { return txtPass.Text; }
-        }
-        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.OK)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -132,12 +112,21 @@ namespace MusicPlayer.Forms {
             this.Close();
         }
 
-        private void panelTab_MouseDown(object sender, MouseEventArgs e)
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.KeyCode == Keys.Enter)
             {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+                btnRegister.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPass.Focus();
+                e.SuppressKeyPress = true;
             }
         }
     }

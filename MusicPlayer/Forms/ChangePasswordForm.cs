@@ -16,6 +16,7 @@ namespace MusicPlayer.Forms
         public ChangePasswordForm()
         {
             InitializeComponent();
+            guna2DragControl1.TargetControl = panelTab;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +31,26 @@ namespace MusicPlayer.Forms
             {
                 MessageBox.Show("Error changing password.");
             }
+        }
+
+        private void guna2btnMinimizeToTray_Click(object sender, EventArgs e)
+        {
+            this.Hide();                   // Hides the form from the screen AND taskbar
+            notifyIconApp.Visible = true;  // Show the icon in the system tray
+
+            // Optional: Show a little popup bubble
+            notifyIconApp.ShowBalloonTip(2000, "WaveSync", "Running in background", ToolTipIcon.Info);
+        }
+        private void notifyIconApp_Click(object sender, EventArgs e)
+        {
+            this.Show();                   // Bring form back
+            this.WindowState = FormWindowState.Normal; // Ensure it's not minimized
+            notifyIconApp.Visible = false; // Hide the tray icon again
+        }
+
+        private void guna2btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

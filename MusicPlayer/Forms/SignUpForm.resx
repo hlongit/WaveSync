@@ -1787,10 +1787,13 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <metadata name="guna2DragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>198, 17</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA1wAAAKUCAIAAACfS67+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7svYdb28rero16c++9mw5uYFooCST0ll5ISALpvQCBJGutvd9zzvdv
+        vQAADr0BR/uQrQAA/7JJREFUeF7svYdb28rero16c++9mw5uYFooCST0ll5ISALpvQCBJGutvd9zzvdv
         f9eMZCFrJFk2kGTvd3LdiyWPflM1Gj2api6GITAYDAaDwWAw/8vpQp0wGAwGg8FgMP/bwKIQg8FgMBgM
         BoNFIQaDwWAwGAwGi0IMBoPBYDAYDBaFGAwGg8FgMBgAFoUYDAaDwWAwGCwKMRgMBoPBYDBYFGIwGAwG
         g8FgsCjEYDAYDAaDwQCwKMRgMBgMBoPBYFGIwWAwGAwGg8GiEIPBYDAYDAaDRSEGg8FgMBgMBoBFIQaD

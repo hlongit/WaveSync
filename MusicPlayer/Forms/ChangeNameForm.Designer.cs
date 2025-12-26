@@ -39,6 +39,7 @@
             this.roundedPanel1 = new MusicPlayer.RoundedPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.notifyIconApp = new System.Windows.Forms.NotifyIcon(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelTab.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +52,8 @@
             this.panelTab.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTab.Location = new System.Drawing.Point(0, 0);
             this.panelTab.Name = "panelTab";
-            this.panelTab.Size = new System.Drawing.Size(530, 37);
+            this.panelTab.Size = new System.Drawing.Size(600, 37);
             this.panelTab.TabIndex = 15;
-            this.panelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTab_MouseDown);
             // 
             // guna2btnMinimizeToTray
             // 
@@ -70,7 +70,7 @@
             this.guna2btnMinimizeToTray.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.guna2btnMinimizeToTray.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.guna2btnMinimizeToTray.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2btnMinimizeToTray.Location = new System.Drawing.Point(415, -12);
+            this.guna2btnMinimizeToTray.Location = new System.Drawing.Point(485, -12);
             this.guna2btnMinimizeToTray.Name = "guna2btnMinimizeToTray";
             this.guna2btnMinimizeToTray.Size = new System.Drawing.Size(56, 54);
             this.guna2btnMinimizeToTray.TabIndex = 33;
@@ -92,7 +92,7 @@
             this.guna2btnClose.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.guna2btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.guna2btnClose.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2btnClose.Location = new System.Drawing.Point(474, -12);
+            this.guna2btnClose.Location = new System.Drawing.Point(544, -12);
             this.guna2btnClose.Name = "guna2btnClose";
             this.guna2btnClose.Size = new System.Drawing.Size(56, 54);
             this.guna2btnClose.TabIndex = 32;
@@ -102,7 +102,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(150, 88);
+            this.button1.Location = new System.Drawing.Point(157, 88);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 39);
@@ -137,7 +137,7 @@
             this.roundedPanel1.Controls.Add(this.textBox1);
             this.roundedPanel1.Controls.Add(this.label1);
             this.roundedPanel1.Controls.Add(this.button1);
-            this.roundedPanel1.Location = new System.Drawing.Point(64, 155);
+            this.roundedPanel1.Location = new System.Drawing.Point(96, 171);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.Size = new System.Drawing.Size(408, 152);
             this.roundedPanel1.TabIndex = 16;
@@ -147,9 +147,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Georgia Pro Cond Black", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(130, 53);
+            this.label6.Location = new System.Drawing.Point(0, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(264, 60);
+            this.label6.Size = new System.Drawing.Size(600, 60);
             this.label6.TabIndex = 17;
             this.label6.Text = "WaveSync";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,13 +160,18 @@
             this.notifyIconApp.Text = "WaveSync";
             this.notifyIconApp.Click += new System.EventHandler(this.notifyIconApp_Click);
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // ChangeNameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(530, 336);
+            this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.roundedPanel1);
             this.Controls.Add(this.panelTab);
@@ -191,5 +196,6 @@
         private RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NotifyIcon notifyIconApp;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

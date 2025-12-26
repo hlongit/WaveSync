@@ -19,16 +19,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace MusicPlayer {
     public partial class MainFormUI : Form {
-        // --- DLL IMPORTS FOR DRAGGING THE WINDOW ---
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         // --- 1. ORIGINAL FIELDS ---
         private Song currentSong;
         //private AudioFileReader audioFile;
@@ -42,10 +32,12 @@ namespace MusicPlayer {
 
         public MainFormUI() {
             InitializeComponent();
-
+            this.DoubleBuffered = true;
             // Wire up the events manually if Designer didn't catch them
             SongControls.OnSongClick += SongControls_OnClick;
 
+            // Drag Control
+            guna2DragControl1.TargetControl = PanelTab;
         }
         protected override CreateParams CreateParams
         {
@@ -481,16 +473,6 @@ namespace MusicPlayer {
                 AudioEngine.Seek(guna2TrackBar.Value);
                 guna2TrackBar.Tag = null;
 
-            }
-        }
-
-        // DRAG WINDOW
-        private void PanelTop_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
 

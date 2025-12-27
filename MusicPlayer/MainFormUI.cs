@@ -87,7 +87,7 @@ namespace MusicPlayer {
                 }
             );
         }
-        // --- UNIFIED LOAD SONGS FUNCTION ---
+        // --- LOAD SONG (CARDS) FUNCTION ---
         private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
             int currentUserId = CurrentUser.UserID; // Get logged in user

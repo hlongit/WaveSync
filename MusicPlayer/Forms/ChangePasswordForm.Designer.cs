@@ -33,7 +33,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.roundedPanel1 = new MusicPlayer.RoundedPanel();
+            this.roundedPanel1 = new MusicPlayer.Resources.RoundedPanel();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,6 +129,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private RoundedPanel roundedPanel1;
+        private Resources.RoundedPanel roundedPanel1;
     }
 }

@@ -30,7 +30,7 @@ namespace MusicPlayer.Forms {
             this.guna2btnMinimizeToTray = new Guna.UI2.WinForms.Guna2Button();
             this.guna2btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.notifyIconApp = new System.Windows.Forms.NotifyIcon(this.components);
-            this.roundedPanel1 = new MusicPlayer.RoundedPanel();
+            this.roundedPanel1 = new MusicPlayer.Resources.RoundedPanel();
             this.btnAddMusic = new System.Windows.Forms.Button();
             this.CoverPathButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -316,7 +316,7 @@ namespace MusicPlayer.Forms {
         private System.Windows.Forms.TextBox CoverPath;
         private System.Windows.Forms.Button MusicPathButton;
         private System.Windows.Forms.Button CoverPathButton;
-        private RoundedPanel roundedPanel1;
+        private Resources.RoundedPanel roundedPanel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelTab;
         private Guna.UI2.WinForms.Guna2Button guna2btnMinimizeToTray;

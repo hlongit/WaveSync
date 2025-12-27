@@ -29,7 +29,7 @@ namespace MusicPlayer.Forms {
             this.label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.roundedPanel1 = new MusicPlayer.RoundedPanel();
+            this.roundedPanel1 = new MusicPlayer.Resources.RoundedPanel();
             this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
             this.panelTab = new System.Windows.Forms.Panel();
             this.guna2btnMinimizeToTray = new Guna.UI2.WinForms.Guna2Button();
@@ -220,7 +220,7 @@ namespace MusicPlayer.Forms {
 
         #endregion
 
-        private RoundedPanel roundedPanel1;
+        private Resources.RoundedPanel roundedPanel1;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

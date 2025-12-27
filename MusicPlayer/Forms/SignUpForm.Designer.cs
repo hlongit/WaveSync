@@ -34,7 +34,7 @@ namespace MusicPlayer.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.roundedPanelMain = new MusicPlayer.RoundedPanel();
+            this.roundedPanelMain = new MusicPlayer.Resources.RoundedPanel();
             this.panelContent = new System.Windows.Forms.Panel();
             this.guna2txtPass2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2txtPass = new Guna.UI2.WinForms.Guna2TextBox();
@@ -307,7 +307,7 @@ namespace MusicPlayer.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private RoundedPanel roundedPanelMain;
+        private Resources.RoundedPanel roundedPanelMain;
         private Guna.UI2.WinForms.Guna2TextBox guna2txtUser;
         private Guna.UI2.WinForms.Guna2TextBox guna2txtPass;
         private Guna.UI2.WinForms.Guna2TextBox guna2txtPass2;

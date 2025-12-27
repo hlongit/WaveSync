@@ -191,10 +191,8 @@
     <Compile Include="Controls\UserInfoControls.Designer.cs">
       <DependentUpon>UserInfoControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\AppData.cs" />
     <Compile Include="Core\AudioEngine.cs" />
     <Compile Include="Core\CurrentUser.cs" />
-    <Compile Include="Core\QueueManager.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Data\ListSongs.cs">
       <SubType>UserControl</SubType>
@@ -258,17 +256,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoundedButton.cs">
+    <Compile Include="Resources\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RoundedPanel.cs">
+    <Compile Include="Resources\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Song.cs" />
-    <Compile Include="SongCard.cs">
+    <Compile Include="Core\Song.cs" />
+    <Compile Include="Controls\SongCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SongCard.Designer.cs">
+    <Compile Include="Controls\SongCard.Designer.cs">
       <DependentUpon>SongCard.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Controls\SongControls.resx">
@@ -316,7 +314,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SongCard.resx">
+    <EmbeddedResource Include="Controls\SongCard.resx">
       <DependentUpon>SongCard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".gitignore" />

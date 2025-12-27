@@ -62,9 +62,9 @@ partial class UserInfoControl
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblUsername.Location = new System.Drawing.Point(90, 15);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(101, 25);
+            this.lblUsername.Size = new System.Drawing.Size(63, 25);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Guest";
             // 
             // UserInfoControl
             // 

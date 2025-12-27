@@ -45,7 +45,6 @@
 | **NAudio** | Thư viện xử lý âm thanh (Core Audio Engine)   |
 | **TagLib#** | Đọc Metadata (ID3 tags) và Ảnh bìa từ file MP3|
 | **Guna.UI2.WinForms** | Hỗ trợ thiết kế giao diện Flat/Modern         |
-| **GitHub / Web Hosting** | Lưu trữ file nhạc để đồng bộ (Sync Feature)   |
 
 ---
 

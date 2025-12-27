@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace MusicPlayer 
+namespace MusicPlayer.Resources
 {
     public class RoundedPanel : Panel
     {

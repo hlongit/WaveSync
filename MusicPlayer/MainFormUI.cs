@@ -29,7 +29,7 @@ namespace MusicPlayer {
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        // --- 1. ORIGINAL FIELDS ---
+        // --- ORIGINAL FIELDS ---
         private Song currentSong;
         //private AudioFileReader audioFile;
         //private WaveOutEvent audioPlayer;
@@ -39,7 +39,6 @@ namespace MusicPlayer {
         private Random rng = new Random();
         private MusicPlayer.Data.ListSongs listSongsView; // Assuming this is a UserControl for listing songs
         private UserInfoControl UserInfo; // User Info Control
-
         public MainFormUI() {
             InitializeComponent();
 
@@ -56,7 +55,7 @@ namespace MusicPlayer {
                 return cp;
             }
         }
-        // --- 2. MAIN FORM LOAD LOGIC ---
+        // --- MAIN FORM LOAD LOGIC ---
         private void MainFormUI_Load(object sender, EventArgs e) {
             // sidebar INIT
             SideBar.Width = 65;
@@ -88,11 +87,10 @@ namespace MusicPlayer {
                 }
             );
         }
-
-        // --- 3. UNIFIED LOAD SONGS FUNCTION ---
+        // --- LOAD SONG (CARDS) FUNCTION ---
         private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
-            int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID; // Get logged in user
+            int currentUserId = CurrentUser.UserID; // Get logged in user
 
             foreach (var song in songs) {
                 var card = new SongCard();
@@ -143,8 +141,7 @@ namespace MusicPlayer {
                 flowSongs.Controls.Add(card);
             }
         }
-
-        // --- 4. PLAYBACK LOGIC ---
+        // --- PLAYBACK LOGIC ---
         private void PlaySong(Song song) {
             currentSong = song;
 
@@ -165,12 +162,11 @@ namespace MusicPlayer {
             AudioEngine.PlaySong(fullPath);
 
             // Handle History (assuming LoginSession exists)
-            int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
+            int currentUserId = CurrentUser.UserID;
             if (DatabaseHelper.UserExists(currentUserId)) {
                 DatabaseHelper.AddToPlayHistory(currentUserId, song.SongId);
             }
         }
-
         // Helper function to measure text and setup scrolling, used for longer song names and artists name of currently playing song
         private void SetupMarquee(Label lbl, string text) {
             // 1. Measure how wide the text is
@@ -193,15 +189,12 @@ namespace MusicPlayer {
                 if (lbl == lblNowPlayingArtist) shouldScrollArtist = false;
             }
         }
-
         private void PlayNextSong() {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex + 1) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
-
-        // --- 5. EVENT HANDLERS (Connect these in Designer if needed) ---
-
+        // --- EVENT HANDLERS (Connect these in Designer if needed) ---
         private void btnPlayPause_Click(object sender, EventArgs e)
         {
             if (AudioEngine.IsPlaying)
@@ -214,20 +207,16 @@ namespace MusicPlayer {
                     PlayNextSong();
             }
         }
-
         private void btnNext_Click(object sender, EventArgs e) {
             PlayNextSong();
         }
-
         private void btnPrevious_Click(object sender, EventArgs e) {
             if (allSongs.Count == 0) return;
             currentIndex = (currentIndex - 1 + allSongs.Count) % allSongs.Count;
             PlaySong(allSongs[currentIndex]);
         }
-
         private bool isShuffleOn = false;
         private bool isLoopOn = false;
-
         private void btnShuffle_Click(object sender, EventArgs e) {
             ShuffleList(allSongs);
             LoadSongs(allSongs);
@@ -237,7 +226,6 @@ namespace MusicPlayer {
                 ? Color.Silver
                 : Color.Transparent;
         }
-
         private void btnLoop_Click(object sender, EventArgs e) {
             loopCurrentSong = !loopCurrentSong;
             isLoopOn = !isLoopOn;
@@ -246,8 +234,7 @@ namespace MusicPlayer {
                 ? Color.Silver
                 : Color.Transparent;
         }
-
-        // --- 6. UTILITY METHODS ---
+        // --- UTILITY METHODS ---
         private void ShuffleList(List<Song> list) {
             int n = list.Count;
             while (n > 1) {
@@ -258,12 +245,10 @@ namespace MusicPlayer {
                 list[n] = temp;
             }
         }
-
         private void SongControls_OnClick(object sender, Song song) {
             PlaySong(song);
         }
-
-        // --- 7. BUTTONS FOR DB / ADMIN / LOGIN ---
+        // --- BUTTONS FOR DB / ADMIN / LOGIN ---
 
         //private void btnViewSongListInfo_Click(object sender, EventArgs e) {
         //    /*Form ListSongInfos = new Data.ListSongInfo();
@@ -286,18 +271,16 @@ namespace MusicPlayer {
         //    listSongsView.Visible = true;
         //    listSongsView.BringToFront();
         //}
-
         private void btnUserListInfo_Click(object sender, EventArgs e) {
             Form ListUserInfos = new Data.ListUserInfo();
             ListUserInfos.ShowDialog();
         }
-
         private void btnLogin_Click(object sender, EventArgs e) {
             Forms.LoginForm login = new Forms.LoginForm();
             var result = login.ShowDialog();
             string userName = login.UserName;
             int userID = login.UserID;
-            string password = login.Password;
+            //string password = login.Password;
             if (result == DialogResult.OK) {
                 lblUsername.Text = "User: " + userName;
                 btnLogin.Visible = false;
@@ -314,26 +297,14 @@ namespace MusicPlayer {
             }
             LoadSongs(allSongs); // Refresh to show favorite buttons if needed
         }
-
         private void btnSignIn_Click(object sender, EventArgs e) {
             Forms.SignUpForm signin = new Forms.SignUpForm();
             signin.ShowDialog();
         }
-
         private void btnHistory_Click(object sender, EventArgs e) {
             var f = new MusicPlayer.Data.PlayHistoryForm();
             f.ShowDialog();
         }
-
-        // --- 8. PLACEHOLDERS FOR NEW UI ELEMENTS (Handling Unknowns) ---
-        private void btnSongs_Click(object sender, EventArgs e) {
-            // "Button that cannot click" - Implement later
-        }
-
-        private void btnSetting_Click(object sender, EventArgs e) {
-            // "Button that cannot click" - Implement later
-        }
-
         private void btnVolume_Click(object sender, EventArgs e) {
             if (guna2TrackBarVolume.Value > 0) {
                 guna2TrackBarVolume.Value = 0;
@@ -346,13 +317,7 @@ namespace MusicPlayer {
             }
             AudioEngine.SetVolume(guna2TrackBarVolume.Value / 100f);
         }
-
-        private void flowSongs_Click(object sender, EventArgs e) {
-
-        }
-
-
-        // --- 9. ADDITIONAL FEATURES: SEARCH, HOME, FAVORITES, USER INFO, LOG OUT, MINIMIZE TO TRAY, VOLUME, SEEKING, DRAG WINDOW, ANIMATIONS ---
+        // --- ADDITIONAL FEATURES: SEARCH, HOME, FAVORITES, USER INFO, LOG OUT, MINIMIZE TO TRAY, VOLUME, SEEKING, DRAG WINDOW, ANIMATIONS ---
         private void guna2txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = guna2txtSearch.Text.Trim().ToLower();
@@ -374,7 +339,6 @@ namespace MusicPlayer {
             flowSongs.BringToFront();
             LoadSongs(allSongs);
         }
-
         private void btnAddMusics_Click(object sender, EventArgs e)
         {
             Form AddMusic = new Forms.AddMusicForm();
@@ -382,10 +346,9 @@ namespace MusicPlayer {
             allSongs = DatabaseHelper.GetAllSongs();
             LoadSongs(allSongs);
         }
-
         private void btnFavor_Click(object sender, EventArgs e)
         {
-            int userId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
+            int userId = CurrentUser.UserID;
 
             if (userId <= 0)
             {
@@ -401,7 +364,6 @@ namespace MusicPlayer {
             var favSongs = DatabaseHelper.GetFavoriteSongs(userId);
             LoadSongs(favSongs);
         }
-
         private void btnUserInfo_Click(object sender, EventArgs e)
         {
             flowSongs.Visible = false; // Hide the card list
@@ -417,12 +379,11 @@ namespace MusicPlayer {
             UserInfo.Visible = true;
             UserInfo.BringToFront();
         }
-
         private void LogOutbtn_Click(object sender, EventArgs e)
         {
             // 1. Check if user is actually logged in
             // Assuming 0 or -1 means "Guest" or "Not Logged In"
-            if (MusicPlayer.Forms.LoginForm.LoginSession.UserID <= 0) {
+            if (CurrentUser.UserID <= 0) {
                 MessageBox.Show("You haven't logged in yet, so you cannot log out.",
                                 "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return; // Stop here
@@ -433,9 +394,10 @@ namespace MusicPlayer {
                                                   "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
                 // Reset Session
-                MusicPlayer.Forms.LoginForm.LoginSession.UserID = 0;
-                MusicPlayer.Forms.LoginForm.LoginSession.Username = null;
-
+                CurrentUser.UserID = -1;
+                CurrentUser.Username = "Guest";
+                CurrentUser.Password = "";
+                CurrentUser.AvatarPath = "";
                 // Reset UI (Hide Logout, Show Login)
                 LogOutbtn.Visible = false;
                 btnLogin.Visible = true;
@@ -444,6 +406,8 @@ namespace MusicPlayer {
                 btnSignIn.Visible = true;
                 picAvatar.Visible = false;             
                 lblUsername.Text = "Not Logged in";
+
+                UserInfo.LoadUserInfo();
 
                 MessageBox.Show("Logged out successfully.");
             }
@@ -467,13 +431,11 @@ namespace MusicPlayer {
         {
             AudioEngine.SetVolume(guna2TrackBarVolume.Value / 100f);
         }
-
         // TRACKBAR SEEKING LOGIC
         private void guna2TrackBar_MouseDown(object sender, MouseEventArgs e)
         {
             guna2TrackBar.Tag = "dragging";
         }
-
         private void guna2TrackBar_MouseUp(object sender, MouseEventArgs e)
         {
             if (guna2TrackBar.Tag is "dragging")
@@ -483,7 +445,6 @@ namespace MusicPlayer {
 
             }
         }
-
         // DRAG WINDOW
         private void PanelTop_MouseDown(object sender, MouseEventArgs e)
         {
@@ -493,7 +454,6 @@ namespace MusicPlayer {
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
-
         // SIDEBAR AND SETTINGS ANIMATIONS
         bool settingsExpanded = false;
         private void settingsTransitions_Tick(object sender, EventArgs e)
@@ -527,7 +487,6 @@ namespace MusicPlayer {
         {
             settingsTransitions.Start();
         }
-        
         bool sidebarExpanded = true;
         private void SideBarTransitions_Tick(object sender, EventArgs e)
         {
@@ -567,18 +526,14 @@ namespace MusicPlayer {
             }
             //this.Invalidate();
         }
-
         private void Menu_Click(object sender, EventArgs e)
         {
             SideBarTransitions.Start();
         }
-
         private void guna2btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
         private void guna2TrackBar_Scroll(object sender, ScrollEventArgs e)
         {
 

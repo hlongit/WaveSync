@@ -672,7 +672,7 @@
             this.flowSongs.Size = new System.Drawing.Size(917, 460);
             this.flowSongs.TabIndex = 0;
             this.flowSongs.WrapContents = false;
-            this.flowSongs.Click += new System.EventHandler(this.flowSongs_Click);
+            //this.flowSongs.Click += new System.EventHandler(this.flowSongs_Click);
             // 
             // MainFormUI
             // 

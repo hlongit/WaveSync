@@ -20,7 +20,15 @@ public partial class UserInfoControl : UserControl
 
     public void LoadUserInfo()
     {
-        string username = CurrentUser.Username;       // Lấy từ biến global
+        // For Guest User
+        if (CurrentUser.UserID <= 0) {
+            lblUsername.Text = "Guest";
+            picAvatar.Image = Image.FromFile(Path.Combine(AvatarFolder, "default.png")); // Or null
+            return;
+        }
+
+        //For Logged-in User
+        string username = CurrentUser.Username;       
         string avatarPath = CurrentUser.AvatarPath;
 
         lblUsername.Text = username;

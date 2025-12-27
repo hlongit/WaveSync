@@ -90,7 +90,7 @@ namespace MusicPlayer {
         // --- UNIFIED LOAD SONGS FUNCTION ---
         private void LoadSongs(List<Song> songs) {
             flowSongs.Controls.Clear();
-            int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID; // Get logged in user
+            int currentUserId = CurrentUser.UserID; // Get logged in user
 
             foreach (var song in songs) {
                 var card = new SongCard();
@@ -162,7 +162,7 @@ namespace MusicPlayer {
             AudioEngine.PlaySong(fullPath);
 
             // Handle History (assuming LoginSession exists)
-            int currentUserId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
+            int currentUserId = CurrentUser.UserID;
             if (DatabaseHelper.UserExists(currentUserId)) {
                 DatabaseHelper.AddToPlayHistory(currentUserId, song.SongId);
             }
@@ -280,7 +280,7 @@ namespace MusicPlayer {
             var result = login.ShowDialog();
             string userName = login.UserName;
             int userID = login.UserID;
-            string password = login.Password;
+            //string password = login.Password;
             if (result == DialogResult.OK) {
                 lblUsername.Text = "User: " + userName;
                 btnLogin.Visible = false;
@@ -348,7 +348,7 @@ namespace MusicPlayer {
         }
         private void btnFavor_Click(object sender, EventArgs e)
         {
-            int userId = MusicPlayer.Forms.LoginForm.LoginSession.UserID;
+            int userId = CurrentUser.UserID;
 
             if (userId <= 0)
             {
@@ -383,7 +383,7 @@ namespace MusicPlayer {
         {
             // 1. Check if user is actually logged in
             // Assuming 0 or -1 means "Guest" or "Not Logged In"
-            if (MusicPlayer.Forms.LoginForm.LoginSession.UserID <= 0) {
+            if (CurrentUser.UserID <= 0) {
                 MessageBox.Show("You haven't logged in yet, so you cannot log out.",
                                 "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return; // Stop here
@@ -394,9 +394,10 @@ namespace MusicPlayer {
                                                   "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
                 // Reset Session
-                MusicPlayer.Forms.LoginForm.LoginSession.UserID = 0;
-                MusicPlayer.Forms.LoginForm.LoginSession.Username = null;
-
+                CurrentUser.UserID = -1;
+                CurrentUser.Username = "Guest";
+                CurrentUser.Password = "";
+                CurrentUser.AvatarPath = "";
                 // Reset UI (Hide Logout, Show Login)
                 LogOutbtn.Visible = false;
                 btnLogin.Visible = true;
@@ -405,6 +406,8 @@ namespace MusicPlayer {
                 btnSignIn.Visible = true;
                 picAvatar.Visible = false;             
                 lblUsername.Text = "Not Logged in";
+
+                UserInfo.LoadUserInfo();
 
                 MessageBox.Show("Logged out successfully.");
             }

@@ -37,13 +37,13 @@ namespace MusicPlayer.Forms
 
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                MessageBox.Show("Please input necessary information!");
                 return;
             }
 
             if (pass != pass2)
             {
-                MessageBox.Show("Mật khẩu nhập lại không khớp!");
+                MessageBox.Show("2 passwords aren't matched!");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace MusicPlayer.Forms
                 int count = (int)checkCmd.ExecuteScalar();
                 if (count > 0)
                 {
-                    MessageBox.Show("Username đã tồn tại!");
+                    MessageBox.Show("Username already exists!");
                     return;
                 }
 
@@ -72,7 +72,7 @@ namespace MusicPlayer.Forms
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Đăng ký thành công!");
+                MessageBox.Show("Register Successfully!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

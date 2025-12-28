@@ -1,40 +1,32 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace MusicPlayer.Resources
-{
-    public class RoundedPanel : Panel
-    {
+namespace MusicPlayer.Resources {
+    public class RoundedPanel : Panel {
         public int BorderRadius { get; set; } = 20;
+        private GraphicsPath _path;
 
-        public RoundedPanel()
-        {
+        public RoundedPanel() {
             this.DoubleBuffered = true;
-            this.Resize += (s, e) => this.Invalidate();
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
+        protected override void OnSizeChanged(EventArgs e) {
+            base.OnSizeChanged(e);
+            _path?.Dispose();
+            _path = GetRoundedPath(this.ClientRectangle, BorderRadius);
+        }
+
+        protected override void OnPaint(PaintEventArgs e) {
+            if (_path == null) return;
+
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Rectangle rect = this.ClientRectangle;
-            rect.Width -= 1;
-            rect.Height -= 1;
-
-            using (GraphicsPath path = GetRoundedPath(rect, BorderRadius))
-            {
-                this.Region = new Region(path);
-                using (Pen pen = new Pen(this.BackColor))
-                {
-                    e.Graphics.DrawPath(pen, path);
-                }
+            using (SolidBrush brush = new SolidBrush(this.BackColor)) {
+                e.Graphics.FillPath(brush, _path);
             }
         }
-
-        private GraphicsPath GetRoundedPath(Rectangle rect, int radius)
-        {
+        private GraphicsPath GetRoundedPath(Rectangle rect, int radius) {
             GraphicsPath path = new GraphicsPath();
             int d = radius * 2;
 

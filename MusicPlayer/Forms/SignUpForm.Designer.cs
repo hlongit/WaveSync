@@ -105,7 +105,6 @@ namespace MusicPlayer.Forms
             this.roundedPanelMain.Name = "roundedPanelMain";
             this.roundedPanelMain.Size = new System.Drawing.Size(495, 291);
             this.roundedPanelMain.TabIndex = 7;
-            this.roundedPanelMain.Resize += new System.EventHandler(this.roundedPanelMain_Resize);
             // 
             // panelContent
             // 
@@ -267,7 +266,7 @@ namespace MusicPlayer.Forms
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 40);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(700, 124);
+            this.label6.Size = new System.Drawing.Size(700, 112);
             this.label6.TabIndex = 14;
             this.label6.Text = "WaveSync";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -284,9 +283,9 @@ namespace MusicPlayer.Forms
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(700, 500);
+            this.Controls.Add(this.roundedPanelMain);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panelTab);
-            this.Controls.Add(this.roundedPanelMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -295,8 +294,6 @@ namespace MusicPlayer.Forms
             this.Name = "SignUpForm";
             this.Text = "SignInForm";
             this.Load += new System.EventHandler(this.SignInForm_Load);
-            this.Shown += new System.EventHandler(this.SignInForm_Shown);
-            this.SizeChanged += new System.EventHandler(this.SignInForm_SizeChanged);
             this.roundedPanelMain.ResumeLayout(false);
             this.roundedPanelMain.PerformLayout();
             this.panelContent.ResumeLayout(false);

@@ -518,10 +518,6 @@ namespace MusicPlayer {
         {
             this.Close();
         }
-        private void guna2TrackBar_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
         //Check for longer tittle and artist to in currently playing song, if it is too long for the box, enable scrolling
         private bool shouldScrollTitle = false;
         private bool shouldScrollArtist = false;

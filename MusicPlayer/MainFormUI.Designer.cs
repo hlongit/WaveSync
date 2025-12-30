@@ -200,7 +200,6 @@
             this.guna2TrackBar.TabIndex = 27;
             this.guna2TrackBar.ThumbColor = System.Drawing.Color.Black;
             this.guna2TrackBar.Value = 10;
-            this.guna2TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar_Scroll);
             this.guna2TrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseDown);
             this.guna2TrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseUp);
             // 

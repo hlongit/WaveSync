@@ -77,32 +77,6 @@ namespace MusicPlayer.Forms
         }
 
 
-        private void CenterContent()
-        {
-            panelContent.Left = (roundedPanelMain.Width - panelContent.Width) / 2;
-            panelContent.Top = (roundedPanelMain.Height - panelContent.Height) / 2;
-        }
-        private void roundedPanelMain_Resize(object sender, EventArgs e)
-        {
-            CenterContent();
-        }
-        private void CenterPanel()
-        {
-            roundedPanelMain.Left = (this.ClientSize.Width - roundedPanelMain.Width) / 2;
-            roundedPanelMain.Top = 100;
-        }
-        private void SignInForm_Shown(object sender, EventArgs e)
-        {
-            CenterPanel();
-            CenterContent();
-        }
-
-        private void SignInForm_SizeChanged(object sender, EventArgs e)
-        {
-            CenterPanel();
-            CenterContent();
-        }
-
         private void guna2txtPass_TextChanged(object sender, EventArgs e)
         {
 

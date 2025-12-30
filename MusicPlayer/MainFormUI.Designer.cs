@@ -26,15 +26,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormUI));
             this.PanelPlayer = new System.Windows.Forms.Panel();
-            this.guna2TrackBarVolume = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.guna2TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.btnPlayPause = new System.Windows.Forms.Button();
             this.btnLoop = new System.Windows.Forms.Button();
             this.btnShuffle = new System.Windows.Forms.Button();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.btnVolume = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnPlayPause = new System.Windows.Forms.Button();
+            this.guna2TrackBarVolume = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.guna2TrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.btnVolume = new System.Windows.Forms.Button();
             this.lblNowPlayingArtist = new System.Windows.Forms.Label();
             this.lblSongInfo = new System.Windows.Forms.Label();
             this.picCover = new System.Windows.Forms.PictureBox();
@@ -67,6 +67,7 @@
             this.settingsTransitions = new System.Windows.Forms.Timer(this.components);
             this.SideBarTransitions = new System.Windows.Forms.Timer(this.components);
             this.textScrollTimer = new System.Windows.Forms.Timer(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.roundedPanelMain = new MusicPlayer.Resources.RoundedPanel();
             this.PanelContent = new System.Windows.Forms.Panel();
             this.flowSongs = new System.Windows.Forms.FlowLayoutPanel();
@@ -90,15 +91,15 @@
             // PanelPlayer
             // 
             this.PanelPlayer.BackColor = System.Drawing.Color.White;
-            this.PanelPlayer.Controls.Add(this.guna2TrackBarVolume);
-            this.PanelPlayer.Controls.Add(this.guna2TrackBar);
+            this.PanelPlayer.Controls.Add(this.btnPlayPause);
             this.PanelPlayer.Controls.Add(this.btnLoop);
             this.PanelPlayer.Controls.Add(this.btnShuffle);
-            this.PanelPlayer.Controls.Add(this.lblTime);
-            this.PanelPlayer.Controls.Add(this.btnVolume);
             this.PanelPlayer.Controls.Add(this.btnPrevious);
             this.PanelPlayer.Controls.Add(this.btnNext);
-            this.PanelPlayer.Controls.Add(this.btnPlayPause);
+            this.PanelPlayer.Controls.Add(this.guna2TrackBarVolume);
+            this.PanelPlayer.Controls.Add(this.guna2TrackBar);
+            this.PanelPlayer.Controls.Add(this.lblTime);
+            this.PanelPlayer.Controls.Add(this.btnVolume);
             this.PanelPlayer.Controls.Add(this.lblNowPlayingArtist);
             this.PanelPlayer.Controls.Add(this.lblSongInfo);
             this.PanelPlayer.Controls.Add(this.picCover);
@@ -109,30 +110,20 @@
             this.PanelPlayer.Size = new System.Drawing.Size(1053, 111);
             this.PanelPlayer.TabIndex = 1;
             // 
-            // guna2TrackBarVolume
+            // btnPlayPause
             // 
-            this.guna2TrackBarVolume.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
-            this.guna2TrackBarVolume.Location = new System.Drawing.Point(888, 45);
-            this.guna2TrackBarVolume.Name = "guna2TrackBarVolume";
-            this.guna2TrackBarVolume.Size = new System.Drawing.Size(149, 35);
-            this.guna2TrackBarVolume.TabIndex = 28;
-            this.guna2TrackBarVolume.ThumbColor = System.Drawing.Color.Black;
-            this.guna2TrackBarVolume.Value = 70;
-            this.guna2TrackBarVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBarVolume_Scroll);
-            // 
-            // guna2TrackBar
-            // 
-            this.guna2TrackBar.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
-            this.guna2TrackBar.Location = new System.Drawing.Point(384, 64);
-            this.guna2TrackBar.Maximum = 10;
-            this.guna2TrackBar.Name = "guna2TrackBar";
-            this.guna2TrackBar.Size = new System.Drawing.Size(294, 35);
-            this.guna2TrackBar.TabIndex = 27;
-            this.guna2TrackBar.ThumbColor = System.Drawing.Color.Black;
-            this.guna2TrackBar.Value = 10;
-            this.guna2TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar_Scroll);
-            this.guna2TrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseDown);
-            this.guna2TrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseUp);
+            this.btnPlayPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayPause.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPlayPause.Image = global::MusicPlayer.Properties.Resources.play;
+            this.btnPlayPause.Location = new System.Drawing.Point(509, 26);
+            this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPlayPause.Name = "btnPlayPause";
+            this.btnPlayPause.Size = new System.Drawing.Size(45, 45);
+            this.btnPlayPause.TabIndex = 5;
+            this.btnPlayPause.UseVisualStyleBackColor = false;
+            this.btnPlayPause.Click += new System.EventHandler(this.btnPlayPause_Click);
             // 
             // btnLoop
             // 
@@ -157,31 +148,6 @@
             this.btnShuffle.TabIndex = 23;
             this.btnShuffle.UseVisualStyleBackColor = true;
             this.btnShuffle.Click += new System.EventHandler(this.btnShuffle_Click);
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(689, 67);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(50, 23);
-            this.lblTime.TabIndex = 12;
-            this.lblTime.Text = "00:00";
-            // 
-            // btnVolume
-            // 
-            this.btnVolume.BackColor = System.Drawing.Color.Transparent;
-            this.btnVolume.BackgroundImage = global::MusicPlayer.Properties.Resources.volume;
-            this.btnVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolume.ForeColor = System.Drawing.Color.Transparent;
-            this.btnVolume.Location = new System.Drawing.Point(823, 45);
-            this.btnVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVolume.Name = "btnVolume";
-            this.btnVolume.Size = new System.Drawing.Size(59, 35);
-            this.btnVolume.TabIndex = 8;
-            this.btnVolume.UseVisualStyleBackColor = false;
-            this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // btnPrevious
             // 
@@ -213,20 +179,55 @@
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnPlayPause
+            // guna2TrackBarVolume
             // 
-            this.btnPlayPause.BackColor = System.Drawing.Color.Transparent;
-            this.btnPlayPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPlayPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlayPause.ForeColor = System.Drawing.Color.Transparent;
-            this.btnPlayPause.Image = global::MusicPlayer.Properties.Resources.play;
-            this.btnPlayPause.Location = new System.Drawing.Point(509, 26);
-            this.btnPlayPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPlayPause.Name = "btnPlayPause";
-            this.btnPlayPause.Size = new System.Drawing.Size(45, 45);
-            this.btnPlayPause.TabIndex = 5;
-            this.btnPlayPause.UseVisualStyleBackColor = false;
-            this.btnPlayPause.Click += new System.EventHandler(this.btnPlayPause_Click);
+            this.guna2TrackBarVolume.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
+            this.guna2TrackBarVolume.Location = new System.Drawing.Point(888, 41);
+            this.guna2TrackBarVolume.Name = "guna2TrackBarVolume";
+            this.guna2TrackBarVolume.Size = new System.Drawing.Size(149, 35);
+            this.guna2TrackBarVolume.TabIndex = 28;
+            this.guna2TrackBarVolume.ThumbColor = System.Drawing.Color.Black;
+            this.guna2TrackBarVolume.Value = 70;
+            this.guna2TrackBarVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBarVolume_Scroll);
+            // 
+            // guna2TrackBar
+            // 
+            this.guna2TrackBar.HoverState.ThumbColor = System.Drawing.Color.CornflowerBlue;
+            this.guna2TrackBar.Location = new System.Drawing.Point(384, 64);
+            this.guna2TrackBar.Maximum = 10;
+            this.guna2TrackBar.Name = "guna2TrackBar";
+            this.guna2TrackBar.Size = new System.Drawing.Size(294, 35);
+            this.guna2TrackBar.TabIndex = 27;
+            this.guna2TrackBar.ThumbColor = System.Drawing.Color.Black;
+            this.guna2TrackBar.Value = 10;
+            this.guna2TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar_Scroll);
+            this.guna2TrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseDown);
+            this.guna2TrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2TrackBar_MouseUp);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(689, 67);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(60, 28);
+            this.lblTime.TabIndex = 12;
+            this.lblTime.Text = "00:00";
+            // 
+            // btnVolume
+            // 
+            this.btnVolume.BackColor = System.Drawing.Color.Transparent;
+            this.btnVolume.BackgroundImage = global::MusicPlayer.Properties.Resources.volume;
+            this.btnVolume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVolume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolume.ForeColor = System.Drawing.Color.Transparent;
+            this.btnVolume.Location = new System.Drawing.Point(823, 41);
+            this.btnVolume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolume.Name = "btnVolume";
+            this.btnVolume.Size = new System.Drawing.Size(59, 35);
+            this.btnVolume.TabIndex = 8;
+            this.btnVolume.UseVisualStyleBackColor = false;
+            this.btnVolume.Click += new System.EventHandler(this.btnVolume_Click);
             // 
             // lblNowPlayingArtist
             // 
@@ -235,7 +236,6 @@
             this.lblNowPlayingArtist.Name = "lblNowPlayingArtist";
             this.lblNowPlayingArtist.Size = new System.Drawing.Size(242, 26);
             this.lblNowPlayingArtist.TabIndex = 2;
-            this.lblNowPlayingArtist.Text = "Tên ca sĩ";
             this.lblNowPlayingArtist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSongInfo
@@ -245,7 +245,6 @@
             this.lblSongInfo.Name = "lblSongInfo";
             this.lblSongInfo.Size = new System.Drawing.Size(249, 32);
             this.lblSongInfo.TabIndex = 1;
-            this.lblSongInfo.Text = "Tên bài hát";
             this.lblSongInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picCover
@@ -277,7 +276,6 @@
             this.PanelTab.Name = "PanelTab";
             this.PanelTab.Size = new System.Drawing.Size(1053, 50);
             this.PanelTab.TabIndex = 3;
-            this.PanelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTop_MouseDown);
             // 
             // guna2btnMinimizeToTray
             // 
@@ -327,7 +325,7 @@
             this.guna2txtSearch.ForeColor = System.Drawing.Color.Black;
             this.guna2txtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.guna2txtSearch.Location = new System.Drawing.Point(194, 8);
-            this.guna2txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2txtSearch.Name = "guna2txtSearch";
             this.guna2txtSearch.PlaceholderText = "";
             this.guna2txtSearch.SelectedText = "";
@@ -350,7 +348,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(560, 7);
+            this.btnLogin.Location = new System.Drawing.Point(560, 5);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 40);
@@ -362,7 +360,7 @@
             // btnSignIn
             // 
             this.btnSignIn.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignIn.Location = new System.Drawing.Point(454, 7);
+            this.btnSignIn.Location = new System.Drawing.Point(454, 5);
             this.btnSignIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(100, 40);
@@ -375,7 +373,7 @@
             // 
             this.Menu.BackgroundImage = global::MusicPlayer.Properties.Resources.menu;
             this.Menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Menu.Location = new System.Drawing.Point(5, 4);
+            this.Menu.Location = new System.Drawing.Point(6, 4);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(55, 43);
             this.Menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -421,7 +419,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(756, 15);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(87, 16);
+            this.lblUsername.Size = new System.Drawing.Size(102, 20);
             this.lblUsername.TabIndex = 22;
             this.lblUsername.Text = "Not logged in";
             // 
@@ -641,6 +639,11 @@
             this.textScrollTimer.Interval = 200;
             this.textScrollTimer.Tick += new System.EventHandler(this.textScrollTimer_Tick);
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // roundedPanelMain
             // 
             this.roundedPanelMain.BackColor = System.Drawing.Color.Silver;
@@ -676,7 +679,6 @@
             // MainFormUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1053, 701);
             this.Controls.Add(this.PanelPlayer);
@@ -689,6 +691,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainFormUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WaveSync";
             this.Load += new System.EventHandler(this.MainFormUI_Load);
             this.PanelPlayer.ResumeLayout(false);
@@ -758,6 +761,7 @@
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBarVolume;
         private System.Windows.Forms.Timer textScrollTimer;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }
 

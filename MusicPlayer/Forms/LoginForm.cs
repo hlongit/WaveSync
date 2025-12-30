@@ -16,16 +16,12 @@ using MusicPlayer.Core;
 
 namespace MusicPlayer.Forms {
     public partial class LoginForm : Form {
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         public LoginForm() {
             InitializeComponent();
+            // Drag Control
+            guna2DragControl1.TargetControl = panelTab;
         }
-        private void guna2TileButton1_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             string username = txtUser.Text.Trim();
             string password = txtPass.Text.Trim();
@@ -39,18 +35,22 @@ namespace MusicPlayer.Forms {
             string sql = "SELECT UserId, AvatarPath FROM Users WHERE Username = @Username AND Password = @Password";
 
             using (SqlConnection con = new SqlConnection(DatabaseHelper.ConnStr))
-            using (SqlCommand cmd = new SqlCommand(sql, con)) {
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
                 // Only pass Username and Password (we are looking FOR the Id)
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", password);
 
-                try {
+                try
+                {
                     con.Open();
 
                     // Execute and Read
-                    using (SqlDataReader reader = cmd.ExecuteReader()) {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
                         // reader.Read() returns true if a row is found (Login Success)
-                        if (reader.Read()) {
+                        if (reader.Read())
+                        {
                             // GET DATA FROM DATABASE
                             int dbId = reader.GetInt32(0); // Index 0 is UserId
                             string dbAvatar = reader.IsDBNull(1) ? "" : reader.GetString(1); // Index 1 is AvatarPath
@@ -64,13 +64,15 @@ namespace MusicPlayer.Forms {
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
-                        else {
+                        else
+                        {
                             // reader.Read() returned false (No user found)
                             MessageBox.Show("Wrong username or password!");
                         }
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show("Exception Error! " + ex.Message);
                 }
             }
@@ -122,20 +124,14 @@ namespace MusicPlayer.Forms {
         {
             this.Close();
         }
-        private void panelTab_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
 
         private void LoginForm_KeyDown(object sender, KeyEventArgs e) {
             //If enter, trigger login button click
             if (e.KeyCode == Keys.Enter) {
-                guna2TileButton1.PerformClick();
+                btnRegister.PerformClick();
             }
         }
+
+        
     }
 }

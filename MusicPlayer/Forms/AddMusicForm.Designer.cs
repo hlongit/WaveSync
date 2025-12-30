@@ -44,6 +44,7 @@ namespace MusicPlayer.Forms {
             this.txtArtist = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelTab.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,6 @@ namespace MusicPlayer.Forms {
             this.panelTab.Name = "panelTab";
             this.panelTab.Size = new System.Drawing.Size(820, 37);
             this.panelTab.TabIndex = 14;
-            this.panelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTab_MouseDown);
             // 
             // guna2btnMinimizeToTray
             // 
@@ -139,15 +139,15 @@ namespace MusicPlayer.Forms {
             this.roundedPanel1.Controls.Add(this.txtArtist);
             this.roundedPanel1.Controls.Add(this.label4);
             this.roundedPanel1.Controls.Add(this.txtTitle);
-            this.roundedPanel1.Location = new System.Drawing.Point(111, 187);
+            this.roundedPanel1.Location = new System.Drawing.Point(117, 189);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(600, 359);
+            this.roundedPanel1.Size = new System.Drawing.Size(586, 325);
             this.roundedPanel1.TabIndex = 12;
             // 
             // btnAddMusic
             // 
-            this.btnAddMusic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMusic.Location = new System.Drawing.Point(259, 268);
+            this.btnAddMusic.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMusic.Location = new System.Drawing.Point(252, 254);
             this.btnAddMusic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddMusic.Name = "btnAddMusic";
             this.btnAddMusic.Size = new System.Drawing.Size(84, 54);
@@ -158,7 +158,8 @@ namespace MusicPlayer.Forms {
             // 
             // CoverPathButton
             // 
-            this.CoverPathButton.Location = new System.Drawing.Point(447, 203);
+            this.CoverPathButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoverPathButton.Location = new System.Drawing.Point(420, 203);
             this.CoverPathButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CoverPathButton.Name = "CoverPathButton";
             this.CoverPathButton.Size = new System.Drawing.Size(134, 39);
@@ -171,15 +172,16 @@ namespace MusicPlayer.Forms {
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 34);
+            this.label1.Location = new System.Drawing.Point(76, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 21);
+            this.label1.Size = new System.Drawing.Size(84, 21);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Bài hát";
+            this.label1.Text = "Song Title";
             // 
             // MusicPathButton
             // 
-            this.MusicPathButton.Location = new System.Drawing.Point(447, 160);
+            this.MusicPathButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MusicPathButton.Location = new System.Drawing.Point(420, 156);
             this.MusicPathButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MusicPathButton.Name = "MusicPathButton";
             this.MusicPathButton.Size = new System.Drawing.Size(134, 39);
@@ -192,28 +194,29 @@ namespace MusicPlayer.Forms {
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 80);
+            this.label2.Location = new System.Drawing.Point(63, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.Size = new System.Drawing.Size(97, 21);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nghệ sĩ";
+            this.label2.Text = "Artist Name";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // CoverPath
             // 
             this.CoverPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.CoverPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CoverPath.Location = new System.Drawing.Point(210, 209);
+            this.CoverPath.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoverPath.Location = new System.Drawing.Point(183, 209);
             this.CoverPath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CoverPath.Name = "CoverPath";
-            this.CoverPath.Size = new System.Drawing.Size(205, 19);
+            this.CoverPath.Size = new System.Drawing.Size(205, 22);
             this.CoverPath.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 124);
+            this.label3.Location = new System.Drawing.Point(102, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
             this.label3.TabIndex = 4;
@@ -223,61 +226,70 @@ namespace MusicPlayer.Forms {
             // 
             this.txtPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.txtPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPath.Location = new System.Drawing.Point(210, 166);
+            this.txtPath.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPath.Location = new System.Drawing.Point(183, 166);
             this.txtPath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(205, 19);
+            this.txtPath.Size = new System.Drawing.Size(205, 22);
             this.txtPath.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 212);
+            this.label5.Location = new System.Drawing.Point(71, 208);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 21);
+            this.label5.Size = new System.Drawing.Size(89, 21);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Đường dẫn ảnh bìa";
+            this.label5.Text = "Cover Path";
             // 
             // txtAlbum
             // 
             this.txtAlbum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.txtAlbum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAlbum.Location = new System.Drawing.Point(210, 121);
+            this.txtAlbum.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlbum.Location = new System.Drawing.Point(183, 121);
             this.txtAlbum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAlbum.Name = "txtAlbum";
-            this.txtAlbum.Size = new System.Drawing.Size(205, 19);
+            this.txtAlbum.Size = new System.Drawing.Size(205, 22);
             this.txtAlbum.TabIndex = 3;
             // 
             // txtArtist
             // 
             this.txtArtist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.txtArtist.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtArtist.Location = new System.Drawing.Point(210, 77);
+            this.txtArtist.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArtist.Location = new System.Drawing.Point(183, 77);
             this.txtArtist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtArtist.Name = "txtArtist";
-            this.txtArtist.Size = new System.Drawing.Size(205, 19);
+            this.txtArtist.Size = new System.Drawing.Size(205, 22);
             this.txtArtist.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(77, 169);
+            this.label4.Location = new System.Drawing.Point(41, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 21);
+            this.label4.Size = new System.Drawing.Size(119, 21);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Đường dẫn";
+            this.label4.Text = "Audio File Path";
             // 
             // txtTitle
             // 
             this.txtTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
             this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitle.Location = new System.Drawing.Point(210, 32);
+            this.txtTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitle.Location = new System.Drawing.Point(183, 32);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(205, 19);
+            this.txtTitle.Size = new System.Drawing.Size(205, 22);
             this.txtTitle.TabIndex = 1;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // AddMusicForm
             // 
@@ -285,7 +297,7 @@ namespace MusicPlayer.Forms {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(820, 610);
+            this.ClientSize = new System.Drawing.Size(820, 557);
             this.Controls.Add(this.panelTab);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.roundedPanel1);
@@ -322,5 +334,6 @@ namespace MusicPlayer.Forms {
         private Guna.UI2.WinForms.Guna2Button guna2btnMinimizeToTray;
         private Guna.UI2.WinForms.Guna2Button guna2btnClose;
         private System.Windows.Forms.NotifyIcon notifyIconApp;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

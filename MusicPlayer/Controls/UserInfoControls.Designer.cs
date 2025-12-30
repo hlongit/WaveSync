@@ -19,7 +19,7 @@ partial class UserInfoControl
             // picAvatar
             // 
             this.picAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picAvatar.Location = new System.Drawing.Point(10, 10);
+            this.picAvatar.Location = new System.Drawing.Point(34, 17);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(70, 70);
             this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -28,9 +28,10 @@ partial class UserInfoControl
             // 
             // btnChangeAvatar
             // 
-            this.btnChangeAvatar.Location = new System.Drawing.Point(10, 86);
+            this.btnChangeAvatar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeAvatar.Location = new System.Drawing.Point(3, 108);
             this.btnChangeAvatar.Name = "btnChangeAvatar";
-            this.btnChangeAvatar.Size = new System.Drawing.Size(70, 57);
+            this.btnChangeAvatar.Size = new System.Drawing.Size(137, 37);
             this.btnChangeAvatar.TabIndex = 2;
             this.btnChangeAvatar.Text = "Change Avatar";
             this.btnChangeAvatar.UseVisualStyleBackColor = true;
@@ -38,9 +39,10 @@ partial class UserInfoControl
             // 
             // btnChangeName
             // 
-            this.btnChangeName.Location = new System.Drawing.Point(95, 43);
+            this.btnChangeName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeName.Location = new System.Drawing.Point(493, 17);
             this.btnChangeName.Name = "btnChangeName";
-            this.btnChangeName.Size = new System.Drawing.Size(122, 37);
+            this.btnChangeName.Size = new System.Drawing.Size(108, 65);
             this.btnChangeName.TabIndex = 3;
             this.btnChangeName.Text = "Change Name";
             this.btnChangeName.UseVisualStyleBackColor = true;
@@ -48,9 +50,10 @@ partial class UserInfoControl
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(95, 86);
+            this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Location = new System.Drawing.Point(493, 88);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(122, 57);
+            this.btnChangePassword.Size = new System.Drawing.Size(108, 57);
             this.btnChangePassword.TabIndex = 4;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -60,9 +63,9 @@ partial class UserInfoControl
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.Location = new System.Drawing.Point(90, 15);
+            this.lblUsername.Location = new System.Drawing.Point(125, 17);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(63, 25);
+            this.lblUsername.Size = new System.Drawing.Size(73, 30);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Guest";
             // 
@@ -75,7 +78,7 @@ partial class UserInfoControl
             this.Controls.Add(this.picAvatar);
             this.Controls.Add(this.lblUsername);
             this.Name = "UserInfoControl";
-            this.Size = new System.Drawing.Size(320, 149);
+            this.Size = new System.Drawing.Size(620, 163);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
